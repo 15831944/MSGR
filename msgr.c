@@ -1,68 +1,65 @@
-#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "msgr.h"
 
 #define BOUNDS(a) ((sizeof (a))/(sizeof ((a)[0])))
 
 int main(int argc, char *argv[])
 {
-  
-  int x;
-  int y;
-  int xIndex = 0;
-  int yIndex = 0;
- 
-  char *tokPtr;
-  char fileName[64] = {"dtest.txt"};
-  char currentLineStr[8192];
-  
-  //printf("%s\n", "Enter FileName( max char 64):");
-  //scanf("%s", fileName);
-  //printf("%s\n", fileName);
-  
-//find required dim of array and assign
-  //x = NumRows(fileName);
- // y = NumColumns(fileName);
-    x = 150;
-    y = 300;
-  Entry eTable[x][y];
-  
-  printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
+    char currentLineStr[8192];
+    char fileName[64] = {"dtest.txt"};
+
+    int x = 150;
+    int y = 300;
+    int yIndex = 0;
+    
+    x = NumColumns(fileName);
+    y = NumRows(fileName);
+    
+    //printf("%i\n", tX);
+   // printf("%i\n", tY);
+    printf("%i\n", x);
+    printf("%i\n", y);
+    
+    Entry eTable[x][y];
+    printf("%i\n", x);
+    printf("%i\n", y);
+    
+    printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
      
-  printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
+    printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
    
-  printf("2nd dimension = %u\n", (unsigned) BOUNDS(eTable[0]));
-  
-  
-  FILE *fileIn;
-  fileIn = fopen("dtest.txt", "r");
-  
-  if(fileIn == 0)
-  {
-            perror("Cannot open input file\n");
-            system("PAUSE");
-            exit(-1);
-  }
-  else
-  {
-       //Get first line of file then iterate through lines until
-      //beginning comments are passed over
-      fgets(currentLineStr, 8192, fileIn); 
+    printf("2nd dimension = %u\n", (unsigned) BOUNDS(eTable[0]));
+    
+    FILE *fileIn;
+    fileIn = fopen(fileName, "r");
+    if(fileIn == 0)
+    {
+    perror("Cannot open input file\n");
+    system("PAUSE");
+    exit(-1);
+    }
+    else
+    {
+        fgets(currentLineStr, 8192, fileIn); 
       while (currentLineStr[0] == '#')
             fgets(currentLineStr, 8192, fileIn);
-      
-      //Start adding values to array. current line held by currentLineStr
-      //is assigned first
+            
       TokenizeLine(currentLineStr, eTable, yIndex, x, y);
-      
       yIndex++;
+            
       while(fgets(currentLineStr, 8192, fileIn) != NULL)
       {
             TokenizeLine(currentLineStr, eTable, yIndex, x, y);
             yIndex++;
-      }     
-  }
-  system("PAUSE");	
-  return 0;
+      }
+      printf("%s\n", eTable[0][0].str);
+      printf("%s\n", eTable[0][1].str);  
+    }
+      
+    system("PAUSE");	
+    return 0;
 }
 
 void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int yIndex, int x, int y)
@@ -75,12 +72,12 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
   while(tokPtr != NULL)
   {
         eTable[xIndex][yIndex].str = tokPtr;
-        //printf("%s\n", eTable[xIndex][yIndex].str);
-        
+        printf("%s\n", eTable[xIndex][yIndex].str);
         tokPtr = strtok(NULL, "|");      
         xIndex++;
   } 
-} 
+}
+
 int NumRows(char fileName[])
 {
     int yIndex = 0;
@@ -108,7 +105,7 @@ int NumRows(char fileName[])
     }
     fclose(fileIn);
     printf("%i\n", yIndex);
-    return yIndex++;
+    return yIndex;
 }
     
 int NumColumns(char fileName[])
@@ -133,9 +130,8 @@ int NumColumns(char fileName[])
       //beginning comments are passed over
       fgets(currentLineStr, 8192, fileIn); 
       while (currentLineStr[0] == '#')
-      {
             fgets(currentLineStr, 8192, fileIn);
-      }
+            
             tokPtr = strtok(currentLineStr, "|");
             xIndex++;
       
@@ -150,4 +146,3 @@ int NumColumns(char fileName[])
       printf("%i\n",xIndex);
       return xIndex;
 }
-
