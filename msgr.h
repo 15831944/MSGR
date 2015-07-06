@@ -10,4 +10,7 @@ typedef struct Entry
         int iVal;
 } Entry;
 
+int NumRows(char fileName[]);
+int NumColumns(char fileName[]);
+void TokenizeLine(char currentLineStr[], Entry eTable[][], int yIndex, int x, int y);
 #endif

@@ -5,33 +5,37 @@
 
 int main(int argc, char *argv[])
 {
-    char * tokPtr;
+  
   int x;
   int y;
-  char hWorld[] = {"Hello World"};
-  char fileName[64];
-  char ch;
-  char strTemp[8192];
-  char strTemp2[8192];
-  int c = '\n';;
-   
-  int pLines = 0;
-  int charIndex = 0;
-  int lines = 0;
-  int la = 0;
-  int prev;
   int xIndex = 0;
   int yIndex = 0;
-  char strHolder[8192];
+ 
+  char *tokPtr;
+  char fileName[64] = {"dtest.txt"};
+  char currentLineStr[8192];
   
-    
   //printf("%s\n", "Enter FileName( max char 64):");
- // scanf("%s", fileName);
-//  printf("%s\n", fileName);
+  //scanf("%s", fileName);
+  //printf("%s\n", fileName);
+  
+//find required dim of array and assign
+  x = NumRows(fileName);
+  y = NumColumns(fileName);
+ 
+  Entry eTable[x][y];
+  
+  printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
+     
+  printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
+   
+  printf("2nd dimension = %u\n", (unsigned) BOUNDS(eTable[0]));
+  
   
   FILE *fileIn;
   fileIn = fopen("dtest.txt", "r");
-  if (fileIn == 0)
+  
+  if(fileIn == 0)
   {
             perror("Cannot open input file\n");
             system("PAUSE");
@@ -39,14 +43,89 @@ int main(int argc, char *argv[])
   }
   else
   {
-      while(fgets(strHolder, 8192, fileIn))
+       //Get first line of file then iterate through lines until
+      //beginning comments are passed over
+      fgets(currentLineStr, 8192, fileIn); 
+      while (currentLineStr[0] == '#')
+            fgets(currentLineStr, 8192, fileIn);
+      
+      //Start adding values to array. current line held by currentLineStr
+      //is assigned first
+      TokenizeLine(currentLineStr, eTable, yIndex, x, y);
+      
+      yIndex++;
+      while(fgets(currentLineStr, 8192, fileIn) != NULL)
       {
+            TokenizeLine(currentLineStr, eTable, yIndex, x, y);
             yIndex++;
-      }
+      }     
   }
-  fclose(fileIn);
-  
-  if(fileIn == 0)
+  system("PAUSE");	
+  return 0;
+}
+
+void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int yIndex, int x, int y)
+{
+  char *tokPtr;
+  int xIndex = 0;
+
+  tokPtr = strtok(currentLineStr, "|");
+  eTable[xIndex][yIndex].str = tokPtr;
+
+  while(tokPtr != NULL)
+  {
+        tokPtr = strtok(NULL, "|");
+        eTable[xIndex][yIndex].str = tokPtr;
+        printf("%s\n", eTable[xIndex][yIndex].str);
+        printf("%i\n", xIndex);
+        xIndex++;
+  } 
+} 
+int NumRows(char fileName[])
+{
+    int yIndex = 0;
+    char *tokPtr;
+    char currentLineStr[8192];
+    
+    FILE *fileIn;
+    
+    fileIn = fopen(fileName, "r");
+    if (fileIn == 0)
+    {
+       perror("Cannot open input file\n");
+       system("PAUSE");
+       exit(-1);
+    }
+    else
+    {
+      fgets(currentLineStr, 8192, fileIn); 
+      while (currentLineStr[0] == '#')
+      {
+            fgets(currentLineStr, 8192, fileIn);
+      }
+      
+      yIndex++;
+      while(fgets(currentLineStr, 8192, fileIn) != NULL)
+        {
+        yIndex++;
+        }
+    }
+    fclose(fileIn);
+    printf("%i\n", yIndex);
+    return yIndex++;
+}
+    
+int NumColumns(char fileName[])
+{
+    char currentLineStr[8192];
+    int xIndex = 0;
+    char *tokPtr;
+    
+    FILE *fileIn;
+    
+    fileIn = fopen(fileName, "r");
+    
+    if(fileIn == 0)
   {
             perror("Cannot open input file\n");
             system("PAUSE");
@@ -56,105 +135,23 @@ int main(int argc, char *argv[])
   {   
       //Get first line of file then iterate through lines until
       //beginning comments are passed over
-      fgets(strTemp, 8192, fileIn); 
-      while (strTemp[0] == '#')
+      fgets(currentLineStr, 8192, fileIn); 
+      while (currentLineStr[0] == '#')
       {
-            fgets(strTemp, 8192, fileIn);
-            
+            fgets(currentLineStr, 8192, fileIn);
       }
-            strcpy(strTemp2, strTemp);
-            printf("%c\n", strTemp[0]);
-            printf("%s\n", strTemp);
-            tokPtr = strtok(strTemp, "|");
+            tokPtr = strtok(currentLineStr, "|");
             xIndex++;
-            printf("%s\n", tokPtr);
       
-      //count rows
+      //count remaining rows
       while (tokPtr != NULL)
       {
             tokPtr = strtok(NULL, "|");
             xIndex++;
       }
-      
-            x = xIndex;
-            y = yIndex;
-            Entry eTable[x][y];
-            printf("%i\n", xindex);
-            
-            tokPtr = strtok(strTemp2, "|");
-      xindex = 0;      
-      while(tokPtr != NULL)
-      {
-      tokPtr = strtok(NULL, "|");
-      eTable[xindex][0].str = tokPtr;
-      printf("%s\n", eTable[xindex][0].str = tokPtr);
-      printf("%i\n", xindex);
-      xindex++;
-      }
-           /*
-           prev = c;
-           c = fgetc(fileIn);
-           if(c == '#' && prev == '\n')
-           {
-                while(c != '\n')
-                {
-                 c = fgetc(fileIn);
-                 printf("%c", c);
-                }
-           pLines++;
-            } 
-            else if(prev == '\n')
-            {
-            lines++;
-            }
-            else if(prev == '\n' && c != '#')
-            {
-                 
-                 while(prev != '|' || c != '\n')
-                 {
-                         prev = c;
-                         c = fgetc(fileIn);
-                         
-                         strTemp[charIndex] = c;
-                         charIndex++;
-                 }
-                 
-                 strTemp[1] = c;
-                 printf("%s\n", strTemp);
-                 charIndex = 0;
-            */
-      
   }
-
-  // printf("%c", prev);
-  // printf("%c", c);
- //  printf("%i", pLines);
- //  printf("%i", lines);
- //  printf("%c", '\n');
- //  printf("%i", la);
- //  printf("%c", '\n');
- //  fclose(fileIn);
-  /*  
-    size_t destination_size = sizeof (eTable[0][0].str);
-
-    strncpy(eTable[1][1].str, hWorld, destination_size);
-    eTable[1][0].str[destination_size - 1] = '\0';
-    eTable[0][1].iVal = 1;
-    eTable[1][2].iVal = 2;
-    
-    printf("%d\n", destination_size);
-    printf("%d\n", eTable[1][0].iVal);
-    printf("%s\n", *eTable[0][0].str);
-
-
-    
-     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
-     
-     printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
-   
-     printf("2nd dimension = %u\n", (unsigned) BOUNDS(eTable[0]));
-   */  
-  system("PAUSE");	
-  return 0;
+      fclose(fileIn);
+      printf("%i\n",xIndex);
+      return xIndex;
 }
 
