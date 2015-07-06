@@ -20,7 +20,9 @@ int main(int argc, char *argv[])
   int lines = 0;
   int la = 0;
   int prev;
-  int xindex = 0;
+  int xIndex = 0;
+  int yIndex = 0;
+  char strHolder[8192];
   
     
   //printf("%s\n", "Enter FileName( max char 64):");
@@ -29,7 +31,7 @@ int main(int argc, char *argv[])
   
   FILE *fileIn;
   fileIn = fopen("dtest.txt", "r");
-  if(fileIn == 0)
+  if (fileIn == 0)
   {
             perror("Cannot open input file\n");
             system("PAUSE");
@@ -37,38 +39,45 @@ int main(int argc, char *argv[])
   }
   else
   {
-      /*
-      c = fgetc(fileIn);
-      fgets(strTemp, 2048, fileIn);
-      c = fgetc(fileIn);
-      fgets(strTemp, 2048, fileIn); 
-      printf("%s\n", strTemp);
-      fclose(fileIn);
-      */
-      
+      while(fgets(strHolder, 8192, fileIn))
+      {
+            yIndex++;
+      }
+  }
+  fclose(fileIn);
+  
+  if(fileIn == 0)
+  {
+            perror("Cannot open input file\n");
+            system("PAUSE");
+            exit(-1);
+  }
+  else
+  {   
+      //Get first line of file then iterate through lines until
+      //beginning comments are passed over
       fgets(strTemp, 8192, fileIn); 
       while (strTemp[0] == '#')
       {
             fgets(strTemp, 8192, fileIn);
             
-            }
-        strcpy(strTemp2, strTemp);
+      }
+            strcpy(strTemp2, strTemp);
             printf("%c\n", strTemp[0]);
             printf("%s\n", strTemp);
             tokPtr = strtok(strTemp, "|");
-            xindex++;
+            xIndex++;
             printf("%s\n", tokPtr);
       
+      //count rows
       while (tokPtr != NULL)
       {
-            //printf("%s\n", tokPtr);
             tokPtr = strtok(NULL, "|");
-            
-            //printf("%s\n", eTable[xindex][0].str);
-            xindex++;
-            }
-            x = xindex;
-            y = xindex*2;
+            xIndex++;
+      }
+      
+            x = xIndex;
+            y = yIndex;
             Entry eTable[x][y];
             printf("%i\n", xindex);
             
