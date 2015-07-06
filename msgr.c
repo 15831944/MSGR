@@ -47,6 +47,13 @@ int main(int argc, char *argv[])
             TokenizeLine(currentLineStr, eTable, yIndex, x, y);
             yIndex++;
       }
+      fclose(fileIn);
+      
+      for(int yCount = 0; yCount < y; yCount++)
+      {
+              for(int xCount = 0; xCount < x; xCount++)
+              {
+                      printf("%s\n", eTable.str  
     }
     system("PAUSE");	
     return 0;
@@ -93,7 +100,7 @@ int NumRows(char fileName[])
         yIndex++;
     }
     fclose(fileIn);
-    printf("%i\n", yIndex);
+    //printf("%i\n", yIndex);
     return yIndex;
 }
     
@@ -129,6 +136,6 @@ int NumColumns(char fileName[])
       }
     }
       fclose(fileIn);
-      printf("%i\n",xIndex);
+      //printf("%i\n",xIndex);
       return xIndex;
 }
