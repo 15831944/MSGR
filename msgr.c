@@ -17,14 +17,7 @@ int main(int argc, char *argv[])
     x = NumColumns(fileName);
     y = NumRows(fileName);
     
-    //printf("%i\n", tX);
-   // printf("%i\n", tY);
-    printf("%i\n", x);
-    printf("%i\n", y);
-    
     Entry eTable[x][y];
-    printf("%i\n", x);
-    printf("%i\n", y);
     
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
      
@@ -54,10 +47,7 @@ int main(int argc, char *argv[])
             TokenizeLine(currentLineStr, eTable, yIndex, x, y);
             yIndex++;
       }
-      printf("%s\n", eTable[0][0].str);
-      printf("%s\n", eTable[0][1].str);  
     }
-      
     system("PAUSE");	
     return 0;
 }
@@ -85,7 +75,6 @@ int NumRows(char fileName[])
     char currentLineStr[8192];
     
     FILE *fileIn;
-    
     fileIn = fopen(fileName, "r");
     if (fileIn == 0)
     {
@@ -115,17 +104,15 @@ int NumColumns(char fileName[])
     char *tokPtr;
     
     FILE *fileIn;
-    
     fileIn = fopen(fileName, "r");
-    
     if(fileIn == 0)
-  {
-            perror("Cannot open input file\n");
-            system("PAUSE");
-            exit(-1);
-  }
-  else
-  {   
+    {
+          perror("Cannot open input file\n");
+          system("PAUSE");
+          exit(-1);
+    }
+    else
+    {   
       //Get first line of file then iterate through lines until
       //beginning comments are passed over
       fgets(currentLineStr, 8192, fileIn); 
@@ -134,14 +121,13 @@ int NumColumns(char fileName[])
             
             tokPtr = strtok(currentLineStr, "|");
             xIndex++;
-      
       //count remaining rows
       while (tokPtr != NULL)
       {
             tokPtr = strtok(NULL, "|");
             xIndex++;
       }
-  }
+    }
       fclose(fileIn);
       printf("%i\n",xIndex);
       return xIndex;
