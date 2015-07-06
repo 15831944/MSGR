@@ -20,9 +20,10 @@ int main(int argc, char *argv[])
   //printf("%s\n", fileName);
   
 //find required dim of array and assign
-  x = NumRows(fileName);
-  y = NumColumns(fileName);
- 
+  //x = NumRows(fileName);
+ // y = NumColumns(fileName);
+    x = 150;
+    y = 300;
   Entry eTable[x][y];
   
   printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
@@ -70,13 +71,13 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
   int xIndex = 0;
 
   tokPtr = strtok(currentLineStr, "|");
-  eTable[xIndex][yIndex].str = tokPtr;
 
   while(tokPtr != NULL)
   {
-        tokPtr = strtok(NULL, "|");
         eTable[xIndex][yIndex].str = tokPtr;
-        //printf("%s\n", eTable[xIndex][yIndex].str);      
+        //printf("%s\n", eTable[xIndex][yIndex].str);
+        
+        tokPtr = strtok(NULL, "|");      
         xIndex++;
   } 
 } 
@@ -99,15 +100,11 @@ int NumRows(char fileName[])
     {
       fgets(currentLineStr, 8192, fileIn); 
       while (currentLineStr[0] == '#')
-      {
             fgets(currentLineStr, 8192, fileIn);
-      }
       
       yIndex++;
       while(fgets(currentLineStr, 8192, fileIn) != NULL)
-        {
         yIndex++;
-        }
     }
     fclose(fileIn);
     printf("%i\n", yIndex);
