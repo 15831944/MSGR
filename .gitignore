@@ -16,6 +16,8 @@ $RECYCLE.BIN/
 
 # Object files
 *.o
+#.out Files
+*.out
 
 # Windows shortcuts
 *.lnk
