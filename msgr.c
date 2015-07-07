@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
     int x = 150;
     int y = 300;
     int yIndex = 0;
+    int yCount;
+    int xCount;
     
     x = NumColumns(fileName);
     y = NumRows(fileName);
@@ -48,15 +50,34 @@ int main(int argc, char *argv[])
             yIndex++;
       }
       fclose(fileIn);
-      
-      for(int yCount = 0; yCount < y; yCount++)
+      /*
+      for(yCount = 1; yCount < y; yCount++)
       {
-              for(int xCount = 0; xCount < x; xCount++)
-              {
-                      printf("%s\n", eTable.str  
+              for(xCount = 1; xCount < x; xCount++)
+                    printf("%s\n", eTable[xCount][yCount].str);
+      }
+      */
+      
     }
+    printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
+     
+    printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
+   
+    printf("2nd dimension = %u\n", (unsigned) BOUNDS(eTable[0]));
+    
     system("PAUSE");	
     return 0;
+}
+
+int IsDouble(const char *str)
+{
+     char *endPtr = 0;
+     strtod(str, &endPtr);
+     
+     if(*endPtr != '\0' || endPtr == str)
+     return 0;
+     
+     return 1;
 }
 
 void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int yIndex, int x, int y)
@@ -68,8 +89,18 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
 
   while(tokPtr != NULL)
   {
-        eTable[xIndex][yIndex].str = tokPtr;
-        printf("%s\n", eTable[xIndex][yIndex].str);
+        if(IsDouble(tokPtr))
+        {
+             printf("%s\n", tokPtr);
+             eTable[xIndex][yIndex].str = NULL;
+             eTable[xIndex][yIndex].dVal = atof(tokPtr);
+             printf("%f\n", eTable[xIndex][yIndex].dVal);  
+        }
+        else
+        {       
+              eTable[xIndex][yIndex].str = tokPtr;
+              printf("%s\n", eTable[xIndex][yIndex].str);
+        }
         tokPtr = strtok(NULL, "|");      
         xIndex++;
   } 

@@ -7,10 +7,11 @@
 typedef struct Entry 
 {
         char *str;
-        int iVal;
+        double dVal;
 } Entry;
 
 int NumRows(char fileName[]);
 int NumColumns(char fileName[]);
 void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int yIndex, int x, int y);
+int IsDouble(const char *str);
 #endif
