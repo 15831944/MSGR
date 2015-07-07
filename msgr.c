@@ -8,7 +8,8 @@
 int main(int argc, char *argv[])
 {
     char currentLineStr[8192];
-    char fileName[64] = {"dtest.txt"};
+    char stringToFind[256] = {"DWL_FaceMountTile"};
+    char fileName[64] = {"rtest.txt"};
 
     int x = 150;
     int y = 300;
@@ -16,17 +17,12 @@ int main(int argc, char *argv[])
     int yCount;
     int xCount;
     
+    int row;
     x = NumColumns(fileName);
     y = NumRows(fileName);
     
     Entry eTable[x][y];
-    
-    printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
-     
-    printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
-   
-    printf("2nd dimension = %u\n", (unsigned) BOUNDS(eTable[0]));
-    
+    int idInstances[y];
     FILE *fileIn;
     fileIn = fopen(fileName, "r");
     if(fileIn == 0)
@@ -37,16 +33,21 @@ int main(int argc, char *argv[])
     }
     else
     {
-        fgets(currentLineStr, 8192, fileIn); 
+        fgets(currentLineStr, 8192, fileIn);
+        
       while (currentLineStr[0] == '#')
             fgets(currentLineStr, 8192, fileIn);
-            
+      
+      //printf("%s\n", currentLineStr);       
       TokenizeLine(currentLineStr, eTable, yIndex, x, y);
+      printf("%s\n", eTable[0][0].str);
       yIndex++;
             
       while(fgets(currentLineStr, 8192, fileIn) != NULL)
       {
+            printf("%i\n", yIndex);
             TokenizeLine(currentLineStr, eTable, yIndex, x, y);
+            printf("%s\n", eTable[0][yIndex].str);
             yIndex++;
       }
       fclose(fileIn);
@@ -59,6 +60,15 @@ int main(int argc, char *argv[])
       */
       
     }
+    
+  
+    SearchForId(stringToFind, eTable, idInstances, x, y);
+    printf("%i\n", idInstances[0]);
+    printf("%s\n", eTable[0][0].str);
+    printf("%s\n", eTable[0][1].str);
+    printf("%s\n", eTable[1][0].str);
+    printf("%s\n", eTable[0][1].str);
+    
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
      
     printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
@@ -67,6 +77,22 @@ int main(int argc, char *argv[])
     
     system("PAUSE");	
     return 0;
+}
+
+//search for the AlternateOptionID stored int the 1st column of the arrray
+void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idInstances[y], int x, int y)
+{
+    int index;
+    int idIndex;
+    for(index = 0; index < y; index++)
+    {
+      if(strcmp(eTable[0][index].str, stringToFind) == 0)
+      {
+         //printf("%s\n", index);
+         idInstances[idIndex] = index;
+      }
+         
+    }           
 }
 
 int IsDouble(const char *str)
@@ -91,15 +117,15 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
   {
         if(IsDouble(tokPtr))
         {
-             printf("%s\n", tokPtr);
+             //printf("%s\n", tokPtr);
              eTable[xIndex][yIndex].str = NULL;
              eTable[xIndex][yIndex].dVal = atof(tokPtr);
-             printf("%f\n", eTable[xIndex][yIndex].dVal);  
+             //printf("%f\n", eTable[xIndex][yIndex].dVal);  
         }
         else
         {       
               eTable[xIndex][yIndex].str = tokPtr;
-              printf("%s\n", eTable[xIndex][yIndex].str);
+              //printf("%s\n", eTable[xIndex][yIndex].str);
         }
         tokPtr = strtok(NULL, "|");      
         xIndex++;
