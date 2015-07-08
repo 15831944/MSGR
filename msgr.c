@@ -38,16 +38,18 @@ int main(int argc, char *argv[])
       while (currentLineStr[0] == '#')
             fgets(currentLineStr, 8192, fileIn);
       
-      //printf("%s\n", currentLineStr);       
+      printf("%s\n", currentLineStr);       
       TokenizeLine(currentLineStr, eTable, yIndex, x, y);
-      printf("%s\n", eTable[0][0].str);
+      printf("%s\n", eTable[0][yIndex].str);
       yIndex++;
             
       while(fgets(currentLineStr, 8192, fileIn) != NULL)
       {
             printf("%i\n", yIndex);
+            printf("%s\n", currentLineStr);
             TokenizeLine(currentLineStr, eTable, yIndex, x, y);
-            printf("%s\n", eTable[0][yIndex].str);
+           // printf("%s\n", eTable[0][1].str);
+           // printf("%s\n", eTable[0][2].str);
             yIndex++;
       }
       fclose(fileIn);
@@ -62,8 +64,9 @@ int main(int argc, char *argv[])
     }
     
   
-    SearchForId(stringToFind, eTable, idInstances, x, y);
-    printf("%i\n", idInstances[0]);
+    //SearchForId(stringToFind, eTable, idInstances, x, y);
+    //printf("%i\n", idInstances[0]);
+   
     printf("%s\n", eTable[0][0].str);
     printf("%s\n", eTable[0][1].str);
     printf("%s\n", eTable[1][0].str);
@@ -89,7 +92,7 @@ void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIn
       if(strcmp(eTable[0][index].str, stringToFind) == 0)
       {
          //printf("%s\n", index);
-         idInstances[idIndex] = index;
+         //idInstances[idIndex] = index;
       }
          
     }           
@@ -112,6 +115,7 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
   int xIndex = 0;
 
   tokPtr = strtok(currentLineStr, "|");
+  //printf("%s\n", currentLineStr);
 
   while(tokPtr != NULL)
   {
