@@ -14,8 +14,6 @@ int main(int argc, char *argv[])
     int x = 150;
     int y = 300;
     int yIndex = 0;
-    int yCount;
-    int xCount;
     
     int row;
     x = NumColumns(fileName);
@@ -25,6 +23,7 @@ int main(int argc, char *argv[])
     int idInstances[y];
     FILE *fileIn;
     fileIn = fopen(fileName, "r");
+    
     if(fileIn == 0)
     {
     perror("Cannot open input file\n");
@@ -33,44 +32,24 @@ int main(int argc, char *argv[])
     }
     else
     {
-        fgets(currentLineStr, 8192, fileIn);
+      fgets(currentLineStr, 8192, fileIn);
         
       while (currentLineStr[0] == '#')
             fgets(currentLineStr, 8192, fileIn);
       
-      printf("%s\n", currentLineStr);       
       TokenizeLine(currentLineStr, eTable, yIndex, x, y);
-      printf("%s\n", eTable[0][yIndex].str);
       yIndex++;
             
       while(fgets(currentLineStr, 8192, fileIn) != NULL)
       {
-            printf("%i\n", yIndex);
-            printf("%s\n", currentLineStr);
             TokenizeLine(currentLineStr, eTable, yIndex, x, y);
-           // printf("%s\n", eTable[0][1].str);
-           // printf("%s\n", eTable[0][2].str);
             yIndex++;
       }
       fclose(fileIn);
-      /*
-      for(yCount = 1; yCount < y; yCount++)
-      {
-              for(xCount = 1; xCount < x; xCount++)
-                    printf("%s\n", eTable[xCount][yCount].str);
-      }
-      */
-      
     }
     
-  
-    //SearchForId(stringToFind, eTable, idInstances, x, y);
-    //printf("%i\n", idInstances[0]);
-   
-    printf("%s\n", eTable[0][0].str);
-    printf("%s\n", eTable[0][1].str);
-    printf("%s\n", eTable[1][0].str);
-    printf("%s\n", eTable[0][1].str);
+    SearchForId(stringToFind, eTable, idInstances, x, y);
+    printf("%i\n", idInstances[0]);
     
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
      
@@ -91,10 +70,9 @@ void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIn
     {
       if(strcmp(eTable[0][index].str, stringToFind) == 0)
       {
-         //printf("%s\n", index);
-         //idInstances[idIndex] = index;
+         printf("%s\n", index);
+         idInstances[idIndex] = index;
       }
-         
     }           
 }
 
@@ -115,21 +93,18 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
   int xIndex = 0;
 
   tokPtr = strtok(currentLineStr, "|");
-  //printf("%s\n", currentLineStr);
 
   while(tokPtr != NULL)
   {
         if(IsDouble(tokPtr))
         {
-             //printf("%s\n", tokPtr);
              eTable[xIndex][yIndex].str = NULL;
              eTable[xIndex][yIndex].dVal = atof(tokPtr);
-             //printf("%f\n", eTable[xIndex][yIndex].dVal);  
         }
         else
         {       
-              eTable[xIndex][yIndex].str = tokPtr;
-              //printf("%s\n", eTable[xIndex][yIndex].str);
+              eTable[xIndex][yIndex].str = malloc(strlen(tokPtr) + 1);
+              strcpy(eTable[xIndex][yIndex].str, tokPtr);
         }
         tokPtr = strtok(NULL, "|");      
         xIndex++;
@@ -161,7 +136,6 @@ int NumRows(char fileName[])
         yIndex++;
     }
     fclose(fileIn);
-    //printf("%i\n", yIndex);
     return yIndex;
 }
     
