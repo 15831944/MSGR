@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "msgr.h"
 
@@ -8,19 +9,21 @@
 int main(int argc, char *argv[])
 {
     char currentLineStr[8192];
-    char stringToFind[256] = {"DWL_FaceMountTile"};
+    //char stringToFind[256] = {"DWL_FaceMountTile"};
     char fileName[64] = {"rtest.txt"};
 
     int x = 150;
     int y = 300;
     int yIndex = 0;
+    int i;
+    int n;
     
-    int row;
+    //int row;
     x = NumColumns(fileName);
     y = NumRows(fileName);
     
     Entry eTable[x][y];
-    int idInstances[y];
+    //int idInstances[y];
     FILE *fileIn;
     fileIn = fopen(fileName, "r");
     
@@ -47,9 +50,49 @@ int main(int argc, char *argv[])
       }
       fclose(fileIn);
     }
+     for(i = 0; i < 3; i++)
+     {
+           for(n = 0; n < 3; n++)
+           {
+                 if(eTable[n][i].str == NULL)
+                 {
+                       printf("%f", eTable[n][i].dVal);
+                       printf("%s", " | ");
+                       if(n == 3)
+                       printf("%s\n", " ");
+                 }
+                 else
+                 {
+                     printf("%s", eTable[n][i].str);
+                     printf("%s", " | ");
+                     if(n == 3)
+                     printf("%s\n", " ");
+                 }
+                 
+           }
+     }
+   /*               
+    printf("%s", eTable[0][0].str);
+    printf("%s", " | ");
+    printf("%s", eTable[1][0].str);
+    printf("%s", " | ");
+    printf("%s\n", eTable[2][0].str);
     
-    SearchForId(stringToFind, eTable, idInstances, x, y);
-    printf("%i\n", idInstances[0]);
+    
+    printf("%s", eTable[0][1].str);
+    printf("%s", " | ");
+    printf("%s", eTable[1][1].str);
+    printf("%s", " | ");
+    printf("%s\n", eTable[2][1].str);
+    
+    
+    printf("%s", eTable[0][2].str);
+    printf("%s", " | ");
+    printf("%s", eTable[1][2].str);
+    printf("%s", " | ");
+    printf("%s\n", eTable[2][2].str);
+   */
+    //SearchForId(stringToFind, eTable, idInstances, x, y);
     
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
      
@@ -62,6 +105,7 @@ int main(int argc, char *argv[])
 }
 
 //search for the AlternateOptionID stored int the 1st column of the arrray
+
 void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idInstances[y], int x, int y)
 {
     int index;
@@ -70,7 +114,7 @@ void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIn
     {
       if(strcmp(eTable[0][index].str, stringToFind) == 0)
       {
-         printf("%s\n", index);
+         //printf("%s\n", index);
          idInstances[idIndex] = index;
       }
     }           
@@ -100,7 +144,14 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
         {
              eTable[xIndex][yIndex].str = NULL;
              eTable[xIndex][yIndex].dVal = atof(tokPtr);
+        }/*
+        else if(tokPtr == NULL)
+        {
+             printf("%s\n", tokPtr);
+             eTable[xIndex][yIndex].str = NULL;
+             eTable[xIndex][yIndex].dVal = 0;
         }
+        */
         else
         {       
               eTable[xIndex][yIndex].str = malloc(strlen(tokPtr) + 1);
@@ -113,8 +164,7 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
 
 int NumRows(char fileName[])
 {
-    int yIndex = 0;
-    char *tokPtr;
+    int yIndex = 0; 
     char currentLineStr[8192];
     
     FILE *fileIn;
