@@ -1,7 +1,7 @@
 [Project]
 FileName=msgr.dev
 Name=msgr
-UnitCount=6
+UnitCount=7
 Type=1
 Ver=1
 ObjFiles=
@@ -105,7 +105,7 @@ ProductVersion=
 AutoIncBuildNr=0
 
 [Unit7]
-FileName=rtest.txt
+FileName=test.txt
 Folder=msgr
 Compile=0
 Link=0
