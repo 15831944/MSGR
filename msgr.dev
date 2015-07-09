@@ -1,7 +1,7 @@
 [Project]
 FileName=msgr.dev
 Name=msgr
-UnitCount=7
+UnitCount=6
 Type=1
 Ver=1
 ObjFiles=
@@ -77,11 +77,11 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=new.c
+FileName=rtest.txt
 CompileCpp=0
 Folder=msgr
-Compile=1
-Link=1
+Compile=0
+Link=0
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
