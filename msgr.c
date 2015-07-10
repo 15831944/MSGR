@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
     char currentLineStr[8192];
-    char stringToFind[256] = {"DWL_FaceMountTile"};
+  //  char stringToFind[256] = {"DWL_FaceMountTile"};
     char fileName[64] = {"rtest.txt"};
 
     int x = 150;
@@ -18,12 +18,12 @@ int main(int argc, char *argv[])
     int i;
     int n;
     
-    int row;
+   // int row;
     x = NumColumns(fileName);
     y = NumRows(fileName);
     
     Entry eTable[x][y];
-    int idInstances[y];
+   // int idInstances[y];
     FILE *fileIn;
     FILE *fileOut;
     fileIn = fopen(fileName, "r");
@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     }
     else
     {
+        printf("%s\n", "fileIn Opened");
       fgets(currentLineStr, 8192, fileIn);
         
       while (currentLineStr[0] == '#')
@@ -56,35 +57,34 @@ int main(int argc, char *argv[])
     
     if(fileOut == 0)
     {
-    perror("Cannot open input file\n");
-    system("PAUSE");
-    exit(-1);
-    }
+   perror("Could open output file\n");
+   system("PAUSE");
+   exit(-1);
+  }
     else
     {
-     for(i = 0; i < y; i++)
+     for(i = 0; i < 3; i++)
      {
-           for(n = 0; n < x; n++)
+           for(n = 0; n < 3; n++)
            {
                  if(eTable[n][i].str == NULL)
                  {
                        fprintf(fileOut,"%f", eTable[n][i].dVal);
                        fprintf(fileOut,"%s", "|");
-                      // if(n == 3)
-                       //fprintf(fileOut,"%s", "\n");
+                       if(n >= 3)
+                       fprintf(fileOut,"%s", "\n");
                  }
                  else
                  {
                      fprintf(fileOut, "%s", eTable[n][i].str);
                      fprintf(fileOut, "%s", "|");
-                    // if(n == 3)
-                     //fprintf(fileOut,"%s", "\n");
+                     if(n >= 3)
+                     fprintf(fileOut,"%s", "\n");
                  }
                  
            }
       }
-     }
-  /*          
+     }          
     printf("%s", eTable[0][0].str);
     printf("%s", " | ");
     printf("%s", eTable[1][0].str);
@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
     printf("%s", eTable[1][2].str);
     printf("%s", " | ");
     printf("%s\n", eTable[2][2].str);
- */
+
   
     //SearchForId(stringToFind, eTable, idInstances, x, y);
     
@@ -180,22 +180,16 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
             {
                 eTable[xIndex][yIndex].str = NULL;
                 eTable[xIndex][yIndex].dVal = atof(tokPtr);
-                printf("%i\n", eTable[xIndex][yIndex].dVal);
+     //           printf("%i\n", eTable[xIndex][yIndex].dVal);
             }
             else
             {       
                 eTable[xIndex][yIndex].str = malloc(strlen(tokPtr) + 1);
                 strcpy(eTable[xIndex][yIndex].str, tokPtr);
-                printf("%s\n", eTable[xIndex][yIndex].str);
+                //printf("%s\n", eTable[xIndex][yIndex].str);
             }
             
         tokPtr = mystrsep(&current, "|");
-        
-        if(tokPtr == "|")
-        {
-        printf("%s\n", "tok is null");
-        printf("%i\n", xIndex);
-            }
         xIndex++;
   } 
 }
