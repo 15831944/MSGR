@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
     char currentLineStr[8192];
-  //  char stringToFind[256] = {"DWL_FaceMountTile"};
+    char stringToFind[256] = {"DWL_FaceMountTile"};
     char fileName[64] = {"rtest.txt"};
 
     int x = 150;
@@ -17,13 +17,14 @@ int main(int argc, char *argv[])
     int yIndex = 0;
     int i;
     int n;
+    int diffCount;
+    int numEntries = 0;
     
-   // int row;
     x = NumColumns(fileName);
     y = NumRows(fileName);
     
     Entry eTable[x][y];
-   // int idInstances[y];
+    int idInstances[y];
     FILE *fileIn;
     FILE *fileOut;
     fileIn = fopen(fileName, "r");
@@ -60,31 +61,27 @@ int main(int argc, char *argv[])
    perror("Could open output file\n");
    system("PAUSE");
    exit(-1);
-  }
+    }
     else
     {
-     for(i = 0; i < 3; i++)
-     {
-           for(n = 0; n < 3; n++)
-           {
-                 if(eTable[n][i].str == NULL)
+        for(i = 0; i < y; i++)
+        {
+        for( n = 0; n < x; n++)
+        {
+             if(eTable[n][i].str == NULL)
                  {
-                       fprintf(fileOut,"%f", eTable[n][i].dVal);
-                       fprintf(fileOut,"%s", "|");
-                       if(n >= 3)
-                       fprintf(fileOut,"%s", "\n");
+                     fprintf(fileOut, "%f", eTable[n][i].dVal);
+                     fprintf(fileOut, "%s", "|");
                  }
                  else
                  {
                      fprintf(fileOut, "%s", eTable[n][i].str);
-                     fprintf(fileOut, "%s", "|");
-                     if(n >= 3)
-                     fprintf(fileOut,"%s", "\n");
+                     fprintf(fileOut, "%s", "|"); 
                  }
-                 
-           }
-      }
-     }          
+        }
+         fprintf(fileOut, "%s", "\n");
+     }    
+    }   
     printf("%s", eTable[0][0].str);
     printf("%s", " | ");
     printf("%s", eTable[1][0].str);
@@ -106,7 +103,14 @@ int main(int argc, char *argv[])
     printf("%s\n", eTable[2][2].str);
 
   
-    //SearchForId(stringToFind, eTable, idInstances, x, y);
+    SearchForId(stringToFind, eTable, idInstances, x, y, &numEntries);
+   // print line numbers for each intance returned from search 
+    for(n = 0; n < numEntries; n++)
+    {
+          printf("%i\n", idInstances[n]);
+    }
+    
+    //diffCount = checkColourDiff(idInstances , eTable, x, y, &numEntries);
     
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
      
@@ -118,18 +122,60 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries)
+{
+   int offSet = 1;
+   int diffCount = 0;
+   int index;
+   int flag = 1;
+   
+   //printf("%s\n", eTable[5][40].str);
+   //printf("%s\n", eTable[5][idInstances[index]].str);
+    
+   
+   while(flag == 1)
+   {
+     if(strcmp(eTable[5][idInstances[index]].str, eTable[5][idInstances[index + offSet]].str) == 0)
+       {
+       offSet++;
+       if(index == *numEntries)
+         flag = 0;
+       }
+       else
+       {
+          index = offSet;
+          offSet++;   
+          diffCount++;
+          
+          if(index == *numEntries)
+           flag = 0;
+          
+          continue;
+       }                 
+   }
+   return diffCount;
+}     
+
 //search for the AlternateOptionID stored int the 1st column of the arrray
 
-void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idInstances[y], int x, int y)
+void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idInstances[y], int x, int y, int *numEntries)
 {
     int index;
-    int idIndex;
+    int idIndex = 0;
+    int temp;
+   
+    *numEntries = 0;
+   
     for(index = 0; index < y; index++)
     {
-      if(strcmp(eTable[0][index].str, stringToFind) == 0)
+      if(strncmp(eTable[0][index].str, stringToFind, strlen(stringToFind)) == 0)
       {
-         //printf("%s\n", index);
-         idInstances[idIndex] = index;
+         temp = index + 1;                     
+         //printf("%i\n", temp);
+         idInstances[idIndex] = temp;
+        // printf("%i\n", idInstances[0]);
+         idIndex++;
+         (*numEntries)++;
       }
     }           
 }
@@ -186,6 +232,7 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
             {       
                 eTable[xIndex][yIndex].str = malloc(strlen(tokPtr) + 1);
                 strcpy(eTable[xIndex][yIndex].str, tokPtr);
+                //eTable[xIndex][yIndex].dVal = 0;
                 //printf("%s\n", eTable[xIndex][yIndex].str);
             }
             
