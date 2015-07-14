@@ -64,9 +64,11 @@ int main(int argc, char *argv[])
     }
     else
     {
+        
+        printf("%i\n", x);
         for(i = 0; i < y; i++)
         {
-        for( n = 0; n < x; n++)
+        for( n = 0; (n < (x - 1)); n++)
         {
              if(eTable[n][i].str == NULL)
                  {
@@ -80,8 +82,25 @@ int main(int argc, char *argv[])
                  }
         }
          fprintf(fileOut, "%s", "\n");
-     }    
-    }   
+     } 
+     /*
+        for(n = 0; (n < (x - 1)); n++)
+        {
+              printf("%s", eTable[n][0].str);
+        }
+        for(n = 0; (n < (x - 1)); n++)
+        {
+              printf("%s", eTable[n][1].str);
+        }
+        for(n = 0; (n < (x - 1)); n++)
+        {
+              printf("%s", eTable[n][2].str);
+        }
+        
+ */       
+        
+    }
+       
     printf("%s", eTable[0][0].str);
     printf("%s", " | ");
     printf("%s", eTable[1][0].str);
@@ -110,7 +129,9 @@ int main(int argc, char *argv[])
           printf("%i\n", idInstances[n]);
     }
     
-    //diffCount = checkColourDiff(idInstances , eTable, x, y, &numEntries);
+    diffCount = checkColourDiff(idInstances , eTable, x, y, &numEntries);
+    
+    printf("%i\n", diffCount);    
     
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
      
@@ -126,34 +147,47 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
 {
    int offSet = 1;
    int diffCount = 0;
-   int index;
+   int index = 0;
    int flag = 1;
+   int compareResult;
    
    //printf("%s\n", eTable[5][40].str);
    //printf("%s\n", eTable[5][idInstances[index]].str);
     
+   //printf("%i\n", idInstances[0]);
+   //printf("%i\n", idInstances[1]);
+   //printf("%i\n", idInstances[2]);
+   //printf("%s\n", eTable[5][2].str);
+   printf("%s\n", eTable[5][(idInstances[index] - 1)].str);
+   printf("%s\n", eTable[5][(idInstances[index + offSet] - 1)].str);
+   printf("%i\n", strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str));
    
-   while(flag == 1)
+   while(flag)
    {
-     if(strcmp(eTable[5][idInstances[index]].str, eTable[5][idInstances[index + offSet]].str) == 0)
-       {
-       offSet++;
-       if(index == *numEntries)
-         flag = 0;
-       }
-       else
-       {
-          index = offSet;
-          offSet++;   
-          diffCount++;
-          
-          if(index == *numEntries)
-           flag = 0;
-          
-          continue;
-       }                 
+         printf("%s\n", eTable[5][(idInstances[index] - 1)].str);
+         printf("%s\n", eTable[5][(idInstances[index + offSet] - 1)].str);
+         printf("%i\n", strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str));
+         compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);
+              
+         if(compareResult != 0)
+         {
+               if(offSet > 1)
+                     index = (offSet + index);
+               else
+                     index++;
+                      
+               offSet = 1;
+               diffCount++;
+         }
+         else if(compareResult == 0)
+         {
+               offSet++;
+         }
+              
+         if(index == *numEntries)
+               flag = 0;
    }
-   return diffCount;
+   return diffCount;    
 }     
 
 //search for the AlternateOptionID stored int the 1st column of the arrray
