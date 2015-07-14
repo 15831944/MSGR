@@ -17,4 +17,5 @@ void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIn
 int IsDouble(const char *str);
 char* mystrsep(char** stringp, const char* delim);
 int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries);
+int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries);
 #endif

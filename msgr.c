@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
     char currentLineStr[8192];
     char stringToFind[256] = {"DWL_FaceMountTile"};
-    char fileName[64] = {"rtest.txt"};
+    char fileName[64] = {"dtest.txt"};
 
     int x = 150;
     int y = 300;
@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     int n;
     int diffCount;
     int numEntries = 0;
+    int cutCount;
     
     x = NumColumns(fileName);
     y = NumRows(fileName);
@@ -64,7 +65,6 @@ int main(int argc, char *argv[])
     }
     else
     {
-        
         printf("%i\n", x);
         for(i = 0; i < y; i++)
         {
@@ -83,22 +83,6 @@ int main(int argc, char *argv[])
         }
          fprintf(fileOut, "%s", "\n");
      } 
-     /*
-        for(n = 0; (n < (x - 1)); n++)
-        {
-              printf("%s", eTable[n][0].str);
-        }
-        for(n = 0; (n < (x - 1)); n++)
-        {
-              printf("%s", eTable[n][1].str);
-        }
-        for(n = 0; (n < (x - 1)); n++)
-        {
-              printf("%s", eTable[n][2].str);
-        }
-        
- */       
-        
     }
        
     printf("%s", eTable[0][0].str);
@@ -129,10 +113,11 @@ int main(int argc, char *argv[])
           printf("%i\n", idInstances[n]);
     }
     
-    diffCount = checkColourDiff(idInstances , eTable, x, y, &numEntries);
+    diffCount = checkColourDiff(idInstances, eTable, x, y, &numEntries);
+    cutCount = numCuts(idInstances, eTable, x, y, &numEntries); 
     
     printf("%i\n", diffCount);    
-    
+    printf("%i\n", cutCount);
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
      
     printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
@@ -143,6 +128,20 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries) 
+{
+    int index;
+    int numCuts = 0;
+    
+    for(index = 0; index < *numEntries; index++)
+    {
+      if(eTable[10][(idInstances[index] - 1)].dVal > eTable[12][(idInstances[index] - 1)].dVal)
+            numCuts++;
+      else if(eTable[11][(idInstances[index] - 1)].dVal > eTable[13][(idInstances[index] - 1)].dVal)
+            numCuts++;
+    }
+    return numCuts;
+}
 int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
    int offSet = 1;
@@ -150,17 +149,6 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
    int index = 0;
    int flag = 1;
    int compareResult;
-   
-   //printf("%s\n", eTable[5][40].str);
-   //printf("%s\n", eTable[5][idInstances[index]].str);
-    
-   //printf("%i\n", idInstances[0]);
-   //printf("%i\n", idInstances[1]);
-   //printf("%i\n", idInstances[2]);
-   //printf("%s\n", eTable[5][2].str);
-   printf("%s\n", eTable[5][(idInstances[index] - 1)].str);
-   printf("%s\n", eTable[5][(idInstances[index + offSet] - 1)].str);
-   printf("%i\n", strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str));
    
    while(flag)
    {
@@ -266,7 +254,7 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
             {       
                 eTable[xIndex][yIndex].str = malloc(strlen(tokPtr) + 1);
                 strcpy(eTable[xIndex][yIndex].str, tokPtr);
-                //eTable[xIndex][yIndex].dVal = 0;
+                eTable[xIndex][yIndex].dVal = 0;
                 //printf("%s\n", eTable[xIndex][yIndex].str);
             }
             
