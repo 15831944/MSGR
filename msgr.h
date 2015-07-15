@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Entry 
+typedef struct Entry
 {
         char *str;
         double dVal;
@@ -18,4 +18,6 @@ int IsDouble(const char *str);
 char* mystrsep(char** stringp, const char* delim);
 int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries);
 int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries);
+int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries);
+void extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], Entry eTable[x][y], int x, int y, int *numEntries, int column);
 #endif

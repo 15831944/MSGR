@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1436996227 source:c:\users\jmcconkey\documents\msgr\msgr.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"msgr.h"
+
+1436994870 c:\users\jmcconkey\documents\msgr\msgr.h
+	<stdio.h>
+	<stdlib.h>
+

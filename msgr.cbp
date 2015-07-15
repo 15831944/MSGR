@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="msgr" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="msgr" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-pg" />
+			<Add option="-g" />
+		</Compiler>
+		<Linker>
+			<Add option="-pg -lgmon" />
+		</Linker>
+		<Unit filename=".gitattributes" />
+		<Unit filename=".gitignore" />
+		<Unit filename="dtest.txt" />
+		<Unit filename="msgr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="msgr.h">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="output.txt" />
+		<Unit filename="rtest.txt">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="test.txt" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
