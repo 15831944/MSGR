@@ -119,14 +119,14 @@ int main(int argc, char *argv[])
     totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
     extractDoubles(idInstances, clipLines, eTable, x, y, &numEntries, 35);
 
-    printf("%s\n", eTable[35][41].str);
-    printf("%i\n", clipLines[0][0]);
-
+    //printf("%s\n", eTable[35][41].str);
+/*
     for(i = 0; i < numEntries; i++)
     {
         for(n = 0; n < x; n++)
             printf("%f\n", clipLines[n][i]);
     }
+    */
     printf("%i\n", diffCount);
     printf("%i\n", cutCount);
     printf("%i\n", totalNumUnits);
@@ -146,10 +146,10 @@ void extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], En
     char *current;
     int index = 0;
     int n;
-    printf("%s\n", eTable[column][(idInstances[index] - 1)].str);
+    //printf("%s\n", eTable[column][(idInstances[index] - 1)].str);
     for(index = 0; index < *numEntries; index++)
     {
-     printf("%s\n", eTable[column][(idInstances[index] - 1)].str);
+     //printf("%s\n", eTable[column][(idInstances[index] - 1)].str);
         current = eTable[column][(idInstances[index] - 1)].str;
 
         tokPtr = mystrsep(&current, " m:");
@@ -157,11 +157,27 @@ void extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], En
         while(tokPtr != NULL)
         {
             printf("%s\n", tokPtr);
-            if(IsDouble(tokPtr))
-                clipLines[n][index] = atof(tokPtr);
+            if(IsDouble(tokPtr) && tokPtr != 0)
+            {
 
+
+                printf("%s\n", "isdouble");
+                printf("%i\n", n);
+                printf("%i\n", index);
+                clipLines[n][index] = atof(tokPtr);
+                printf("%f\n", clipLines[n][index]);
+            }
+            else
+            {
+                tokPtr = mystrsep(&current, " m:");
+                continue;
+            }
             tokPtr = mystrsep(&current, " m:");
-            n++;
+
+            if(tokPtr != NULL)
+                n++;
+            else
+                continue;
         }
     }
 }
