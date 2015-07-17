@@ -6,6 +6,24 @@
 
 #define BOUNDS(a) ((sizeof (a))/(sizeof ((a)[0])))
 
+
+int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
+{
+    int index;
+    int total = 0;
+
+    for(index = 0; index < *numEntries; index++)
+    {
+        rowQuantity[index] = eTable[21][(idInstances[index] - 1)].dVal;
+    }
+
+    for(index = 0; index < *numEntries; index++)
+    {
+        total = total + rowQuantity[index];
+    }
+    return total;
+}
+
 int main(int argc, char *argv[])
 {
     char currentLineStr[8192];
@@ -88,6 +106,54 @@ int main(int argc, char *argv[])
         }
     }
 
+    fileOut = fopen("searchdata.txt", "w");
+
+    if(fileOut == 0)
+    {
+        perror("Could open output file\n");
+        system("PAUSE");
+        exit(-1);
+    }
+    else
+    {
+        SearchForId(stringToFind, eTable, idInstances, x, y, &numEntries);
+    // print line numbers for each intance returned from search
+        for(n = 0; n < numEntries; n++)
+            printf("%i\n", idInstances[n]);
+        diffCount = checkColourDiff(idInstances, eTable, x, y, &numEntries);
+        cutCount = numCuts(idInstances, eTable, x, y, &numEntries);
+        totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
+        extractDoubles(idInstances, clipLines, eTable, x, y, &numEntries, 35);
+
+        fprintf(fileOut, "%s", stringToFind);
+        fprintf(fileOut, "%s", "|");
+        fprintf(fileOut, "%i", diffCount);
+        fprintf(fileOut, "%s", "|");
+        fprintf(fileOut, "%i", totalNumUnits);
+        fprintf(fileOut, "%s", "|");
+        fprintf(fileOut, "%i", cutCount);
+        fprintf(fileOut, "%s", "\n");
+
+        SearchForId("DWL_LowMadonna", eTable, idInstances, x, y, &numEntries);
+    // print line numbers for each intance returned from search
+        for(n = 0; n < numEntries; n++)
+            printf("%i\n", idInstances[n]);
+        diffCount = checkColourDiff(idInstances, eTable, x, y, &numEntries);
+        cutCount = numCuts(idInstances, eTable, x, y, &numEntries);
+        totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
+        extractDoubles(idInstances, clipLines, eTable, x, y, &numEntries, 35);
+
+        fprintf(fileOut, "%s", "DWL_LowMadonna");
+        fprintf(fileOut, "%s", "|");
+        fprintf(fileOut, "%i", diffCount);
+        fprintf(fileOut, "%s", "|");
+        fprintf(fileOut, "%i", totalNumUnits);
+        fprintf(fileOut, "%s", "|");
+        fprintf(fileOut, "%i", cutCount);
+        fprintf(fileOut, "%s", "\n");
+
+    }
+
     printf("%s", eTable[0][0].str);
     printf("%s", " | ");
     printf("%s", eTable[1][0].str);
@@ -108,25 +174,14 @@ int main(int argc, char *argv[])
     printf("%s", " | ");
     printf("%s\n", eTable[2][2].str);
 
-
-    SearchForId(stringToFind, eTable, idInstances, x, y, &numEntries);
-    // print line numbers for each intance returned from search
-    for(n = 0; n < numEntries; n++)
-        printf("%i\n", idInstances[n]);
-
-    diffCount = checkColourDiff(idInstances, eTable, x, y, &numEntries);
-    cutCount = numCuts(idInstances, eTable, x, y, &numEntries);
-    totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
-    extractDoubles(idInstances, clipLines, eTable, x, y, &numEntries, 35);
-
     //printf("%s\n", eTable[35][41].str);
 /*
     for(i = 0; i < numEntries; i++)
     {
-        for(n = 0; n < x; n++)
+        for(n = 0; n < 4; n++)
             printf("%f\n", clipLines[n][i]);
     }
-    */
+*/
     printf("%i\n", diffCount);
     printf("%i\n", cutCount);
     printf("%i\n", totalNumUnits);
@@ -140,12 +195,13 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-void extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], Entry eTable[x][y], int x, int y, int *numEntries, int column)
+int extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], Entry eTable[x][y], int x, int y, int *numEntries, int column)
 {
     char *tokPtr;
     char *current;
     int index = 0;
     int n;
+    int temp;
     //printf("%s\n", eTable[column][(idInstances[index] - 1)].str);
     for(index = 0; index < *numEntries; index++)
     {
@@ -154,6 +210,7 @@ void extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], En
 
         tokPtr = mystrsep(&current, " m:");
         n = 0;
+        Tokenize:
         while(tokPtr != NULL)
         {
             printf("%s\n", tokPtr);
@@ -170,34 +227,23 @@ void extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], En
             else
             {
                 tokPtr = mystrsep(&current, " m:");
-                continue;
+                goto Tokenize;
             }
             tokPtr = mystrsep(&current, " m:");
 
             if(tokPtr != NULL)
+            {
                 n++;
-            else
-                continue;
+                if( n > temp)
+                    temp = n;
+
+                goto Tokenize;
+            }
         }
     }
+    return temp;
 }
 
-int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
-{
-    int index;
-    int total = 0;
-
-    for(index = 0; index < *numEntries; index++)
-    {
-        rowQuantity[index] = eTable[21][(idInstances[index] - 1)].dVal;
-    }
-
-    for(index = 0; index < *numEntries; index++)
-    {
-        total = total + rowQuantity[index];
-    }
-    return total;
-}
 
 int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
