@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
     }
     else
     {
-        printf("%s\n", "fileIn Opened");
         fgets(currentLineStr, 8192, fileIn);
 
         while (currentLineStr[0] == '#')
@@ -62,87 +61,10 @@ int main(int argc, char *argv[])
         fclose(fileIn);
     }
 
-    fileOut = fopen("output.txt", "w");
-
-    if(fileOut == 0)
-    {
-        perror("Could open output file\n");
-        system("PAUSE");
-        exit(-1);
-    }
-    else
-    {
-        printf("%i\n", x);
-        for(i = 0; i < y; i++)
-        {
-            for( n = 0; (n < (x - 1)); n++)
-            {
-                if(eTable[n][i].dVal != 0)
-                {
-                    fprintf(fileOut, "%f", eTable[n][i].dVal);
-                    fprintf(fileOut, "%s", "|");
-                }
-                else
-                {
-                    fprintf(fileOut, "%s", eTable[n][i].str);
-                    fprintf(fileOut, "%s", "|");
-                }
-            }
-            fprintf(fileOut, "%s", "\n");
-        }
-    }
-
-    fileOut = fopen("searchdata.txt", "w");
-
-    if(fileOut == 0)
-    {
-        perror("Could open output file\n");
-        system("PAUSE");
-        exit(-1);
-    }
-    else
-    {
-        SearchForId(stringToFind, eTable, idInstances, x, y, &numEntries);
-    // print line numbers for each intance returned from search
-        for(n = 0; n < numEntries; n++)
-            printf("%i\n", idInstances[n]);
-        diffCount = checkColourDiff(idInstances, eTable, x, y, &numEntries);
-        cutCount = numCuts(idInstances, eTable, x, y, &numEntries);
-        totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
-        extractDoubles(idInstances, clipLines, eTable, x, y, &numEntries, 35);
-
-        fprintf(fileOut, "%s", stringToFind);
-        fprintf(fileOut, "%s", "|");
-        fprintf(fileOut, "%i", diffCount);
-        fprintf(fileOut, "%s", "|");
-        fprintf(fileOut, "%i", totalNumUnits);
-        fprintf(fileOut, "%s", "|");
-        fprintf(fileOut, "%i", cutCount);
-        fprintf(fileOut, "%s", "\n");
-
-        SearchForId("DWL_LowMadonna", eTable, idInstances, x, y, &numEntries);
-    // print line numbers for each intance returned from search
-        for(n = 0; n < numEntries; n++)
-            printf("%i\n", idInstances[n]);
-        diffCount = checkColourDiff(idInstances, eTable, x, y, &numEntries);
-        cutCount = numCuts(idInstances, eTable, x, y, &numEntries);
-        totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
-        extractDoubles(idInstances, clipLines, eTable, x, y, &numEntries, 35);
-
-        fprintf(fileOut, "%s", "DWL_LowMadonna");
-        fprintf(fileOut, "%s", "|");
-        fprintf(fileOut, "%i", diffCount);
-        fprintf(fileOut, "%s", "|");
-        fprintf(fileOut, "%i", totalNumUnits);
-        fprintf(fileOut, "%s", "|");
-        fprintf(fileOut, "%i", cutCount);
-        fprintf(fileOut, "%s", "\n");
-
-    }
-
     temp = CalculateFaceMountTiles("DWL_FaceMountTile", idInstances, rowQuantity, eTable, &numEntries, x, y);
     time = (double)temp;
     printf("%f\n", time);
+
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
 
     printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
