@@ -38,13 +38,7 @@ int extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], Ent
             printf("%s\n", tokPtr);
             if(IsDouble(tokPtr) && tokPtr != 0)
             {
-
-
-                printf("%s\n", "isdouble");
-                printf("%i\n", n);
-                printf("%i\n", index);
                 clipLines[n][index] = atof(tokPtr);
-                printf("%f\n", clipLines[n][index]);
             }
             else
             {
@@ -91,9 +85,6 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
 
     while(flag)
     {
-        printf("%s\n", eTable[5][(idInstances[index] - 1)].str);
-        printf("%s\n", eTable[5][(idInstances[index + offSet] - 1)].str);
-        printf("%i\n", strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str));
         compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);
 
         if(compareResult != 0)
