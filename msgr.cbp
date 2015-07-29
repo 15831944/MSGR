@@ -29,10 +29,19 @@
 		<Unit filename="msgr.h">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="ops.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ops.h" />
 		<Unit filename="output.txt" />
+		<Unit filename="pieces.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pieces.h" />
 		<Unit filename="rtest.txt">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="searchdata.txt" />
 		<Unit filename="test.txt" />
 		<Extensions>
 			<code_completion />

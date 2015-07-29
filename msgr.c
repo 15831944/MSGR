@@ -61,9 +61,19 @@ int main(int argc, char *argv[])
         fclose(fileIn);
     }
 
-    temp = CalculateFaceMountTiles("DWL_FaceMountTile", idInstances, rowQuantity, eTable, &numEntries, x, y);
+
+    temp = CalculateFaceMountTiles(idInstances, rowQuantity, eTable, &numEntries, x, y);
     time = (double)temp;
     printf("%f\n", time);
+
+    temp = CalculateHorizTile(idInstances, rowQuantity, eTable, &numEntries, x, y);
+    time = (double)temp;
+    printf("%f\n", time);
+
+    temp = CalculateMagTile(idInstances, rowQuantity, eTable, &numEntries, x, y);
+    time = (double)temp;
+    printf("%f\n", time);
+
 
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
 
