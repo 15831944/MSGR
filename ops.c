@@ -113,6 +113,7 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
     int offSet = 1;
     int diffCount = 0;
     int index = 0;
+    int codeIndex = 0;
     int flag = 1;
     int compareResult;
 

@@ -7,6 +7,7 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
     int totalNumUnits;
     int time;
     int tmp;
+    int index;
     int panelSaw;
     int woodCnc;
     int clipping;
@@ -50,11 +51,7 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
 
         time = (tmp + panelSaw + woodCnc + finishingLine + clipping)/60;
 
-
-    fclose(fileOut);
-    }
-
-    printf("%s", "Tiles = ");
+        printf("%s", "Tiles = ");
     printf("%i", totalNumUnits);
     printf("%s", " ");
     printf("%s","Predicted: ");
@@ -63,6 +60,13 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
 
     printf("%i", numColours);
     printf("%s\n", " Colour(s)");
+
+    printf("%s", "Colour Codes: ");
+
+    for(index = 0; index < (numColours); index++)
+    {
+        printf("%s", codes[index]);
+    }
 
     printf("%s","Panel Saw: ");
     printf("%i", (panelSaw/60));
@@ -80,6 +84,9 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
     printf("%i",(clipping/60));
     printf("%s\n","min");
 
+
+    fclose(fileOut);
+    }
 return time;
 }
 
