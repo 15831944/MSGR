@@ -7,6 +7,11 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
     int totalNumUnits;
     int time;
     int tmp;
+    int panelSaw;
+    int woodCnc;
+    int clipping;
+    int finishingLine;
+
     char fileName[] = {"DWL_FaceMountTile"};
 
     FILE *fileOut;
@@ -23,20 +28,58 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
         SearchForId(fileName, eTable, idInstances, x, y, &numEntries);
 
         numColours = checkColourDiff(idInstances, eTable, x, y, &numEntries);
+
+        char *codes[numColours];
+
+        getColourCodes(idInstances, eTable, codes, x, y, numColours, &numEntries);
         totalCutCount = numCuts(idInstances, eTable, x, y, &numEntries);
         totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
         //extractDoubles(idInstances, clipLines, eTable, x, y, &numEntries, 35);
+        printf("%i",totalCutCount);
 
         if(totalNumUnits != 0)
-            tmp =  1200;
+            tmp = 1200;
         else
             tmp = 0;
 
-        time = tmp + ((45 * totalCutCount) + (240 * totalCutCount) +  (24 * totalNumUnits) + (1500 * (numColours - 1)) + (24 * totalNumUnits));
+//ensure that cnc timing is correct
+            panelSaw = (45 * totalCutCount);
+            woodCnc = (240 * totalNumUnits);
+            finishingLine = (24 * totalNumUnits) + (1500 * (numColours - 1));
+            clipping = (24 * totalNumUnits);
+
+        time = (tmp + panelSaw + woodCnc + finishingLine + clipping)/60;
 
 
     fclose(fileOut);
     }
+
+    printf("%s", "Tiles = ");
+    printf("%i", totalNumUnits);
+    printf("%s", " ");
+    printf("%s","Predicted: ");
+    printf("%i", time);
+    printf("%s\n", "mins");
+
+    printf("%i", numColours);
+    printf("%s\n", " Colour(s)");
+
+    printf("%s","Panel Saw: ");
+    printf("%i", (panelSaw/60));
+    printf("%s\n","min");
+
+    printf("%s","CNC: ");
+    printf("%i",(woodCnc/60));
+    printf("%s\n","min");
+
+    printf("%s","Finishing Line: ");
+    printf("%i",(finishingLine/60));
+    printf("%s\n","min");
+
+    printf("%s","clipping: ");
+    printf("%i",(clipping/60));
+    printf("%s\n","min");
+
 return time;
 }
 

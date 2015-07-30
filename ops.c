@@ -108,6 +108,41 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
     return diffCount;
 }
 
+void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTable[x][y], char *codes[numColours], int x, int y, int numColours, int *numEntries)
+{
+    int offSet = 1;
+    int diffCount = 0;
+    int index = 0;
+    int flag = 1;
+    int compareResult;
+
+    while(flag)
+    {
+        compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);
+
+        if(compareResult != 0)
+        {
+            codes[codeIndex] = (eTable[5][(idInstances[index] - 1)].str);
+
+            if(offSet > 1)
+                index = (offSet + index);
+            else
+                index++;
+
+            offSet = 1;
+            diffCount++;
+            codeIndex++;
+        }
+        else if(compareResult == 0)
+        {
+            offSet++;
+        }
+
+        if(index == *numEntries)
+            flag = 0;
+    }
+}
+
 //search for the AlternateOptionID stored int the 1st column of the arrray
 void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idInstances[y], int x, int y, int *numEntries)
 {
