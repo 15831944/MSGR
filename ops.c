@@ -108,6 +108,22 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
     return diffCount;
 }
 
+int countColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTable[x][y], char *codes[numColours], int x, int y, int numColours, int index, int *numEntries)
+{
+    int count = 0;
+    int tmp = 0;
+
+    for(x = 0; x < *numEntries; x++)
+    {
+        if(strcmp(eTable[5][(idInstances[x] - 1)].str, codes[index]) == 0)
+            {
+                tmp = eTable[21][(idInstances[x] - 1)].dVal;
+                count = count + tmp;
+            }
+    }
+    return count;
+}
+
 void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTable[x][y], char *codes[numColours], int x, int y, int numColours, int *numEntries)
 {
     int offSet = 1;
