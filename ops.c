@@ -132,7 +132,7 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
     int codeIndex = 0;
     int flag = 1;
     int compareResult;
-
+//TODO problem with repitition checking dc11 appears twice.
     while(flag)
     {
         compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);

@@ -11,49 +11,49 @@
 #SFN_Currency=USD $
 #MAS_Reference_No=Eric
 #HQ=0
-# ----- Summary ----- 
-# Counts|||||Door Count|Total Wall Length(ft)  
+# ----- Summary -----
+# Counts|||||Door Count|Total Wall Length(ft)
 #|||||0|16.00
 #
-# Walls | Name ||||| Count | Length (ft)| SFN/ft | SFN 
+# Walls | Name ||||| Count | Length (ft)| SFN/ft | SFN
 # | Solid Wall Antler at Worksurface Height  |||||  1 |  4.00 |  134.15 |  134.15 |  536.62 |  536.62
 # | Solid Wall Antlers at Overhead and Worksurface Height |||||  1 |  4.00 |  136.63 |  136.63 |  546.54 |  546.54
 # | Solid Wall Antler at Overhead Height |||||  1 |  4.00 |  134.15 |  134.15 |  536.60 |  536.60
 # | Solid Wall Monolithic |||||  1 |  4.00 |  131.67 |  131.67 |  526.68 |  526.68
-# Intersections | Name ||||| Count |  |  | SFN 
+# Intersections | Name ||||| Count |  |  | SFN
 # | X-Wing End Cap |||||  8 |  0.00 |  NA |  NA |  444.88 |  444.88
 #
-# This summary does not include items such as ceiling tracks, trims, and zippers. This is not a total SFN for this job|  |||||  |  |  | 
-#  
+# This summary does not include items such as ceiling tracks, trims, and zippers. This is not a total SFN for this job|  |||||  |  |  |
+#
 #Project Notes:
-#  ALL FRAME PROFILES: CURVILINEAR + (8) PIECES 
+#  ALL FRAME PROFILES: CURVILINEAR + (8) PIECES
 #  SEISMIC: NOT REQUIRED
-#  FRAME FINISH: ANODIZED    
-#  BASE TRIM FINISH:     
+#  FRAME FINISH: ANODIZED
+#  BASE TRIM FINISH:
 #  FLOOR TYPE(S): Carpet Gripper
 #  SEGMENTS WITH Carpet Gripper:4
 #
-# SPIDER_ELECTRICAL_LEVEL: 
-# SPIDER_TRIM_COLOR: 
-# FACEPLATE_STYLE: 
-# CONVENTIONAL_ELECTRICAL_LEVEL: 
-# PVC_COLOR_GLASSWIPE: 
-# PVC_COLOR_ZIPPERS: 
+# SPIDER_ELECTRICAL_LEVEL:
+# SPIDER_TRIM_COLOR:
+# FACEPLATE_STYLE:
+# CONVENTIONAL_ELECTRICAL_LEVEL:
+# PVC_COLOR_GLASSWIPE:
+# PVC_COLOR_ZIPPERS:
 # ELEC=
 #
 #
 # Floor-Carpet Gripper | 4
 #
 #  MULTIPLE CEILING HEIGHTS: NO
-#  CEILING HEIGHTS: 108.0 
-#  CEILING CONDITION: Flush 
-#  CEILING TILE TYPE: 
-#  ELECTRICAL TYPES: 
-#  ELECTRICAL LEVELS: 
-#  ELECTRICAL LEVEL - MODULAR: 
-#  ELECTRICAL LEVEL - CONVENTIONAL: 
-#  
-#  
+#  CEILING HEIGHTS: 108.0
+#  CEILING CONDITION: Flush
+#  CEILING TILE TYPE:
+#  ELECTRICAL TYPES:
+#  ELECTRICAL LEVELS:
+#  ELECTRICAL LEVEL - MODULAR:
+#  ELECTRICAL LEVEL - CONVENTIONAL:
+#
+#
 #HIGHEST TAGS
 #T6
 #F4
@@ -72,7 +72,5 @@ AlternateOptionID|ShipAssyQty|RawMatId|description|manufacturing_description|fin
 DWL_Screws|1||#12 x 2" Pan Head Robertson Wood Screw|#12 x 2" Pan Head Robertson Wood Screw|||SCREW1|||||||||||10|||10||||||||||||||||||||||||||||||||||||||||||||||||||||||false|false|0|||||83|82||DWL_Screw|(8 + 2)|FakeShippableNode|DirttItemCounter||||0.04|0.39999998||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_FaceMountTile|||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core; Apply Foam Tape|DC11||T1||||734.6|1210.2|12.7||||||||4|PNT||||||||||||||||||||||||||||||||||||||||||||||||||||C,D,A,B|false||0||||DWL_FaceMountTile_ASSY|27|-1||DWL_FaceMountTile|(4 + 0)|FakeShippableAssemblyNode|Tile|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_FaceMountTile|||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core; Apply Foam Tape|DC12||T1||||734.6|1210.2|12.7||||||||4|PNT||||||||||||||||||||||||||||||||||||||||||||||||||||C,D,A,B|false||0||||DWL_FaceMountTile_ASSY|27|-1||DWL_FaceMountTile|(4 + 0)|FakeShippableAssemblyNode|Tile|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-DWL_FaceMountTile|||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core; Apply Foam Tape|DC12||T1||||734.6|1210.2|12.7||||||||4|PNT||||||||||||||||||||||||||||||||||||||||||||||||||||C,D,A,B|false||0||||DWL_FaceMountTile_ASSY|27|-1||DWL_FaceMountTile|(4 + 0)|FakeShippableAssemblyNode|Tile|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-DWL_FaceMountTile|||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core; Apply Foam Tape|DC13||T1||||734.6|1210.2|12.7||||||||4|PNT||||||||||||||||||||||||||||||||||||||||||||||||||||C,D,A,B|false||0||||DWL_FaceMountTile_ASSY|27|-1||DWL_FaceMountTile|(4 + 0)|FakeShippableAssemblyNode|Tile|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_FaceMountTile|||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core; Apply Foam Tape|DC13||T1||||734.6|1210.2|12.7||||||||4|PNT||||||||||||||||||||||||||||||||||||||||||||||||||||C,D,A,B|false||0||||DWL_FaceMountTile_ASSY|27|-1||DWL_FaceMountTile|(4 + 0)|FakeShippableAssemblyNode|Tile|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_FaceMountTile|||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core; Apply Foam Tape|DC14||T1||||734.6|1210.2|12.7||||||||4|PNT||||||||||||||||||||||||||||||||||||||||||||||||||||C,D,A,B|false||0||||DWL_FaceMountTile_ASSY|27|-1||DWL_FaceMountTile|(4 + 0)|FakeShippableAssemblyNode|Tile|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

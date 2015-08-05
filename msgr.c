@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     temp = CalculateFaceMountTiles(idInstances, rowQuantity, eTable, &numEntries, x, y);
     time = (double)temp;
     printf("%f\n", time);
-
+/*
     temp = CalculateHorizTile(idInstances, rowQuantity, eTable, &numEntries, x, y);
     time = (double)temp;
     printf("%f\n", time);
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
     temp = CalculateMagTile(idInstances, rowQuantity, eTable, &numEntries, x, y);
     time = (double)temp;
     printf("%f\n", time);
-
+*/
 
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
 
