@@ -60,6 +60,23 @@ int extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], Ent
     return temp;
 }
 
+double avgSize(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
+{
+    double total = 0;
+    int index;
+    int totalNumUnits;
+
+    totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
+
+    for( index = 0; index < *numEntries; index++)
+    {
+        total = total + (eTable[12][(idInstances[index] - 1)].dVal * eTable[13][(idInstances[index] - 1)].dVal);
+    }
+
+    total = total/(*numEntries);
+
+    return total;
+}
 int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
     int index;
