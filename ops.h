@@ -19,6 +19,6 @@ int countColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTa
 int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries);
 int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries);
 int extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], Entry eTable[x][y], int x, int y, int *numEntries, int column);
-double avgSize(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries);
+double avgSize(int x; int y; int idInstances[y], int totalNumUnits, int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries);
 
 #endif // OPS_H_INCLUDED

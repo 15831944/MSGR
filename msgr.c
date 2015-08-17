@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
     char currentLineStr[8192];
     char stringToFind[256] = {"DWL_FaceMountTile"};
-    char fileName[64] = {"dtest.txt"};
+    char fileName[64] = {"rtest.txt"};
 
     int x = 150;
     int y = 300;

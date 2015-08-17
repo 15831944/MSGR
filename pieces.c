@@ -37,7 +37,7 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
         getColourCodes(idInstances, eTable, codes, x, y, numColours, &numEntries);
         totalCutCount = numCuts(idInstances, eTable, x, y, &numEntries);
         totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
-        averageTileSize = avgSize(idInstances, rowQuantity, eTable, x, y, &numEntries);
+        averageTileSize = avgSize(idInstances, totalNumUnits, rowQuantity, eTable, x, y, &numEntries);
         //extractDoubles(idInstances, clipLines, eTable, x, y, &numEntries, 35);
         printf("%i",totalCutCount);
 /*

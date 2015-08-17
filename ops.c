@@ -60,20 +60,22 @@ int extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], Ent
     return temp;
 }
 
-double avgSize(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
+double avgSize(int x; int y; int idInstances[y], int totalNumUnits, int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
     double total = 0;
+    double tmp = 0;
     int index;
-    int totalNumUnits;
+    //int totalNumUnits;
 
-    totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
+    //totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
 
     for( index = 0; index < *numEntries; index++)
     {
-        total = total + (eTable[12][(idInstances[index] - 1)].dVal * eTable[13][(idInstances[index] - 1)].dVal);
+        tmp = ((eTable[12][(idInstances[index] - 1)].dVal * eTable[13][(idInstances[index] - 1)].dVal));
+        total = total + tmp;
     }
 
-    total = total/(*numEntries);
+    total = total/totalNumUnits;
 
     return total;
 }
