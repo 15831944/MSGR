@@ -69,9 +69,16 @@ double avgSize(int x; int y; int idInstances[y], int totalNumUnits, int rowQuant
 
     //totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
 
-    for( index = 0; index < *numEntries; index++)
+    for(index = 0; index < *numEntries; index++)
     {
-        tmp = ((eTable[12][(idInstances[index] - 1)].dVal * eTable[13][(idInstances[index] - 1)].dVal));
+        tmp = ((eTable[11][(idInstances[index] - 1)].dVal / 1000) *
+               (eTable[12][(idInstances[index] - 1)].dVal / 1000));
+        printf("%f\n", tmp);
+        tmp = tmp * eTable[21][(idInstances[index] - 1)].dVal;
+
+        printf("%f\n", eTable[11][(idInstances[index] - 1)].dVal);
+        printf("%f\n", eTable[12][(idInstances[index] - 1)].dVal);
+        printf("%f\n", tmp);
         total = total + tmp;
     }
 
@@ -151,7 +158,7 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
     int codeIndex = 0;
     int flag = 1;
     int compareResult;
-//TODO problem with repitition checking dc11 appears twice.
+//@TODO problem with repitition checking dc11 appears twice.
     while(flag)
     {
         compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);

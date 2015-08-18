@@ -46,13 +46,13 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
         else
             tmp = 0;
 */
-tmp = 0;
+        tmp = 0;
 //ensure that cnc timing is correct
 
-            panelSaw = (45 * totalCutCount);
-            woodCnc = (240 * totalNumUnits);
-            finishingLine = (24 * totalNumUnits) + (1500 * (numColours - 1));
-            clipping = (24 * totalNumUnits);
+        panelSaw = (45 * totalCutCount);
+        woodCnc = (240 * totalNumUnits);
+        finishingLine = (24 * totalNumUnits) + (1500 * (numColours - 1));
+        clipping = (24 * totalNumUnits);
 
         time = (tmp + panelSaw + woodCnc + finishingLine + clipping)/60;
 
@@ -111,16 +111,12 @@ tmp = 0;
     fprintf(fileOut,"%s", "Part Name: ");
     fprintf(fileOut,"%s\n", partName);
 
-    fprintf(fileOut,"%s", "average tile size; ");
-    fprintf(fileOut,"%f", averageTileSize);
-    fprintf(fileOut,"%s", " ");
-    fprintf(fileOut,"%s","Predicted: ");
+    fprintf(fileOut,"%s", "Average tile size: ");
+    fprintf(fileOut,"%f\n", averageTileSize);
+
+    fprintf(fileOut,"%s","Predicted Time: ");
     fprintf(fileOut,"%i", time);
     fprintf(fileOut,"%s\n", "mins");
-
-
-
-
 
     fprintf(fileOut,"%s","Panel Saw: ");
     fprintf(fileOut,"%i", (panelSaw/60));
@@ -157,7 +153,7 @@ tmp = 0;
     fprintf(fileOut,"%s", "Total Predicted time for ");
     fprintf(fileOut,"%s", partName);
     fprintf(fileOut,"%s", ": ");
-    fprintf(fileOut,"%i", totalNumUnits);
+    fprintf(fileOut,"%i", time);
     fprintf(fileOut,"%s", " mins");
 
     fclose(fileOut);
