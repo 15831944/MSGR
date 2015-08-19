@@ -1,5 +1,40 @@
 #include "ops.h"
 
+void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[])
+{
+    char currentLineStr[8192];
+    int yIndex = 0;
+
+    FILE *fileIn;
+    FILE *fileOut;
+
+    fileIn = fopen(fileName, "r");
+
+    if(fileIn == 0)
+    {
+        perror("Cannot open input file\n");
+        system("PAUSE");
+        exit(-1);
+    }
+    else
+    {
+        fgets(currentLineStr, 8192, fileIn);
+
+        while (currentLineStr[0] == '#')
+            fgets(currentLineStr, 8192, fileIn);
+
+        TokenizeLine(currentLineStr, table, yIndex, x, y);
+        yIndex++;
+        while(fgets(currentLineStr, 8192, fileIn) != NULL)
+        {
+            TokenizeLine(currentLineStr, table, yIndex, x, y);
+            yIndex++;
+
+        }
+        fclose(fileIn);
+    }
+}
+
 int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
     int index;
@@ -240,7 +275,7 @@ char* mystrsep(char** stringp, const char* delim)
     return start;
 }
 
-void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int yIndex, int x, int y)
+void TokenizeLine(int x; int y; char currentLineStr[], Entry table[x][y], int yIndex, int x, int y)
 {
     char *tokPtr;
     char *current;
@@ -253,16 +288,19 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int y
     {
         if(IsDouble(tokPtr))
         {
-            //eTable[xIndex][yIndex].str = NULL;
-            eTable[xIndex][yIndex].dVal = atof(tokPtr);
-            //           printf("%i\n", eTable[xIndex][yIndex].dVal);
+            //printf("%f\n",tokPtr);
+            table[xIndex][yIndex].str = NULL;
+            table[xIndex][yIndex].dVal = atof(tokPtr);
+            printf("%f\n", table[xIndex][yIndex].dVal);
         }
         else
         {
-            eTable[xIndex][yIndex].str = malloc(strlen(tokPtr) + 1);
-            strcpy(eTable[xIndex][yIndex].str, tokPtr);
-            eTable[xIndex][yIndex].dVal = 0;
-            //printf("%s\n", eTable[xIndex][yIndex].str);
+            table[xIndex][yIndex].str = malloc(strlen(tokPtr) + 1);
+            strcpy(table[xIndex][yIndex].str, tokPtr);
+            table[xIndex][yIndex].dVal = 0;
+            printf("%i\n", xIndex);
+            printf("s\n", yIndex);
+            printf("%s\n", table[xIndex][yIndex].str);
         }
 
         tokPtr = mystrsep(&current, "|");

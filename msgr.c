@@ -10,60 +10,59 @@
 
 int main(int argc, char *argv[])
 {
-    char currentLineStr[8192];
+
     char stringToFind[256] = {"DWL_FaceMountTile"};
     char fileName[64] = {"rtest.txt"};
-
-    int x = 150;
-    int y = 300;
-    int yIndex = 0;
-    int i;
-    int temp;
-    double time;
-    int n;
-    int diffCount;
+    char timeFile[64] = {"timefile.msgr"};
     int numEntries = 0;
-    int cutCount;
-    int totalNumUnits;
+    int x;
+    int y;
+    double time;
+    double temp;
 
     x = NumColumns(fileName);
     y = NumRows(fileName);
 
     Entry eTable[x][y];
+    Entry tTable[36][21];
+
     int idInstances[y];
     int rowQuantity[y];
     double clipLines[x][y];
-    FILE *fileIn;
-    FILE *fileOut;
-    fileIn = fopen(fileName, "r");
 
-    if(fileIn == 0)
+    populateTable(tTable,x,y,timeFile);
+   // populateTable(eTable,x,y,fileName);
+
+    int xindex;
+    int yindex;
+
+    printf("%s\n",tTable[0][0].str);
+    printf("%f\n",tTable[1][0].dVal);
+    printf("%f\n",tTable[2][0].dVal);
+    printf("%f\n",tTable[3][0].dVal);
+    printf("%f\n",tTable[4][0].dVal);
+    printf("%f\n",tTable[5][0].dVal);
+    printf("%f\n",tTable[6][0].dVal);
+
+    printf("%s\n",tTable[0][1].str);
+    printf("%f\n",tTable[1][1].dVal);
+    printf("%f\n",tTable[2][1].dVal);
+    printf("%f\n",tTable[3][1].dVal);
+    printf("%f\n",tTable[4][1].dVal);
+    printf("%f\n",tTable[5][1].dVal);
+    printf("%f\n",tTable[6][1].dVal);
+
+for(yindex = 0; yindex < 0; yindex++)
+{
+    for(xindex = 0; xindex < 35; xindex++)
     {
-        perror("Cannot open input file\n");
-        system("PAUSE");
-        exit(-1);
+        printf("%s\n",tTable[xindex][yindex].str);
+        printf("%f\n",tTable[xindex][yindex].dVal);
     }
-    else
-    {
-        fgets(currentLineStr, 8192, fileIn);
-
-        while (currentLineStr[0] == '#')
-            fgets(currentLineStr, 8192, fileIn);
-
-        TokenizeLine(currentLineStr, eTable, yIndex, x, y);
-        yIndex++;
-
-        while(fgets(currentLineStr, 8192, fileIn) != NULL)
-        {
-            TokenizeLine(currentLineStr, eTable, yIndex, x, y);
-            yIndex++;
-        }
-        fclose(fileIn);
-    }
-
+}
 
     temp = CalculateFaceMountTiles(idInstances, rowQuantity, eTable, &numEntries, x, y);
-    time = (double)temp;
+    time = temp;
     printf("%f\n", time);
 /*
     temp = CalculateHorizTile(idInstances, rowQuantity, eTable, &numEntries, x, y);

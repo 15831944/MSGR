@@ -1,12 +1,12 @@
 #include "ops.h"
 
-int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int *numEntries, int x, int y)
+double CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int *numEntries, int x, int y)
 {
     int numColours;
     int totalCutCount;
     int totalNumUnits;
     double averageTileSize;
-    int time;
+    double time;
     int tmp;
     int codeCount = 0;
     int index;
@@ -54,14 +54,14 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
         finishingLine = (24 * totalNumUnits) + (1500 * (numColours - 1));
         clipping = (24 * totalNumUnits);
 
-        time = (tmp + panelSaw + woodCnc + finishingLine + clipping)/60;
+        time = ((double)(tmp + panelSaw + woodCnc + finishingLine + clipping))/60;
 
 
     printf("%s", "Tiles = ");
     printf("%i", totalNumUnits);
     printf("%s", " ");
     printf("%s","Predicted: ");
-    printf("%i", time);
+    printf("%f", time);
     printf("%s\n", "mins");
 
     printf("%i", numColours);
@@ -115,7 +115,7 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
     fprintf(fileOut,"%f\n", averageTileSize);
 
     fprintf(fileOut,"%s","Predicted Time: ");
-    fprintf(fileOut,"%i", time);
+    fprintf(fileOut,"%f", time);
     fprintf(fileOut,"%s\n", "mins");
 
     fprintf(fileOut,"%s","Panel Saw: ");
@@ -153,7 +153,7 @@ int CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y]
     fprintf(fileOut,"%s", "Total Predicted time for ");
     fprintf(fileOut,"%s", partName);
     fprintf(fileOut,"%s", ": ");
-    fprintf(fileOut,"%i", time);
+    fprintf(fileOut,"%f", time);
     fprintf(fileOut,"%s", " mins");
 
     fclose(fileOut);
