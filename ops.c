@@ -28,11 +28,23 @@ void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[
         while(fgets(currentLineStr, 8192, fileIn) != NULL)
         {
             TokenizeLine(currentLineStr, table, yIndex, x, y);
-            yIndex++;
 
+            yIndex++;
+            //printf("%i\n",yIndex);
         }
+
         fclose(fileIn);
     }
+
+    printf("%s\n", table[0][0].str);
+    printf("%f\n", table[1][0].dVal);
+
+    //printf("%s\n", table[2][0].str);
+    printf("%f\n", table[2][0].dVal);
+
+    //printf("%s\n", table[3][0].str);
+    printf("%f\n", table[3][0].dVal);
+
 }
 
 int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
@@ -291,21 +303,33 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry table[x][y], int yI
             //printf("%f\n",tokPtr);
             table[xIndex][yIndex].str = NULL;
             table[xIndex][yIndex].dVal = atof(tokPtr);
-            printf("%f\n", table[xIndex][yIndex].dVal);
+           // printf("%i\n", xIndex);
+           // printf("%i\n", yIndex);
+            //printf("%f\n", table[xIndex][yIndex].dVal);
+
         }
         else
         {
             table[xIndex][yIndex].str = malloc(strlen(tokPtr) + 1);
             strcpy(table[xIndex][yIndex].str, tokPtr);
             table[xIndex][yIndex].dVal = 0;
-            printf("%i\n", xIndex);
-            printf("s\n", yIndex);
-            printf("%s\n", table[xIndex][yIndex].str);
+            //printf("%i\n", xIndex);
+            //printf("%i\n", yIndex);
+            //printf("%s\n", table[xIndex][yIndex].str);
         }
 
         tokPtr = mystrsep(&current, "|");
+        //printf("%i\n", xIndex);
+        //printf("%i\n", yIndex);
+        //printf("%s\n", table[0][0].str);
+        //printf("%f\n", table[0][1].dVal);
+        //printf("%s\n", table[xIndex][yIndex].str);
+        //printf("%f\n", table[xIndex][yIndex].dVal);
+        //printf("\n");
         xIndex++;
     }
+    //printf("%s\n", table[0][0].str);
+    //printf("%f\n", table[1][0].dVal);
 }
 
 int NumRows(char fileName[])

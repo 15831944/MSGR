@@ -1,4 +1,89 @@
 #include "ops.h"
+void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
+                      Entry eTable[eTablex][eTabley], int eTablex, int eTabley,
+                      Entry tTable[tTablex][tTabley], int tTablex, int tTabley,
+                      int idInstances[eTabley], int rowQuantity[eTabley], int *numEntries)
+{
+int index;
+int numColours;
+int totalCutCount;
+int totalNumUnits;
+int panelSaw;
+int woodCnc;
+int finishingLine;
+int clipping;
+int tmp;
+int codeCount;
+
+double averageTileSize;
+double time;
+
+char *partName;
+
+for(index = 0; index < 21; index++)
+{
+    if(tTable[1][index].dVal != 1)
+    {
+        partName = tTable[0][index].str;
+        SearchForId(partName, eTable, idInstances, eTablex, eTabley, &numEntries);
+
+        numColours = checkColourDiff(idInstances, eTable, eTablex, eTabley, &numEntries);
+
+        char *codes[numColours];//Must be defined after numColours has been assigned a value
+
+        getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, &numEntries);
+        totalCutCount = numCuts(idInstances, eTable, eTablex, eTabley, &numEntries);
+        totalNumUnits = numUnits(idInstances, rowQuantity, eTable, eTablex, eTabley, &numEntries);
+        averageTileSize = avgSize(idInstances, totalNumUnits, rowQuantity, eTable, eTablex, eTabley, &numEntries);
+
+        panelSaw = (tTable[3][index].dVal * totalCutCount);
+        woodCnc = (tTable[8][index].dVal * totalNumUnits);
+        finishingLine = (tTable[12][index].dVal * totalNumUnits) + (tTable[14][index].dVal * (numColours - 1));
+        clipping = (tTable[15][index].dVal * totalNumUnits);
+
+        time = ((double)(tmp + panelSaw + woodCnc + finishingLine + clipping))/60;
+        printf("%f\n",time);
+        /*
+        printf("%s", "Tiles = ");
+        printf("%i", totalNumUnits);
+        printf("%s", " ");
+        printf("%s","Predicted: ");
+        printf("%f", time);
+        printf("%s\n", "mins");
+
+        printf("%i", numColours);
+        printf("%s\n", " Colour(s)");
+
+        printf("%s\n", "Colour Codes: ");
+
+        for(index = 0; index < (numColours); index++)
+        {
+            printf("%s", codes[index]);
+            printf("%s", "-");
+            codeCount = countColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, index, &numEntries);
+            printf("%s", "Number of Units: ");
+            printf("%i\n", codeCount);
+        }
+
+        printf("%s","Panel Saw: ");
+        printf("%i", (panelSaw/60));
+        printf("%s\n","min");
+
+        printf("%s","CNC: ");
+        printf("%i",(woodCnc/60));
+        printf("%s\n","min");
+
+        printf("%s","Finishing Line: ");
+        printf("%i",(finishingLine/60));
+        printf("%s\n","min");
+
+        printf("%s","clipping: ");
+        printf("%i",(clipping/60));
+        printf("%s\n","min");
+        */
+    }
+}
+}
 
 double CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int *numEntries, int x, int y)
 {
