@@ -61,11 +61,11 @@ int main(int argc, char *argv[])
     calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 
 
-    /*
+/*
     temp = CalculateFaceMountTiles(idInstances, rowQuantity, eTable, &numEntries, x, y);
     time = temp;
     printf("%f\n", time);
-    */
+*/
 /*
     temp = CalculateHorizTile(idInstances, rowQuantity, eTable, &numEntries, x, y);
     time = (double)temp;

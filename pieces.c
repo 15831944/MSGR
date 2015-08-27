@@ -95,11 +95,13 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
     else
     {
         printf("%i\n",tTabley);
-        for(index = 0; index < tTabley; index++)
+        for(index = 0; index < (tTabley - 1); index++)
         {
             if(tTable[1][index].dVal = 1)
             {
+
                 partName = tTable[0][index].str;
+                printf("%s\n",tTable[0][6].str);
                 SearchForId(partName, eTable, idInstances, eTablex, eTabley, &numEntries);
 
                 numColours = checkColourDiff(idInstances, eTable, eTablex, eTabley, &numEntries);
@@ -107,6 +109,8 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                 char *codes[numColours];//Must be defined after numColours has been assigned a value
 
                 getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, &numEntries);
+                printf("%s\n", codes[0]);
+
                 totalCutCount = numCuts(idInstances, eTable, eTablex, eTabley, &numEntries);
                 totalNumUnits = numUnits(idInstances, rowQuantity, eTable, eTablex, eTabley, &numEntries);
                 averageTileSize = avgSize(idInstances, totalNumUnits, rowQuantity, eTable, eTablex, eTabley, &numEntries);
@@ -129,7 +133,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                 fprintf(fileOut,"%f\n", averageTileSize);
 
                 fprintf(fileOut,"%s","Predicted Time: ");
-                fprintf(fileOut,"%f", time);
+                fprintf(fileOut,"%.1f", time);
                 fprintf(fileOut,"%s\n", "mins");
 
                 fprintf(fileOut,"%s","Panel Saw: ");
@@ -168,7 +172,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                 fprintf(fileOut,"%s", "Total Predicted time for ");
                 fprintf(fileOut,"%s", partName);
                 fprintf(fileOut,"%s", ": ");
-                fprintf(fileOut,"%f", time);
+                fprintf(fileOut,"%.1f", time);
                 fprintf(fileOut,"%s", " mins");
 
                 fclose(fileOut);
