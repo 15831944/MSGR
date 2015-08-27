@@ -6,7 +6,6 @@ void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[
     int yIndex = 0;
 
     FILE *fileIn;
-    FILE *fileOut;
 
     fileIn = fopen(fileName, "r");
 

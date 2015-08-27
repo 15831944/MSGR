@@ -37,6 +37,26 @@ int main(int argc, char *argv[])
 
     populateTable(eTable,x,y,fileName);
     populateTable(tTable,tTableXdim,tTableYdim,timeFile);
+    printf("%s\n", tTable[0][0].str);
+    printf("%f\n", tTable[1][0].dVal);
+
+    //printf("%s\n", table[2][0].str);
+    printf("%f\n", tTable[2][0].dVal);
+
+    //printf("%s\n", table[3][0].str);
+    printf("%f\n", tTable[3][0].dVal);
+
+        int ty;
+        int tx;
+        //for(ty = 0; y < tTableYdim; ty++)
+        //{
+
+            for(tx = 0; x < tTableXdim; tx++)
+            {
+                printf("%f\n",tTable[0][tx].dVal);
+            }
+
+        //}
 
     calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 

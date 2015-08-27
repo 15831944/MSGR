@@ -4,87 +4,178 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                       Entry tTable[tTablex][tTabley], int tTablex, int tTabley,
                       int idInstances[eTabley], int rowQuantity[eTabley], int *numEntries)
 {
-int index;
-int numColours;
-int totalCutCount;
-int totalNumUnits;
-int panelSaw;
-int woodCnc;
-int finishingLine;
-int clipping;
-int tmp;
-int codeCount;
+    int index;
+    int numColours;
+    int totalCutCount;
+    int totalNumUnits;
+    int panelSaw;
+    int woodCnc;
+    int finishingLine;
+    int clipping;
+    int tmp;
+    int codeCount;
 
-double averageTileSize;
-double time;
+    double averageTileSize;
+    double time;
 
-char *partName;
+    char *partName;
 
-for(index = 0; index < 21; index++)
-{
-    if(tTable[1][index].dVal != 1)
+    printf("%s\n", tTable[0][0].str);
+    printf("%f\n", tTable[1][0].dVal);
+
+    //printf("%s\n", table[2][0].str);
+    printf("%f\n", tTable[2][0].dVal);
+
+    //printf("%s\n", table[3][0].str);
+    printf("%f\n", tTable[3][0].dVal);
+
+
+
+    printf("%s\n", tTable[0][1].str);
+    printf("%f\n", tTable[1][1].dVal);
+
+    //printf("%s\n", table[2][0].str);
+    printf("%f\n", tTable[2][1].dVal);
+
+    //printf("%s\n", table[3][0].str);
+    printf("%f\n", tTable[3][1].dVal);
+
+
+
+    printf("%s\n", tTable[0][2].str);
+    printf("%f\n", tTable[1][2].dVal);
+
+    //printf("%s\n", table[2][0].str);
+    printf("%f\n", tTable[2][2].dVal);
+
+    //printf("%s\n", table[3][0].str);
+    printf("%f\n", tTable[3][2].dVal);
+
+
+
+    printf("%s\n", tTable[0][3].str);
+    printf("%f\n", tTable[1][1].dVal);
+
+    //printf("%s\n", table[2][0].str);
+    printf("%f\n", tTable[2][3].dVal);
+
+    //printf("%s\n", table[3][0].str);
+    printf("%f\n", tTable[3][3].dVal);
+
+
+
+    printf("%s\n", tTable[0][5].str);
+    printf("%f\n", tTable[1][5].dVal);
+
+    //printf("%s\n", table[2][0].str);
+    printf("%f\n", tTable[2][5].dVal);
+
+    //printf("%s\n", table[3][0].str);
+    printf("%f\n", tTable[3][5].dVal);
+
+
+
+    printf("%s\n", tTable[0][6].str);
+    printf("%f\n", tTable[1][6].dVal);
+
+    //printf("%s\n", table[2][0].str);
+    printf("%f\n", tTable[2][6].dVal);
+
+    //printf("%s\n", table[3][0].str);
+    printf("%f\n", tTable[3][6].dVal);
+
+    FILE *fileOut;
+    fileOut = fopen("output.txt", "w");
+    if(fileOut == 0)
     {
-        partName = tTable[0][index].str;
-        SearchForId(partName, eTable, idInstances, eTablex, eTabley, &numEntries);
-
-        numColours = checkColourDiff(idInstances, eTable, eTablex, eTabley, &numEntries);
-
-        char *codes[numColours];//Must be defined after numColours has been assigned a value
-
-        getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, &numEntries);
-        totalCutCount = numCuts(idInstances, eTable, eTablex, eTabley, &numEntries);
-        totalNumUnits = numUnits(idInstances, rowQuantity, eTable, eTablex, eTabley, &numEntries);
-        averageTileSize = avgSize(idInstances, totalNumUnits, rowQuantity, eTable, eTablex, eTabley, &numEntries);
-
-        panelSaw = (tTable[3][index].dVal * totalCutCount);
-        woodCnc = (tTable[8][index].dVal * totalNumUnits);
-        finishingLine = (tTable[12][index].dVal * totalNumUnits) + (tTable[14][index].dVal * (numColours - 1));
-        clipping = (tTable[15][index].dVal * totalNumUnits);
-
-        time = ((double)(tmp + panelSaw + woodCnc + finishingLine + clipping))/60;
-        printf("%f\n",time);
-        /*
-        printf("%s", "Tiles = ");
-        printf("%i", totalNumUnits);
-        printf("%s", " ");
-        printf("%s","Predicted: ");
-        printf("%f", time);
-        printf("%s\n", "mins");
-
-        printf("%i", numColours);
-        printf("%s\n", " Colour(s)");
-
-        printf("%s\n", "Colour Codes: ");
-
-        for(index = 0; index < (numColours); index++)
+        perror("Could open output file\n");
+        system("PAUSE");
+        exit(-1);
+    }
+    else
+    {
+        printf("%i\n",tTabley);
+        for(index = 0; index < tTabley; index++)
         {
-            printf("%s", codes[index]);
-            printf("%s", "-");
-            codeCount = countColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, index, &numEntries);
-            printf("%s", "Number of Units: ");
-            printf("%i\n", codeCount);
+            if(tTable[1][index].dVal = 1)
+            {
+                partName = tTable[0][index].str;
+                SearchForId(partName, eTable, idInstances, eTablex, eTabley, &numEntries);
+
+                numColours = checkColourDiff(idInstances, eTable, eTablex, eTabley, &numEntries);
+
+                char *codes[numColours];//Must be defined after numColours has been assigned a value
+
+                getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, &numEntries);
+                totalCutCount = numCuts(idInstances, eTable, eTablex, eTabley, &numEntries);
+                totalNumUnits = numUnits(idInstances, rowQuantity, eTable, eTablex, eTabley, &numEntries);
+                averageTileSize = avgSize(idInstances, totalNumUnits, rowQuantity, eTable, eTablex, eTabley, &numEntries);
+
+                panelSaw = (tTable[3][index].dVal * totalCutCount);
+                woodCnc = (tTable[8][index].dVal * totalNumUnits);
+
+                finishingLine = ((tTable[12][index].dVal * totalNumUnits) + (tTable[14][index].dVal * (numColours - 1)) +
+                                 ((tTable[13][index].dVal * totalNumUnits) * numColours));
+
+                clipping = (tTable[15][index].dVal * totalNumUnits);
+
+                time = ((double)(panelSaw + woodCnc + finishingLine + clipping))/60;
+
+
+                fprintf(fileOut,"%s", "Part Name: ");
+                fprintf(fileOut,"%s\n", partName);
+
+                fprintf(fileOut,"%s", "Average tile size: ");
+                fprintf(fileOut,"%f\n", averageTileSize);
+
+                fprintf(fileOut,"%s","Predicted Time: ");
+                fprintf(fileOut,"%f", time);
+                fprintf(fileOut,"%s\n", "mins");
+
+                fprintf(fileOut,"%s","Panel Saw: ");
+                fprintf(fileOut,"%i", (panelSaw/60));
+                fprintf(fileOut,"%s\n","min");
+
+                fprintf(fileOut,"%s","CNC: ");
+                fprintf(fileOut,"%i",(woodCnc/60));
+                fprintf(fileOut,"%s\n","min");
+
+                fprintf(fileOut,"%s","Finishing Line: ");
+                fprintf(fileOut,"%i",(finishingLine/60));
+                fprintf(fileOut,"%s\n","min");
+
+                fprintf(fileOut,"%s","    ");
+                fprintf(fileOut,"%i", numColours);
+                fprintf(fileOut,"%s\n", " Colour(s)");
+
+                fprintf(fileOut,"%s","    ");
+                fprintf(fileOut,"%s\n", "Colour Codes: ");
+
+                for(index = 0; index < (numColours); index++)
+                {
+                    fprintf(fileOut,"%s", "        ");
+                    fprintf(fileOut,"%s", codes[index]);
+                    fprintf(fileOut,"%s", " - ");
+                    codeCount = countColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, index, &numEntries);
+                    fprintf(fileOut,"%s", "Number of Units: ");
+                    fprintf(fileOut,"%i\n", codeCount);
+                }
+
+                fprintf(fileOut,"%s","clipping: ");
+                fprintf(fileOut,"%i",(clipping/60));
+                fprintf(fileOut,"%s\n","min");
+
+                fprintf(fileOut,"%s", "Total Predicted time for ");
+                fprintf(fileOut,"%s", partName);
+                fprintf(fileOut,"%s", ": ");
+                fprintf(fileOut,"%f", time);
+                fprintf(fileOut,"%s", " mins");
+
+                fclose(fileOut);
+            }
         }
-
-        printf("%s","Panel Saw: ");
-        printf("%i", (panelSaw/60));
-        printf("%s\n","min");
-
-        printf("%s","CNC: ");
-        printf("%i",(woodCnc/60));
-        printf("%s\n","min");
-
-        printf("%s","Finishing Line: ");
-        printf("%i",(finishingLine/60));
-        printf("%s\n","min");
-
-        printf("%s","clipping: ");
-        printf("%i",(clipping/60));
-        printf("%s\n","min");
-        */
     }
 }
-}
-
 double CalculateFaceMountTiles(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int *numEntries, int x, int y)
 {
     int numColours;

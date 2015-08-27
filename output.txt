@@ -1,9 +1,9 @@
 Part Name: DWL_FaceMountTile
 Average tile size: 0.889013
-Predicted Time: 154.800000mins
+Predicted Time: 1114.800000mins
 Panel Saw: 3min
 CNC: 64min
-Finishing Line: 81min
+Finishing Line: 1041min
     4 Colour(s)
     Colour Codes: 
         DC11 - Number of Units: 4
@@ -11,4 +11,4 @@ Finishing Line: 81min
         DC13 - Number of Units: 4
         DC14 - Number of Units: 4
 clipping: 6min
-Total Predicted time for DWL_FaceMountTile: 154.800000 mins
+Total Predicted time for DWL_FaceMountTile: 1114.800000 mins
