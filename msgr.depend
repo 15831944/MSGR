@@ -11,7 +11,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1440000672 c:\users\jmcconkey\documents\msgr\ops.h
+1440787767 c:\users\jmcconkey\documents\msgr\ops.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -21,9 +21,9 @@
 	<stdio.h>
 	<stdlib.h>
 
-1440714532 source:c:\users\jmcconkey\documents\msgr\ops.c
+1440787749 source:c:\users\jmcconkey\documents\msgr\ops.c
 	"ops.h"
 
-1440711182 source:c:\users\jmcconkey\documents\msgr\pieces.c
+1440787863 source:c:\users\jmcconkey\documents\msgr\pieces.c
 	"ops.h"
 

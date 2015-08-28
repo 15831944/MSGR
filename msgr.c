@@ -14,13 +14,14 @@ int main(int argc, char *argv[])
     char stringToFind[256] = {"DWL_FaceMountTile"};
     char fileName[64] = {"rtest.txt"};
     char timeFile[64] = {"timefile.msgr"};
+
     int numEntries = 0;
     int x;
     int y;
-    double time;
-    double temp;
     int tTableXdim;
     int tTableYdim;
+
+    double time;
 
     tTableXdim = NumColumns(timeFile);
     tTableYdim = NumRows(timeFile);
@@ -37,44 +38,8 @@ int main(int argc, char *argv[])
 
     populateTable(eTable,x,y,fileName);
     populateTable(tTable,tTableXdim,tTableYdim,timeFile);
-    printf("%s\n", tTable[0][0].str);
-    printf("%f\n", tTable[1][0].dVal);
-
-    //printf("%s\n", table[2][0].str);
-    printf("%f\n", tTable[2][0].dVal);
-
-    //printf("%s\n", table[3][0].str);
-    printf("%f\n", tTable[3][0].dVal);
-
-        int ty;
-        int tx;
-        //for(ty = 0; y < tTableYdim; ty++)
-        //{
-
-            for(tx = 0; x < tTableXdim; tx++)
-            {
-                printf("%f\n",tTable[0][tx].dVal);
-            }
-
-        //}
 
     calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
-
-
-/*
-    temp = CalculateFaceMountTiles(idInstances, rowQuantity, eTable, &numEntries, x, y);
-    time = temp;
-    printf("%f\n", time);
-*/
-/*
-    temp = CalculateHorizTile(idInstances, rowQuantity, eTable, &numEntries, x, y);
-    time = (double)temp;
-    printf("%f\n", time);
-
-    temp = CalculateMagTile(idInstances, rowQuantity, eTable, &numEntries, x, y);
-    time = (double)temp;
-    printf("%f\n", time);
-*/
 
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
 

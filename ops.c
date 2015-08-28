@@ -1,5 +1,13 @@
 #include "ops.h"
 
+void freePtrArray(char** array, int count)
+{
+    int i;
+
+    for(i=0; i<count; ++i)
+        free(++array[i]);
+}
+
 void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[])
 {
     char currentLineStr[8192];
@@ -29,21 +37,10 @@ void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[
             TokenizeLine(currentLineStr, table, yIndex, x, y);
 
             yIndex++;
-            //printf("%i\n",yIndex);
         }
 
         fclose(fileIn);
     }
-
-    printf("%s\n", table[0][0].str);
-    printf("%f\n", table[1][0].dVal);
-
-    //printf("%s\n", table[2][0].str);
-    printf("%f\n", table[2][0].dVal);
-
-    //printf("%s\n", table[3][0].str);
-    printf("%f\n", table[3][0].dVal);
-
 }
 
 int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
@@ -70,15 +67,14 @@ int extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], Ent
     int index = 0;
     int n;
     int temp;
-    //printf("%s\n", eTable[column][(idInstances[index] - 1)].str);
+
     for(index = 0; index < *numEntries; index++)
     {
-     //printf("%s\n", eTable[column][(idInstances[index] - 1)].str);
         current = eTable[column][(idInstances[index] - 1)].str;
 
         tokPtr = mystrsep(&current, " m:");
         n = 0;
-        Tokenize:
+Tokenize:
         while(tokPtr != NULL)
         {
             printf("%s\n", tokPtr);
@@ -111,25 +107,16 @@ double avgSize(int x; int y; int idInstances[y], int totalNumUnits, int rowQuant
     double total = 0;
     double tmp = 0;
     int index;
-    //int totalNumUnits;
-
-    //totalNumUnits = numUnits(idInstances, rowQuantity, eTable, x, y, &numEntries);
 
     for(index = 0; index < *numEntries; index++)
     {
         tmp = ((eTable[11][(idInstances[index] - 1)].dVal / 1000) *
                (eTable[12][(idInstances[index] - 1)].dVal / 1000));
-        printf("%f\n", tmp);
-        tmp = tmp * eTable[21][(idInstances[index] - 1)].dVal;
 
-        printf("%f\n", eTable[11][(idInstances[index] - 1)].dVal);
-        printf("%f\n", eTable[12][(idInstances[index] - 1)].dVal);
-        printf("%f\n", tmp);
+        tmp = tmp * eTable[21][(idInstances[index] - 1)].dVal;
         total = total + tmp;
     }
-
     total = total/totalNumUnits;
-
     return total;
 }
 int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries)
@@ -188,10 +175,10 @@ int countColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTa
     for(x = 0; x < *numEntries; x++)
     {
         if(strcmp(eTable[5][(idInstances[x] - 1)].str, codes[index]) == 0)
-            {
-                tmp = eTable[21][(idInstances[x] - 1)].dVal;
-                count = count + tmp;
-            }
+        {
+            tmp = eTable[21][(idInstances[x] - 1)].dVal;
+            count = count + tmp;
+        }
     }
     return count;
 }
@@ -211,7 +198,8 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
 
         if(compareResult != 0)
         {
-            codes[codeIndex] = (eTable[5][(idInstances[index] - 1)].str);
+            codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index] - 1)].str + 1));
+            strcpy(codes[codeIndex], eTable[5][(idInstances[index] - 1)].str);
 
             if(offSet > 1)
                 index = (offSet + index);
@@ -233,7 +221,7 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
 }
 
 //search for the AlternateOptionID stored int the 1st column of the arrray
-void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idInstances[y], int x, int y, int *numEntries)
+int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idInstances[y], int x, int y, int *numEntries)
 {
     int index;
     int idIndex = 0;
@@ -246,13 +234,13 @@ void SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIn
         if(strncmp(eTable[0][index].str, stringToFind, strlen(stringToFind)) == 0)
         {
             temp = index + 1;
-            //printf("%i\n", temp);
             idInstances[idIndex] = temp;
-            // printf("%i\n", idInstances[0]);
             idIndex++;
             (*numEntries)++;
         }
     }
+    if(*numEntries == 0)
+        return 0;
 }
 
 int IsDouble(const char *str)
@@ -299,36 +287,19 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry table[x][y], int yI
     {
         if(IsDouble(tokPtr))
         {
-            //printf("%f\n",tokPtr);
             table[xIndex][yIndex].str = NULL;
             table[xIndex][yIndex].dVal = atof(tokPtr);
-           // printf("%i\n", xIndex);
-           // printf("%i\n", yIndex);
-            //printf("%f\n", table[xIndex][yIndex].dVal);
-
         }
         else
         {
             table[xIndex][yIndex].str = malloc(strlen(tokPtr) + 1);
             strcpy(table[xIndex][yIndex].str, tokPtr);
             table[xIndex][yIndex].dVal = 0;
-            //printf("%i\n", xIndex);
-            //printf("%i\n", yIndex);
-            //printf("%s\n", table[xIndex][yIndex].str);
         }
 
         tokPtr = mystrsep(&current, "|");
-        //printf("%i\n", xIndex);
-        //printf("%i\n", yIndex);
-        //printf("%s\n", table[0][0].str);
-        //printf("%f\n", table[0][1].dVal);
-        //printf("%s\n", table[xIndex][yIndex].str);
-        //printf("%f\n", table[xIndex][yIndex].dVal);
-        //printf("\n");
         xIndex++;
     }
-    //printf("%s\n", table[0][0].str);
-    //printf("%f\n", table[1][0].dVal);
 }
 
 int NumRows(char fileName[])
@@ -390,6 +361,5 @@ int NumColumns(char fileName[])
         }
     }
     fclose(fileIn);
-    //printf("%i\n",xIndex);
     return xIndex;
 }
