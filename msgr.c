@@ -10,76 +10,48 @@
 
 int main(int argc, char *argv[])
 {
-    char currentLineStr[8192];
+
     char stringToFind[256] = {"DWL_FaceMountTile"};
     char fileName[64] = {"rtest.txt"};
+    char timeFile[64] = {"timefile.msgr"};
 
-    int x = 150;
-    int y = 300;
-    int yIndex = 0;
-    int i;
-    int temp;
-    double time;
-    int n;
-    int diffCount;
     int numEntries = 0;
-    int cutCount;
-    int totalNumUnits;
+    int x;
+    int y;
+    int tTableXdim;
+    int tTableYdim;
 
+    double time;
+
+    tTableXdim = NumColumns(timeFile);
+    tTableYdim = NumRows(timeFile);
     x = NumColumns(fileName);
     y = NumRows(fileName);
 
+
     Entry eTable[x][y];
+    Entry tTable[tTableXdim][tTableYdim];
+
     int idInstances[y];
     int rowQuantity[y];
     double clipLines[x][y];
-    FILE *fileIn;
-    FILE *fileOut;
-    fileIn = fopen(fileName, "r");
 
-    if(fileIn == 0)
-    {
-        perror("Cannot open input file\n");
-        system("PAUSE");
-        exit(-1);
-    }
-    else
-    {
-        fgets(currentLineStr, 8192, fileIn);
+    populateTable(eTable,x,y,fileName);
+    populateTable(tTable,tTableXdim,tTableYdim,timeFile);
 
-        while (currentLineStr[0] == '#')
-            fgets(currentLineStr, 8192, fileIn);
-
-        TokenizeLine(currentLineStr, eTable, yIndex, x, y);
-        yIndex++;
-
-        while(fgets(currentLineStr, 8192, fileIn) != NULL)
-        {
-            TokenizeLine(currentLineStr, eTable, yIndex, x, y);
-            yIndex++;
-        }
-        fclose(fileIn);
-    }
-
-
-    temp = CalculateFaceMountTiles(idInstances, rowQuantity, eTable, &numEntries, x, y);
-    time = (double)temp;
-    printf("%f\n", time);
-/*
-    temp = CalculateHorizTile(idInstances, rowQuantity, eTable, &numEntries, x, y);
-    time = (double)temp;
-    printf("%f\n", time);
-
-    temp = CalculateMagTile(idInstances, rowQuantity, eTable, &numEntries, x, y);
-    time = (double)temp;
-    printf("%f\n", time);
-*/
+    calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
 
     printf("1st dimension = %u\n", (unsigned) BOUNDS(eTable));
 
     printf("2nd dimension = %u\n", (unsigned) BOUNDS(eTable[0]));
+
+    printf("sizeof tTable = %u\n", (unsigned) sizeof tTable);
+
+    printf("1st dimension = %u\n", (unsigned) BOUNDS(tTable));
+
+    printf("2nd dimension = %u\n", (unsigned) BOUNDS(tTable[0]));
 
     system("PAUSE");
     return 0;

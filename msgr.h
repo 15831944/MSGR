@@ -6,8 +6,8 @@
 
 typedef struct Entry
 {
-        char *str;
-        double dVal;
+    char *str;
+    double dVal;
 } Entry;
 
 
