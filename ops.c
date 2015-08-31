@@ -144,6 +144,13 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
 
     while(flag)
     {
+
+        if(index == *numEntries)
+        {
+            flag = 0;
+            break;
+        }
+
         compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);
 
         if(compareResult != 0)
@@ -160,9 +167,6 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
         {
             offSet++;
         }
-
-        if(index == *numEntries)
-            flag = 0;
     }
     return diffCount;
 }
@@ -194,11 +198,17 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
 //@TODO problem with repitition checking dc11 appears twice.
     while(flag)
     {
+        if(index == *numEntries)
+        {
+            //codes[*numEntries] = NULL;
+            flag = 0;
+            break;
+        }
         compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);
 
         if(compareResult != 0)
         {
-            codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index] - 1)].str + 1));
+            codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index] - 1)].str) + 1);
             strcpy(codes[codeIndex], eTable[5][(idInstances[index] - 1)].str);
 
             if(offSet > 1)
@@ -214,9 +224,6 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
         {
             offSet++;
         }
-
-        if(index == *numEntries)
-            flag = 0;
     }
 }
 
@@ -231,7 +238,8 @@ int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIns
 
     for(index = 0; index < y; index++)
     {
-        if(strncmp(eTable[0][index].str, stringToFind, strlen(stringToFind)) == 0)
+        if(strncmp(eTable[0][index].str, stringToFind, strlen(eTable[0][index].str)) == 0)
+        //if(strncmp(eTable[0][index].str, stringToFind, strlen(stringToFind)) == 0)
         {
             temp = index + 1;
             idInstances[idIndex] = temp;

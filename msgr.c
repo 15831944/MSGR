@@ -39,6 +39,8 @@ int main(int argc, char *argv[])
     populateTable(eTable,x,y,fileName);
     populateTable(tTable,tTableXdim,tTableYdim,timeFile);
 
+    printf("%i\n",strcmp("DWL_FaceMountTile","DWL_FaceMountTileSet"));
+
     calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);
