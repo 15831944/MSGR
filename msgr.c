@@ -45,9 +45,12 @@ int main(int argc, char *argv[])
     printf("%i\n",strncmp("DWL_FaceMountTileSet","DWL_FaceMountTile",strlen("DWL_FaceMountTile")));
     //printf("%i\n",strncmp("DWL_FaceMountTileSet","DWL_FaceMountTile",strlen("DWL_FaceMountTileSet")));
 
+<<<<<<< HEAD
 
     calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 
+=======
+>>>>>>> parent of ea73c0b... problem with strcmp simlilar dwl codes
     calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);

@@ -56,6 +56,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     char *codes[numColours];//Must be defined after numColours has been assigned a value
 
                     getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, numEntries);
+                    printf("%s\n", codes[0]);
 
                     totalCutCount = numCuts(idInstances, eTable, eTablex, eTabley, numEntries);
                     totalNumUnits = numUnits(idInstances, rowQuantity, eTable, eTablex, eTabley, numEntries);
@@ -70,11 +71,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     clipping = (tTable[15][index].dVal * totalNumUnits);
 
                     time = ((double)(panelSaw + woodCnc + finishingLine + clipping))/60;
-                    int x;
-                    for(x = 0; x < numColours; x++)
-                        {
-                            printf("%s\n", codes[x]);
-                        }
+
                     fprintf(fileOut,"%s\n", "----------------------------------------------------------------------------");
                     fprintf(fileOut,"%s", "Part Name: ");
                     fprintf(fileOut,"%s\n", partName);
@@ -99,7 +96,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     fprintf(fileOut,"%s\n","min");
 
                     fprintf(fileOut,"%s","    ");
-                    fprintf(fileOut,"%i", (numColours));
+                    fprintf(fileOut,"%i", numColours);
                     fprintf(fileOut,"%s\n", " Colour(s)");
 
                     fprintf(fileOut,"%s","    ");

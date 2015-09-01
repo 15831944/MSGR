@@ -1,0 +1,71 @@
+<<<<<<< HEAD
+=======
+test 1
+test 2
+----------------------------------------------------------------------------
+Part Name: DWL_FaceMountTile
+Average tile size: 0.889013
+Predicted Time: 1374.8mins
+Panel Saw: 3min
+CNC: 80min
+Finishing Line: 1283min
+    4 Colour(s)
+    Colour Codes: 
+        DC11 - Number of Units: 4
+        DC12 - Number of Units: 4
+        DC13 - Number of Units: 4
+        DC14 - Number of Units: 8
+clipping: 8min
+Total Predicted time for DWL_FaceMountTile: 1374.8 mins
+----------------------------------------------------------------------------
+
+test 2
+----------------------------------------------------------------------------
+Part Name: DWL_FaceMountTileSet
+Average tile size: 0.889013
+Predicted Time: 0.0mins
+Panel Saw: 0min
+CNC: 0min
+Finishing Line: 0min
+    1 Colour(s)
+    Colour Codes: 
+        DC14 - Number of Units: 4
+clipping: 0min
+Total Predicted time for DWL_FaceMountTileSet: 0.0 mins
+----------------------------------------------------------------------------
+
+test 2
+DWL_FM_MagTile was ommited not in production
+
+DWL_FM_TackableTile was ommited not in production
+
+DWL_StickBuiltTile was ommited not in production
+
+DWL_CenterMountTile was ommited not in production
+
+DWL_Tackable09 was ommited not in production
+
+DWL_SlatWall was ommited not in production
+
+DWL_FM_FramelessTile was ommited not in production
+
+DWL_FrmlessTile_Flr was ommited not in production
+
+DWL_FGTackTile was ommited not in production
+
+DWL_FGTackTile_Flr was ommited not in production
+
+DWL_FGTackTile_GS was ommited not in production
+
+DWL_FGTackTile_H was ommited not in production
+
+DWL_FGTackTile_Flr_H was ommited not in production
+
+test 2
+DWL_FM_GS_GlassTile was ommited not in production
+
+DWL_FM_Fab_MagTile was ommited not in production
+
+DWL_ENZO_FM_Frmless was ommited not in production
+
+>>>>>>> parent of ea73c0b... problem with strcmp simlilar dwl codes
