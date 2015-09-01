@@ -27,7 +27,8 @@ int main(int argc, char *argv[])
     tTableYdim = NumRows(timeFile);
     x = NumColumns(fileName);
     y = NumRows(fileName);
-
+    x++;
+    y++;
 
     Entry eTable[x][y];
     Entry tTable[tTableXdim][tTableYdim];
@@ -36,10 +37,16 @@ int main(int argc, char *argv[])
     int rowQuantity[y];
     double clipLines[x][y];
 
-    populateTable(eTable,x,y,fileName);
-    populateTable(tTable,tTableXdim,tTableYdim,timeFile);
+    populateTable(eTable,x,y,fileName,"eTable.txt");
+    populateTable(tTable,tTableXdim,tTableYdim,timeFile,"tTable.txt");
 
-    printf("%i\n",strcmp("DWL_FaceMountTile","DWL_FaceMountTileSet"));
+    printf("%i\n",strncmp("DWL_FaceMountTile","DWL_FaceMountTileSet",strlen("DWL_FaceMountTile")));
+    printf("%i\n",strncmp("DWL_FaceMountTile","DWL_FaceMountTileSet",strlen("DWL_FaceMountTileSet")));
+    printf("%i\n",strncmp("DWL_FaceMountTileSet","DWL_FaceMountTile",strlen("DWL_FaceMountTile")));
+    //printf("%i\n",strncmp("DWL_FaceMountTileSet","DWL_FaceMountTile",strlen("DWL_FaceMountTileSet")));
+
+
+    calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 
     calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 

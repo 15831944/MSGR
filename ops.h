@@ -8,7 +8,7 @@
 #include "msgr.h"
 
 void freePtrArray(char** array, int count);
-void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[]);
+void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[],char tableName[]);
 int NumRows(char fileName[]);
 int NumColumns(char fileName[]);
 void TokenizeLine(int x; int y; char currentLineStr[], Entry eTable[x][y], int yIndex, int x, int y);
