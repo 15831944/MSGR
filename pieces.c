@@ -31,7 +31,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
     }
     else
     {
-        for(index = 0; index < (tTabley - 1); index++)
+        for(index = 0; index < (tTabley); index++)
         {
             if(tTable[1][index].dVal == 1)
             {
@@ -46,6 +46,10 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                 time = 0;
                 codeCount = 0;
 
+                printf("%s\n", tTable[0][index].str);
+                printf("%s\n", eTable[5][8].str);
+
+
                 partName = malloc(strlen(tTable[0][index].str) + 1);
                 strcpy(partName,tTable[0][index].str);
 
@@ -54,13 +58,35 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     numColours = checkColourDiff(idInstances, eTable, eTablex, eTabley, numEntries);
 
                     char *codes[numColours];//Must be defined after numColours has been assigned a value
+                     printf("%i\n", numColours);
+                     printf("%i\n", *numEntries);
 
 
-                    //getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, numEntries);
+
+                    getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, numEntries);
+                    //int foo;
+                    //for(foo = 0; 0 < numEntries; foo++)
+/*
+                        printf("%i\n",idInstances[0]);
+                        printf("%i\n",idInstances[1]);
+                        printf("%i\n",idInstances[2]);
+                        printf("\n");
+
+                        printf("%s\n", eTable[5][1].str);
+                        printf("%s\n", eTable[5][2].str);
+                        printf("%s\n", eTable[5][3].str);
+                          printf("\n");
+
+                        printf("%s\n", eTable[5][2].str);
+                        printf("%s\n", eTable[5][3].str);
+                        printf("%s\n", eTable[5][4].str);
+                        printf("\n");
+*/
+
                     //codes[0] = eTable[5][1].str;
                     //codes[1] = eTable[5][2].str;
                     //codes[2] = eTable[5][3].str;
-                    codes[0] = eTable[5][4].str;
+                    //codes[0] = eTable[5][5].str;
                     //codes[4] = eTable[5][5].str;
 
                     totalCutCount = numCuts(idInstances, eTable, eTablex, eTabley, numEntries);
@@ -76,7 +102,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     clipping = (tTable[15][index].dVal * totalNumUnits);
 
                     time = ((double)(panelSaw + woodCnc + finishingLine + clipping))/60;
-
+/*
                     printf("%s\n",eTable[5][0].str);
                     printf("%s\n",eTable[5][1].str);
                     printf("%s\n",eTable[5][2].str);
@@ -84,20 +110,11 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     printf("%s\n",eTable[5][4].str);
                     printf("%s\n",eTable[5][5].str);
                     printf("\n");
-                    printf("%s\n", codes[0]);
-                    printf("%s\n", codes[2]);
-                    printf("%s\n", codes[3]);
-                    printf("%s\n", codes[4]);
-                    printf("%s\n", codes[5]);
+  */
 
-                   /* ////////////////////////////////
-                    int x;
-                    for(x = 0; x < numColours; x++)
-                        {
-                            printf("%s\n", codes[x]);
-                        }
+                    //printf("%s\n", codes[4]);
+                    //printf("%s\n", codes[5]);
 
-                    *////////////////////////////////////
                     fprintf(fileOut,"%s\n", "----------------------------------------------------------------------------");
                     fprintf(fileOut,"%s", "Part Name: ");
                     fprintf(fileOut,"%s\n", partName);
@@ -149,11 +166,20 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     fprintf(fileOut,"%s\n", " mins");
                     fprintf(fileOut,"%s\n", "----------------------------------------------------------------------------");
                     fprintf(fileOut,"\n");
+
+                    free(partName);
                     freePtrArray(codes, numColours);
                 }
                 else
                 {
-                    free(partName);
+                partName = malloc(strlen(tTable[0][index].str) + 1);
+                strcpy(partName,tTable[0][index].str);
+                fprintf(fileOut,"%s", partName);
+                fprintf(fileOut,"%s\n", " was ommited not Found in file");
+                fprintf(fileOut,"\n");
+
+                free(partName);
+
                 }
             }
             else
@@ -165,7 +191,6 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                 fprintf(fileOut,"\n");
 
                 free(partName);
-
             }
         }
         fclose(fileOut);
