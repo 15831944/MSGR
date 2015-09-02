@@ -27,8 +27,7 @@ int main(int argc, char *argv[])
     tTableYdim = NumRows(timeFile);
     x = NumColumns(fileName);
     y = NumRows(fileName);
-    x++;
-    y++;
+
 
     Entry eTable[x][y];
     Entry tTable[tTableXdim][tTableYdim];
@@ -37,20 +36,12 @@ int main(int argc, char *argv[])
     int rowQuantity[y];
     double clipLines[x][y];
 
-    populateTable(eTable,x,y,fileName,"eTable.txt");
-    populateTable(tTable,tTableXdim,tTableYdim,timeFile,"tTable.txt");
+    populateTable(eTable,x,y,fileName, "eTable.txt");
+    populateTable(tTable,tTableXdim,tTableYdim,timeFile, "tTable.txt");
 
-    printf("%i\n",strncmp("DWL_FaceMountTile","DWL_FaceMountTileSet",strlen("DWL_FaceMountTile")));
-    printf("%i\n",strncmp("DWL_FaceMountTile","DWL_FaceMountTileSet",strlen("DWL_FaceMountTileSet")));
-    printf("%i\n",strncmp("DWL_FaceMountTileSet","DWL_FaceMountTile",strlen("DWL_FaceMountTile")));
-    //printf("%i\n",strncmp("DWL_FaceMountTileSet","DWL_FaceMountTile",strlen("DWL_FaceMountTileSet")));
 
-<<<<<<< HEAD
 
-    calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 
-=======
->>>>>>> parent of ea73c0b... problem with strcmp simlilar dwl codes
     calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries);
 
     printf("sizeof eTable = %u\n", (unsigned) sizeof eTable);

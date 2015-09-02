@@ -1,9 +1,5 @@
 # depslib dependency file v1.0
-<<<<<<< HEAD
-1441127916 source:c:\users\jmcconkey\documents\msgr\msgr.c
-=======
-1440704973 source:c:\users\jmcconkey\documents\msgr\msgr.c
->>>>>>> parent of ea73c0b... problem with strcmp simlilar dwl codes
+1441205363 source:c:\users\jmcconkey\documents\msgr\msgr.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -11,38 +7,23 @@
 	"ops.h"
 	"pieces.h"
 
-1437408276 c:\users\jmcconkey\documents\msgr\msgr.h
+1441138244 c:\users\jmcconkey\documents\msgr\msgr.h
 	<stdio.h>
 	<stdlib.h>
 
-<<<<<<< HEAD
-1441127949 c:\users\jmcconkey\documents\msgr\ops.h
-=======
-1440787767 c:\users\jmcconkey\documents\msgr\ops.h
->>>>>>> parent of ea73c0b... problem with strcmp simlilar dwl codes
+1441139378 c:\users\jmcconkey\documents\msgr\ops.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"msgr.h"
 
-<<<<<<< HEAD
-1441127210 c:\users\jmcconkey\documents\msgr\pieces.h
+1441138244 c:\users\jmcconkey\documents\msgr\pieces.h
 	<stdio.h>
 	<stdlib.h>
 
-1441136631 source:c:\users\jmcconkey\documents\msgr\ops.c
+1441207709 source:c:\users\jmcconkey\documents\msgr\ops.c
 	"ops.h"
 
-1441133548 source:c:\users\jmcconkey\documents\msgr\pieces.c
-=======
-1440110678 c:\users\jmcconkey\documents\msgr\pieces.h
-	<stdio.h>
-	<stdlib.h>
-
-1440787749 source:c:\users\jmcconkey\documents\msgr\ops.c
-	"ops.h"
-
-1440787863 source:c:\users\jmcconkey\documents\msgr\pieces.c
->>>>>>> parent of ea73c0b... problem with strcmp simlilar dwl codes
+1441207627 source:c:\users\jmcconkey\documents\msgr\pieces.c
 	"ops.h"
 

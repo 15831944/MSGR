@@ -2,7 +2,7 @@
 void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     Entry eTable[eTablex][eTabley], int eTablex, int eTabley,
                     Entry tTable[tTablex][tTabley], int tTablex, int tTabley,
-                    int idInstances[eTabley], int rowQuantity[eTabley], int *numEntries, char fileName[])
+                    int idInstances[eTabley], int rowQuantity[eTabley], int *numEntries)
 {
     int index;
     int cIndex;
@@ -55,8 +55,13 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
 
                     char *codes[numColours];//Must be defined after numColours has been assigned a value
 
-                    getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, numEntries);
-                    printf("%s\n", codes[0]);
+
+                    //getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, numEntries);
+                    //codes[0] = eTable[5][1].str;
+                    //codes[1] = eTable[5][2].str;
+                    //codes[2] = eTable[5][3].str;
+                    codes[0] = eTable[5][4].str;
+                    //codes[4] = eTable[5][5].str;
 
                     totalCutCount = numCuts(idInstances, eTable, eTablex, eTabley, numEntries);
                     totalNumUnits = numUnits(idInstances, rowQuantity, eTable, eTablex, eTabley, numEntries);
@@ -72,6 +77,27 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
 
                     time = ((double)(panelSaw + woodCnc + finishingLine + clipping))/60;
 
+                    printf("%s\n",eTable[5][0].str);
+                    printf("%s\n",eTable[5][1].str);
+                    printf("%s\n",eTable[5][2].str);
+                    printf("%s\n",eTable[5][3].str);
+                    printf("%s\n",eTable[5][4].str);
+                    printf("%s\n",eTable[5][5].str);
+                    printf("\n");
+                    printf("%s\n", codes[0]);
+                    printf("%s\n", codes[2]);
+                    printf("%s\n", codes[3]);
+                    printf("%s\n", codes[4]);
+                    printf("%s\n", codes[5]);
+
+                   /* ////////////////////////////////
+                    int x;
+                    for(x = 0; x < numColours; x++)
+                        {
+                            printf("%s\n", codes[x]);
+                        }
+
+                    *////////////////////////////////////
                     fprintf(fileOut,"%s\n", "----------------------------------------------------------------------------");
                     fprintf(fileOut,"%s", "Part Name: ");
                     fprintf(fileOut,"%s\n", partName);
@@ -96,7 +122,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     fprintf(fileOut,"%s\n","min");
 
                     fprintf(fileOut,"%s","    ");
-                    fprintf(fileOut,"%i", numColours);
+                    fprintf(fileOut,"%i", (numColours));
                     fprintf(fileOut,"%s\n", " Colour(s)");
 
                     fprintf(fileOut,"%s","    ");

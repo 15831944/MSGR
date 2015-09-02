@@ -32,12 +32,12 @@ void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[
         while (currentLineStr[0] == '#')
             fgets(currentLineStr, 8192, fileIn);
 
-        fgets(currentLineStr, 8192, fileIn);
-        //TokenizeLine(currentLineStr, table, yIndex, x, y);
-        //yIndex++;
+        TokenizeLine(currentLineStr, table, yIndex, x, y);
+        yIndex++;
         while(fgets(currentLineStr, 8192, fileIn) != NULL)
         {
             TokenizeLine(currentLineStr, table, yIndex, x, y);
+
             yIndex++;
         }
 
@@ -53,19 +53,25 @@ void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[
     }
     else
     {
+/*
         for(yIndex = 0; yIndex < (y); yIndex++)
         {
-            for(xIndex = 0; xIndex < (x); xIndex++)
+            for(xIndex = 0; xIndex < (x+1); xIndex++)
             {
                 fprintf(fileOut,"%s", table[xIndex][yIndex].str);
                 fprintf(fileOut,"%s"," ");
                 fprintf(fileOut,"%.1f", table[xIndex][yIndex].dVal);
                 fprintf(fileOut,"%s","|");
             }
-                fprintf(fileOut,"\n");
+            fprintf(fileOut,"\n");
+
         }
+*/
+        fclose(fileOut);
+
     }
 }
+
 
 int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
@@ -168,9 +174,21 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
 
     while(flag)
     {
-        //printf("\n");
-        //printf("%s\n", eTable[6][(idInstances[index] - 1)].str);
-        //printf("%s\n", eTable[6][(idInstances[index + offSet] - 1)].str);
+
+
+        //if(index == *numEntries)
+        if(index == *numEntries ||
+            (strlen(eTable[5][(idInstances[index + offSet] - 1)].str)) > strlen(eTable[5][(idInstances[index] - 1)].str))
+        {
+            if(*numEntries == 0)
+                diffCount = 0;
+
+            flag = 0;
+            break;
+        }
+       // printf("\n");
+       // printf("%s\n", eTable[5][(idInstances[index] - 1)].str);
+       // printf("%s\n", eTable[5][(idInstances[index + offSet] - 1)].str);
         //printf("\n");
 
         compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);
@@ -178,9 +196,14 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
         if(compareResult != 0)
         {
             if(offSet > 1)
+            {
                 index = (offSet + index);
+                //index--;
+            }
             else
+            {
                 index++;
+            }
 
             offSet = 1;
             diffCount++;
@@ -193,11 +216,11 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
         if(index == *numEntries)
         {
             flag = 0;
+            break;
         }
-=======
-            flag = 0;
->>>>>>> parent of ea73c0b... problem with strcmp simlilar dwl codes
     }
+    if(*numEntries != 0)
+        diffCount++;
     return diffCount;
 }
 
@@ -228,22 +251,31 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
 //@TODO problem with repitition checking dc11 appears twice.
     while(flag)
     {
-        printf("\n");
-        printf("%s\n", eTable[5][(idInstances[index] - 1)].str);
-        printf("%s\n", eTable[5][(idInstances[index + offSet] - 1)].str);
-             printf("\n");
-
-        compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);
+        if(index == *numEntries ||
+           (strlen(eTable[5][(idInstances[index + offSet] - 1)].str)) > strlen(eTable[5][(idInstances[index] - 1)].str))
+        {
+            flag = 0;
+            break;
+        }
+        //compareResult = strcmp(eTable[5][(idInstances[index] - 1)].str, eTable[5][(idInstances[index + offSet] - 1)].str);
+        compareResult = strcmp(eTable[5][(idInstances[index])].str, eTable[5][(idInstances[index + offSet])].str);
 
         if(compareResult != 0)
         {
-            codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index] - 1)].str + 1));
+            codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index] - 1)].str) + 1);
             strcpy(codes[codeIndex], eTable[5][(idInstances[index] - 1)].str);
 
             if(offSet > 1)
+            {
                 index = (offSet + index);
+                //////////////////////////
+                //index--;
+                //////////////////////////
+            }
             else
+            {
                 index++;
+            }
 
             offSet = 1;
             diffCount++;
@@ -253,15 +285,6 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
         {
             offSet++;
         }
-
-        if(index == *numEntries)
-        {
-            //codes[*numEntries] = NULL;
-            flag = 0;
-        }
-
-        if(index == *numEntries)
-            flag = 0;
     }
 }
 
@@ -271,46 +294,49 @@ int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIns
     int index;
     int idIndex = 0;
     int temp;
-    char *stringToCompare;
-    char *longerStr;
     int strToCmpLen = 0;
     int strToFindLen = 0;
+
+    char *strToCmp;
+    char *longerStr;
+
     *numEntries = 0;
 
     for(index = 0; index < y; index++)
     {
-        //stringToCompare = malloc(strlen(eTable[0][index].str) + 1);
+        //strToCmp = malloc(strlen(eTable[0][index].str) + 1);
         //strcpy(longerStr, eTable[0][index].str);
 
-        stringToCompare = eTable[0][index].str;
+        strToCmp = eTable[0][index].str;
 
-        strToCmpLen = strlen(stringToCompare);
+        strToCmpLen = strlen(strToCmp);
         strToFindLen = strlen(stringToFind);
 
         if((strToCmpLen < strToFindLen) || (strToCmpLen == strToFindLen))
+
         {
             longerStr = malloc(strlen(stringToFind) + 1);
             strcpy(longerStr, stringToFind);
+
         }
         else if(strToCmpLen > strToFindLen)
+
         {
-           longerStr = malloc(strlen(stringToCompare) + 1);
-           strcpy(longerStr, stringToCompare);
+            longerStr = malloc(strlen(strToCmp) + 1);
+            strcpy(longerStr, strToCmp);
+
         }
 
-        if(strncmp(stringToCompare, stringToFind, strlen(longerStr)) == 0)
-        //if(strncmp(eTable[0][index].str, stringToFind, strlen(eTable[0][index].str)) == 0)
-        //if(strncmp(eTable[0][index].str, stringToFind, strlen(stringToFind)) == 0)
-
-        if(strncmp(eTable[0][index].str, stringToFind, strlen(stringToFind)) == 0)
-
+        if(strncmp(strToCmp, stringToFind, strlen(longerStr)) == 0)
+            //if(strncmp(eTable[0][index].str, stringToFind, strlen(eTable[0][index].str)) == 0)
+            //if(strncmp(eTable[0][index].str, stringToFind, strlen(stringToFind)) == 0)
         {
             temp = index + 1;
             idInstances[idIndex] = temp;
             idIndex++;
             (*numEntries)++;
         }
-        free(stringToCompare);
+        free(strToCmp);
         free(longerStr);
     }
     if(*numEntries == 0)
