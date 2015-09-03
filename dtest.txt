@@ -11,49 +11,49 @@
 #SFN_Currency=USD $
 #MAS_Reference_No=Eric
 #HQ=0
-# ----- Summary ----- 
-# Counts|||||Door Count|Total Wall Length(ft)  
+# ----- Summary -----
+# Counts|||||Door Count|Total Wall Length(ft)
 #|||||0|16.00
 #
-# Walls | Name ||||| Count | Length (ft)| SFN/ft | SFN 
+# Walls | Name ||||| Count | Length (ft)| SFN/ft | SFN
 # | Solid Wall Antler at Worksurface Height  |||||  1 |  4.00 |  134.15 |  134.15 |  536.62 |  536.62
 # | Solid Wall Antlers at Overhead and Worksurface Height |||||  1 |  4.00 |  136.63 |  136.63 |  546.54 |  546.54
 # | Solid Wall Antler at Overhead Height |||||  1 |  4.00 |  134.15 |  134.15 |  536.60 |  536.60
 # | Solid Wall Monolithic |||||  1 |  4.00 |  131.67 |  131.67 |  526.68 |  526.68
-# Intersections | Name ||||| Count |  |  | SFN 
+# Intersections | Name ||||| Count |  |  | SFN
 # | X-Wing End Cap |||||  8 |  0.00 |  NA |  NA |  444.88 |  444.88
 #
-# This summary does not include items such as ceiling tracks, trims, and zippers. This is not a total SFN for this job|  |||||  |  |  | 
-#  
+# This summary does not include items such as ceiling tracks, trims, and zippers. This is not a total SFN for this job|  |||||  |  |  |
+#
 #Project Notes:
-#  ALL FRAME PROFILES: CURVILINEAR + (8) PIECES 
+#  ALL FRAME PROFILES: CURVILINEAR + (8) PIECES
 #  SEISMIC: NOT REQUIRED
-#  FRAME FINISH: ANODIZED    
-#  BASE TRIM FINISH:     
+#  FRAME FINISH: ANODIZED
+#  BASE TRIM FINISH:
 #  FLOOR TYPE(S): Carpet Gripper
 #  SEGMENTS WITH Carpet Gripper:4
 #
-# SPIDER_ELECTRICAL_LEVEL: 
-# SPIDER_TRIM_COLOR: 
-# FACEPLATE_STYLE: 
-# CONVENTIONAL_ELECTRICAL_LEVEL: 
-# PVC_COLOR_GLASSWIPE: 
-# PVC_COLOR_ZIPPERS: 
+# SPIDER_ELECTRICAL_LEVEL:
+# SPIDER_TRIM_COLOR:
+# FACEPLATE_STYLE:
+# CONVENTIONAL_ELECTRICAL_LEVEL:
+# PVC_COLOR_GLASSWIPE:
+# PVC_COLOR_ZIPPERS:
 # ELEC=
 #
 #
 # Floor-Carpet Gripper | 4
 #
 #  MULTIPLE CEILING HEIGHTS: NO
-#  CEILING HEIGHTS: 108.0 
-#  CEILING CONDITION: Flush 
-#  CEILING TILE TYPE: 
-#  ELECTRICAL TYPES: 
-#  ELECTRICAL LEVELS: 
-#  ELECTRICAL LEVEL - MODULAR: 
-#  ELECTRICAL LEVEL - CONVENTIONAL: 
-#  
-#  
+#  CEILING HEIGHTS: 108.0
+#  CEILING CONDITION: Flush
+#  CEILING TILE TYPE:
+#  ELECTRICAL TYPES:
+#  ELECTRICAL LEVELS:
+#  ELECTRICAL LEVEL - MODULAR:
+#  ELECTRICAL LEVEL - CONVENTIONAL:
+#
+#
 #HIGHEST TAGS
 #T6
 #F4
@@ -134,8 +134,8 @@ DWL_FatAngusExt|1|11060|Vertical for Solid Wall Module (Fat Angus)||||F3||2667.5
 DWL_ThiefHangerExt|1|11166|Hanging Horizontal for Solid Wall Module (Thief hanger)||||F3||1198.2||1198.2|||||||2|||2||Square|Square||||||||||||||||||||||||||||||||||||||||||||||||||A,B|false|false|0||90.0|90.0||45|40||DWL_ThiefHangerExtrusion|(2 + 0)|ShippablePartNode|TopExtrusion||||24.21|48.42||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_AntlerHanger|1|11197|Horizontal for Solid Wall Module (Antler Hanger)||||F3||1198.2||1198.2|||||||2|||2||Square|Square||||||||||||||||||||||||||||||||||||||||||||||||||A,B|false|false|0||90.0|90.0||46|40||DWL_AntlerExtrusion|(2 + 0)|ShippablePartNode|InnerExtrusion||||24.08|48.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_HlwMadonna|1|11329|Horizontal for Solid Wall Module (Symmetrical Hollow Madonna)||||F3||1198.2||1198.2|||||||2|||2||Square|Square||||||||||||||||||||||||||||||||||||||||||||||||||A,B|false|false|0||90.0|90.0||47|40||DWL_FatMadonnaExtrusion|(2 + 0)|ShippablePartNode|InnerExtrusion||||19.51|39.02||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-DWL_FaceMountTile|||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC11||T5||||1953.35|1210.2|12.7||||||||2|PNT||||||||||||||||||||||||||||||||||||||||||||||||||||A,B|false||0||||DWL_FaceMountTile_ASSY|48|-1||DWL_FaceMountTile|(2 + 0)|FakeShippableAssemblyNode|Tile|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-DWL_FaceMountTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC11||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FaceMountTile|||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC15||T5||||1953.35|1210.2|12.7||||||||2|PNT||||||||||||||||||||||||||||||||||||||||||||||||||||A,B|false||0||||DWL_FaceMountTile_ASSY|48|-1||DWL_FaceMountTile|(2 + 0)|FakeShippableAssemblyNode|Tile|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FaceMountTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_Sld_Seg|||Modular Solid Wall Assembly, Gerry Base||||F4||||2743.2|1219.2|101.6||||||||1|||||||||||||||||||||||||||||||||||||||||||||||||||||E,F|false||0||||DWL_Sld_Seg_ASSY|49|-1||DWL_SimpleSegment|(1 + 0)|ShippableAssemblyNode|WallSegment|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_WallBase|1|11896|Gerry Base Track|Carpet Gripper||92701|F4||1188.5||1188.5|||||||1|||1||Square|Square||||||||||||||||||||||||||||||||||||||||||||||||||E,F|false|false|0||90.0|90.0||50|49||DWL_FM_BaseTrackGerry|(1 + 0)|ShippablePartNode|BaseTrack||||19.72|19.72||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_Gerry_Level|1|12802|Facemount Gerry Wall Leveler Assembly|Carpet Gripper|||F4|||||||||||2|||2|||||||||||||||||||||||||||||||||||||||||||||||||||||E,F|false|false|0|||||51|49||DWL_FM_Gerry_Level|(2 + 0)|ShippablePartNode|BaseTrackLeveller||||41.28|82.56||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -147,3 +147,25 @@ DWL_FaceMountTile|||DIRTT Wall Face Mounted Tile Option|Standard MDF Core; Chrom
 DWL_FaceMountTile|2||DIRTT Wall Face Mounted Tile Option|Standard MDF Core; Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Apply Foam Tape|DC11||T6||2707.45|1220.2|2697.45|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||53.8mm:889.287mm:914.4mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||2652.431mm:1|E,F|false|false|0|||||97|56||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||103.57|207.14||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_TouchUp_Kit|||Touch up kit|Peat LQ-11624 - DC11|||MFT6||||||||||||||1||||||||||||||||||||||||||||||||||||||||||||||||||||||false||0||||DWL_TouchUp_Kit_ASSY|98|-1||DWL_TouchUp_Kit|(1 + 0)|FakeShippableAssemblyNode|TouchUpKit|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 DWL_TouchUp_Kit|1||Touch up kit|Peat LQ-11624 - DC11|||MFT6|||||||||||1|||1||||||||||||||||||||||||||||||||||||||||||||||||||||||false|false|0|||||99|98||DWL_TouchUp_Kit|(1 + 0)|FakeShippableNode|TouchUpKit||||0.0|0.0||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FaceMountTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FaceMountTileSet|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_DWL_FM_HorizTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FaceMountTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FM_TackableTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FM_MagTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_StickBuiltTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_CenterMountTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_Tackable09|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_SlatWall|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FM_FramelessTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FrmlessTile_Flr|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FGTackTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FGTackTile_Flr|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FGTackTile_GS|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FGTackTile_H|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FGTackTile_Flr_H|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FGTackTile_GS_H|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FM_GS_GlassTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FM_Fab_MagTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_FaceMountTile|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+DWL_ENZO_FM_Frmless|2||DIRTT Wall Face Mounted Tile Option|Chroma Coat; Grade 1; Peat LQ-11624 - DC11; Standard MDF Core|DC13||T5||1963.35|1220.2|1953.35|1210.2|12.7|||||1|||2|PNT||||WT_TopHanger3|||||||||21.199mm:990.587mm:1|48.801mm:580.7mm:531.899mm:1|||||||||||||||||||||||||||||||||||||1908.33mm:1|A,B|false|false|0|||||95|48||DWL_FaceMountTile|(2 + 0)|FakeShippableNode|Tile||||75.08|150.16||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

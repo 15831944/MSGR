@@ -2,7 +2,7 @@
 void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     Entry eTable[eTablex][eTabley], int eTablex, int eTabley,
                     Entry tTable[tTablex][tTabley], int tTablex, int tTabley,
-                    int idInstances[eTabley], int rowQuantity[eTabley], int *numEntries)
+                    int idInstances[eTabley], int rowQuantity[eTabley], int *numEntries, double *totalTime)
 {
     int index;
     int cIndex;
@@ -16,9 +16,18 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
     int tmp;
     int codeCount;
 
+    double veneerRoom;
+    double panelSawChangeBlade;
+    double veneerWrapper;
+    double magTileLine;
+    double veneerPress;
+    double stainBooth;
+    double fabricGlueBooth;
+    double paintBooth;
+    double fabricWrap;
     double averageTileSize;
     double time;
-
+    double standardDev;
     char *partName;
 
     FILE *fileOut;
@@ -31,7 +40,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
     }
     else
     {
-        for(index = 0; index < (tTabley); index++)
+        for(index = 0; index < (tTabley - 1); index++)
         {
             if(tTable[1][index].dVal == 1)
             {
@@ -45,10 +54,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                 clipping = 0;
                 time = 0;
                 codeCount = 0;
-
-                printf("%s\n", tTable[0][index].str);
-                printf("%s\n", eTable[5][8].str);
-
+                standardDev = 0;
 
                 partName = malloc(strlen(tTable[0][index].str) + 1);
                 strcpy(partName,tTable[0][index].str);
@@ -58,85 +64,80 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     numColours = checkColourDiff(idInstances, eTable, eTablex, eTabley, numEntries);
 
                     char *codes[numColours];//Must be defined after numColours has been assigned a value
-                     printf("%i\n", numColours);
-                     printf("%i\n", *numEntries);
-
-
 
                     getColourCodes(idInstances, eTable, codes, eTablex, eTabley, numColours, numEntries);
-                    //int foo;
-                    //for(foo = 0; 0 < numEntries; foo++)
-/*
-                        printf("%i\n",idInstances[0]);
-                        printf("%i\n",idInstances[1]);
-                        printf("%i\n",idInstances[2]);
-                        printf("\n");
-
-                        printf("%s\n", eTable[5][1].str);
-                        printf("%s\n", eTable[5][2].str);
-                        printf("%s\n", eTable[5][3].str);
-                          printf("\n");
-
-                        printf("%s\n", eTable[5][2].str);
-                        printf("%s\n", eTable[5][3].str);
-                        printf("%s\n", eTable[5][4].str);
-                        printf("\n");
-*/
-
-                    //codes[0] = eTable[5][1].str;
-                    //codes[1] = eTable[5][2].str;
-                    //codes[2] = eTable[5][3].str;
-                    //codes[0] = eTable[5][5].str;
-                    //codes[4] = eTable[5][5].str;
-
                     totalCutCount = numCuts(idInstances, eTable, eTablex, eTabley, numEntries);
                     totalNumUnits = numUnits(idInstances, rowQuantity, eTable, eTablex, eTabley, numEntries);
                     averageTileSize = avgSize(idInstances, totalNumUnits, rowQuantity, eTable, eTablex, eTabley, numEntries);
+                    standardDev = stdDev(idInstances, totalNumUnits, rowQuantity, eTable, eTablex, eTabley, numEntries);
 
-                    panelSaw = (tTable[3][index].dVal * totalCutCount);
-                    woodCnc = (tTable[8][index].dVal * totalNumUnits);
 
-                    finishingLine = ((tTable[12][index].dVal * totalNumUnits) + (tTable[14][index].dVal * (numColours - 1)) +
-                                     ((tTable[13][index].dVal * totalNumUnits) * numColours));
+                    veneerRoom = tTable[2][index].dVal * averageTileSize;
 
-                    clipping = (tTable[15][index].dVal * totalNumUnits);
+                    panelSaw = (tTable[3][index].dVal * totalNumUnits);
 
-                    time = ((double)(panelSaw + woodCnc + finishingLine + clipping))/60;
-/*
-                    printf("%s\n",eTable[5][0].str);
-                    printf("%s\n",eTable[5][1].str);
-                    printf("%s\n",eTable[5][2].str);
-                    printf("%s\n",eTable[5][3].str);
-                    printf("%s\n",eTable[5][4].str);
-                    printf("%s\n",eTable[5][5].str);
-                    printf("\n");
-  */
+                    if(tTable[4][index].dVal != 0)
+                        panelSawChangeBlade = tTable[4][index].dVal;
+                    else
+                        panelSawChangeBlade = 0;
 
-                    //printf("%s\n", codes[4]);
-                    //printf("%s\n", codes[5]);
+                    veneerWrapper = tTable[5][index].dVal * averageTileSize;
+
+                    magTileLine = tTable[6][index].dVal * totalNumUnits;
+
+                    veneerPress = tTable[7][index].dVal * totalNumUnits;
+
+                    // no value for lineal ft in msgr file how to measure?
+                    //Perforator = tTable[8][index].dVal
+
+                    woodCnc = (tTable[9][index].dVal * totalNumUnits);
+
+                    stainBooth = tTable[10][index].dVal * totalNumUnits;
+
+                    fabricGlueBooth = tTable[11][index].dVal * totalNumUnits;
+
+                    paintBooth = tTable[9][index].dVal;
+
+                    finishingLine = ((tTable[13][index].dVal * totalNumUnits) +
+                                     (tTable[15][index].dVal * (numColours - 1)) +
+                                     ((tTable[14][index].dVal * totalNumUnits) * numColours));
+
+                    clipping = (tTable[16][index].dVal * totalNumUnits);
+
+                    fabricWrap = tTable[17][index].dVal * totalNumUnits;
+
+                    time = ((double)(veneerRoom + panelSaw + panelSawChangeBlade + veneerWrapper + magTileLine +
+                                     veneerPress + woodCnc + stainBooth + fabricGlueBooth + paintBooth +paintBooth +
+                                     finishingLine + clipping + fabricWrap))/60;
+
+                    *totalTime = *totalTime + time;
 
                     fprintf(fileOut,"%s\n", "----------------------------------------------------------------------------");
                     fprintf(fileOut,"%s", "Part Name: ");
                     fprintf(fileOut,"%s\n", partName);
 
                     fprintf(fileOut,"%s", "Average tile size: ");
-                    fprintf(fileOut,"%f\n", averageTileSize);
+                    fprintf(fileOut,"%.1f", averageTileSize);
+                    fprintf(fileOut,"%s\n"," m^2");
+                    fprintf(fileOut,"%s", "        ");
+                    fprintf(fileOut,"%s", "Std Dev:");
+                    fprintf(fileOut,"%.1f\n", standardDev);
 
                     fprintf(fileOut,"%s","Predicted Time: ");
                     fprintf(fileOut,"%.1f", time);
-                    fprintf(fileOut,"%s\n", "mins");
+                    fprintf(fileOut,"%s\n", " mins");
 
                     fprintf(fileOut,"%s","Panel Saw: ");
-                    fprintf(fileOut,"%i", (panelSaw/60));
-                    fprintf(fileOut,"%s\n","min");
+                    fprintf(fileOut,"%.1f", (((double)panelSaw)/60));
+                    fprintf(fileOut,"%s\n"," min");
 
                     fprintf(fileOut,"%s","CNC: ");
-                    fprintf(fileOut,"%i",(woodCnc/60));
-                    fprintf(fileOut,"%s\n","min");
+                    fprintf(fileOut,"%.1f",(((double)woodCnc)/60));
+                    fprintf(fileOut,"%s\n"," min");
 
                     fprintf(fileOut,"%s","Finishing Line: ");
-                    fprintf(fileOut,"%i",(finishingLine/60));
-                    fprintf(fileOut,"%s\n","min");
+                    fprintf(fileOut,"%.1f",(((double)finishingLine)/60));
+                    fprintf(fileOut,"%s\n"," min");
 
                     fprintf(fileOut,"%s","    ");
                     fprintf(fileOut,"%i", (numColours));
@@ -156,8 +157,8 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     }
 
                     fprintf(fileOut,"%s","clipping: ");
-                    fprintf(fileOut,"%i",(clipping/60));
-                    fprintf(fileOut,"%s\n","min");
+                    fprintf(fileOut,"%.1f",(((double)clipping)/60));
+                    fprintf(fileOut,"%s\n"," min");
 
                     fprintf(fileOut,"%s", "Total Predicted time for ");
                     fprintf(fileOut,"%s", partName);
@@ -192,6 +193,7 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
 
                 free(partName);
             }
+            free(partName);
         }
         fclose(fileOut);
     }

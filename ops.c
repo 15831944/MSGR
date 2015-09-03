@@ -1,5 +1,5 @@
 #include "ops.h"
-
+#include <math.h>
 void freePtrArray(char** array, int count)
 {
     int i;
@@ -58,7 +58,7 @@ void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[
         /*
                 for(yIndex = 0; yIndex < (y); yIndex++)
                 {
-                    for(xIndex = 0; xIndex < (x+1); xIndex++)
+                    for(xIndex = 0; xIndex < (x); xIndex++)
                     {
                         fprintf(fileOut,"%s", table[xIndex][yIndex].str);
                         fprintf(fileOut,"%s"," ");
@@ -134,6 +134,42 @@ Tokenize:
     return temp;
 }
 
+double stdDev(int x; int y; int idInstances[y], int totalNumUnits, int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
+{
+    double total = 0;
+    double tmp = 0;
+    int index;
+    double mean;
+    double standardDev;
+
+    double xval;
+    double yval;
+    double zval;
+
+
+    for(index = 0; index < *numEntries; index++)
+    {
+        tmp = ((eTable[11][(idInstances[index]-1)].dVal / 1000) *
+               (eTable[12][(idInstances[index]-1)].dVal / 1000));
+
+        tmp = tmp * eTable[21][(idInstances[index] - 1)].dVal;
+        total = total + tmp;
+    }
+    mean = total/totalNumUnits;
+
+    for(index = 0; index < *numEntries; index++)
+    {
+        xval = ((eTable[11][(idInstances[index]-1)].dVal / 1000) *
+               (eTable[12][(idInstances[index]-1)].dVal / 1000));
+
+        yval = xval * eTable[21][(idInstances[index] - 1)].dVal;
+        zval = pow((yval - mean), 2);
+        total = total + zval;
+    }
+    printf("%.2f\n",standardDev);
+    standardDev = total/totalNumUnits;
+    return standardDev;
+}
 double avgSize(int x; int y; int idInstances[y], int totalNumUnits, int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
     double total = 0;
@@ -176,9 +212,6 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
 
     while(flag)
     {
-
-
-        //if(index == *numEntries)
         if(index == *numEntries ||
                 (strlen(eTable[5][(idInstances[index + offSet]-1)].str)) > strlen(eTable[5][(idInstances[index]-1)].str))
         {
@@ -188,10 +221,6 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
             flag = 0;
             break;
         }
-        // printf("\n");
-        // printf("%s\n", eTable[5][(idInstances[index] - 1)].str);
-        // printf("%s\n", eTable[5][(idInstances[index + offSet] - 1)].str);
-        //printf("\n");
 
         compareResult = strcmp(eTable[5][(idInstances[index]-1)].str, eTable[5][(idInstances[index + offSet]-1)].str);
 
@@ -200,7 +229,6 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
             if(offSet > 1)
             {
                 index = (offSet + index);
-                //index--;
             }
             else
             {
@@ -221,8 +249,13 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
             break;
         }
     }
-    if(*numEntries != 0)
+
+    if((*numEntries != 0) && (index <= diffCount))
         diffCount++;
+
+    if (*numEntries == 1)
+        diffCount = 1;
+
     return diffCount;
 }
 
@@ -244,203 +277,77 @@ int countColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTa
 
 void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTable[x][y], char *codes[numColours], int x, int y, int numColours, int *numEntries)
 {
-    int cmpResult = 0;;
     int index = 0;
-    int codeIndex = 0;
-    int flag = 1;
+    int cIndex = 0;;
     int offset = 1;
-    int eTableLen;
-    int eTableOffsetLen;
-
-    while(flag && ((index + offset) < *numEntries))
-    {
-        printf("%i\n", *numEntries);
-        if(*numEntries == 0)
-        {
-            flag = 0;
-            continue;
-        }
-
-        if(strlen(eTable[5][(idInstances[index]-1)].str) != strlen(eTable[5][(idInstances[index + offset]-1)].str))
-            cmpResult = 1;
-        else
-            cmpResult = strcmp(eTable[5][(idInstances[index]-1)].str, eTable[5][(idInstances[index + offset]-1)].str);
-
-        if(cmpResult != 0)
-        {
-            codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index]-1)].str) + 1);
-            strcpy(codes[codeIndex], eTable[5][(idInstances[index]-1)].str);
-            printf("%s\n", codes[codeIndex]);
-            codeIndex++;
-            index++;
-            continue;
-        }
-
-        else if(cmpResult == 0)
-        {
-            codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index]-1)].str) + 1);
-            strcpy(codes[codeIndex], eTable[5][(idInstances[index]-1)].str);
-            printf("%s\n", codes[codeIndex]);
-
-            codeIndex++;
-            offset++;
-            if((index + offset) > *numEntries)
-            {
-            flag = 0;
-            continue;
-            }
-
-            eTableLen = strlen(eTable[5][(idInstances[index]-1)].str);
-            eTableOffsetLen = strlen(eTable[5][(idInstances[index + offset]-1)].str);
-
-            if(eTableLen != eTableOffsetLen)
-                cmpResult = 1;
-            else
-                cmpResult = strcmp(eTable[5][(idInstances[index]-1)].str, eTable[5][(idInstances[index + offset]-1)].str);
-
-            while((cmpResult == 0) && ((index + offset) < *numEntries))
-            {
-                offset++;
-                if((index + offset) > *numEntries)
-                {
-                    flag = 0;
-                    continue;
-                }
-
-                eTableLen = strlen(eTable[5][(idInstances[index]-1)].str);
-                printf("%s\n", eTable[5][(idInstances[index + offset]-1)].str);
-                printf("%i\n",offset);
-                eTableOffsetLen = strlen(eTable[5][(idInstances[index + offset]-1)].str);
-
-                if(eTableLen != eTableOffsetLen)
-                    cmpResult = 1;
-                else
-                    cmpResult = strcmp(eTable[5][(idInstances[index]-1)].str, eTable[5][(idInstances[index + offset]-1)].str);
-            }
-            int tmp;
-            tmp = index + offset;
-            index = tmp;
-            offset = 1;
-            continue;
-        }
-    }
-    /*        while(flag)
-            {
-
-                if(strlen(eTable[5][(idInstances[index]-1)].str) != strlen(eTable[5][(idInstances[index + offset]-1)].str))
-                {
-                    cmpResult = 1;
-                }
-                else
-                {
-                    cmpResult = strcmp(eTable[5][(idInstances[index]-1)].str, eTable[5][(idInstances[index + offset]-1)].str);
-                }
-
-                cmpResult = strcmp(eTable[5][(idInstances[index]-1)].str, eTable[5][(idInstances[index + offset]-1)].str);
-                printf("%s\n", eTable[5][(idInstances[index]-1)].str);
-                printf("%s\n", eTable[5][(idInstances[index + offset]-1)].str);
-                printf("%i\n", cmpResult);
-                printf("\n");
-
-          //  Redo:
-                if(cmpResult != 0)
-                {
-                    if(offset > 1)
-                    {
-                        int tmp;
-                        tmp = index + offset;
-                        index = tmp;
-                    }
-                   // printf("%s\n", eTable[5][(idInstances[index]-1)].str);
-                    codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index]-1)].str) + 1);
-                strcpy(codes[codeIndex], eTable[5][(idInstances[index]-1)].str);
-                    //codes[codeIndex] = eTable[5][(idInstances[index]-1)].str;
-                    offset = 1;
-                    index++;
-                    codeIndex++;
-                }
-
-                if(cmpResult == 0)
-                {
-                    if(offset > 1)
-                    {
-                        int tmp;
-                        tmp = index + offset;
-                        index = tmp;
-                    }
-                codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index]-1)].str) + 1);
-                strcpy(codes[codeIndex], eTable[5][(idInstances[index]-1)].str);
-                    offset++;
-                   // goto Redo;
-                }
-                if(index == *numEntries ||
-                   ((strlen(eTable[5][idInstances[index + offset]-1].str)) > (strlen(eTable[5][idInstances[index]-1].str))))
-                {
-                    flag = 0;
-                }
-
-            }
-
-
-    */
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    int offSet = 1;
-    int diffCount = 0;
-    int index = 0;
-    int codeIndex = 0;
+    int tableLen;
+    int tableOffsetLen;
+    int cmpResult;
+    int tmp;
     int flag = 1;
-    int compareResult;
-    //@TODO problem with repitition checking dc11 appears twice.
+
+    char *table;
+    char *tableOffset;
+
     while(flag)
     {
-        if(index == *numEntries ||
-           ((strlen(eTable[5][idInstances[index + offSet]-1].str)) > (strlen(eTable[5][idInstances[index]-1].str))))
+        printf("%i\n", *numEntries);
+        if((index) > (*numEntries))
         {
             flag = 0;
+            continue;
+        }
+
+        table = malloc(strlen(eTable[5][idInstances[index]-1].str) + 1);
+        strcpy(table, eTable[5][idInstances[index]-1].str);
+
+        tableOffset = malloc(strlen(eTable[5][idInstances[index + offset]-1].str) + 1);
+        strcpy(tableOffset, eTable[5][idInstances[index + offset]-1].str);
+
+
+        tableLen = strlen(table);
+        tableOffsetLen = strlen(tableOffset);
+
+        if(numColours == 1)
+        {
+            codes[cIndex] = malloc(strlen(table) + 1);
+            strcpy(codes[cIndex], table);
+            free(table);
+            free(tableOffset);
             break;
         }
-        compareResult = strcmp(eTable[5][(idInstances[index]-1)].str, eTable[5][(idInstances[index + offSet]-1)].str);
-        //compareResult = strcmp(eTable[5][(idInstances[index])].str, eTable[5][(idInstances[index + offSet])].str);
-
-        if(compareResult != 0)
+        if(tableLen != tableOffsetLen)
         {
-            codes[codeIndex] = malloc(strlen(eTable[5][(idInstances[index]-1)].str) + 1);
-            strcpy(codes[codeIndex], eTable[5][(idInstances[index]-1)].str);
-
-            if(offSet > 1)
-            {
-                index = (offSet + index);
-                //////////////////////////
-                //index--;
-                //////////////////////////
-            }
-            else
-            {
-                index++;
-            }
-
-            offSet = 1;
-            diffCount++;
-            codeIndex++;
+            codes[cIndex] = malloc(strlen(table) + 1);
+            strcpy(codes[cIndex], table);
+            cIndex++;
+            index++;
+            free(table);
+            free(tableOffset);
+            continue;
         }
-        else if(compareResult == 0)
+
+        cmpResult = strcmp(table,tableOffset);
+
+        if(cmpResult == 0)
         {
-            offSet++;
+            tmp = index + offset;
+            index = tmp;
         }
+        else if(cmpResult != 0)
+        {
+
+            codes[cIndex] = malloc(strlen(table) + 1);
+            strcpy(codes[cIndex], table);
+            cIndex++;
+            index++;
+            offset = 1;
+        }
+
+        free(table);
+        free(tableOffset);
     }
-    */
+
 }
 
 //search for the AlternateOptionID stored int the 1st column of the arrray
@@ -454,16 +361,14 @@ int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIns
     int cmpResult;
 
     char *strToCmp;
-    // char *longerStr;
 
     *numEntries = 0;
 //start at one to skip headers
     for(index = 1; index < y; index++)
     {
-        //strToCmp = malloc(strlen(eTable[0][index].str) + 1);
-        //strcpy(longerStr, eTable[0][index].str);
+        strToCmp = malloc(strlen(eTable[0][index].str) + 1);
+        strcpy(strToCmp, eTable[0][index].str);
 
-        strToCmp = eTable[0][index].str;
 
         strToCmpLen = strlen(strToCmp);
         strToFindLen = strlen(stringToFind);
@@ -482,7 +387,6 @@ int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIns
                 idInstances[idIndex] = temp;
                 idIndex++;
                 (*numEntries)++;
-
             }
         }
         free(strToCmp);

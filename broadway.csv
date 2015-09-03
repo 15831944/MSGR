@@ -1,0 +1,108 @@
+#SOQ-Calgary=0,82401
+#PQ=SOQ-Calgary
+#Folder=H:\Manufacturing\Projects\ACTIVE PROJECTS\600 Broadway 002-16883\3 Production\600 Broadway_22Jan14_MSGR_ICElink_EJ.csv
+#IceBox_Version=2.7.0.39
+#ICE_Filename=600 Broadway-DIRTT Shop Drawing 011714(brk).ice
+#Date_Exported=20140122-0902
+#ICE_ExportUsername=William Tabashniuk
+#Report=MSGR
+#MAS_Reference_No=002-16883
+#PO_Number=null
+#Ship_Date=null
+#Date_Started=2007-03-08
+#ICE_Creator=Bill Marchand
+#Filter=null
+#SFN_Currency=USD $
+#HQ=0
+#----- Summary -----
+#Counts|||||Door Count|Total Wall Length(ft)
+#|||||1|3.83
+#
+#Walls | Name ||||| Count | Length (ft)| SFN/ft | SFN
+#| ArchSegment |||||1|3.83|320.79|320.79|1229.71|1229.71
+#Intersections | Name ||||| Count |  |  | SFN
+#
+#This summary does not include items such as ceiling tracks, trims, and zippers. This is not a total SFN for this job|  |||||  |
+#
+#Project Notes:
+#ALL FRAME PROFILES:  RECTILINEAR + (2) PIECES
+#SEISMIC: NOT REQUIRED
+#FRAME FINISH: ANODIZED
+#BASE TRIM FINISH:
+#FLOOR TYPE(S):
+#SEGMENTS WITH
+#
+#SPIDER_ELECTRICAL_LEVEL:
+#SPIDER_TRIM_COLOR:
+#FACEPLATE_STYLE:
+#CONVENTIONAL_ELECTRICAL_LEVEL:
+#PVC_COLOR_GLASSWIPE: Silver (5)
+#PVC_COLOR_ZIPPERS:
+#ELEC=
+#
+#
+#DWL_BD_Barivot_DoorPull_30CC |1
+#
+#MULTIPLE CEILING HEIGHTS: NO
+#CEILING HEIGHTS: 0.0
+#CEILING CONDITION:
+#CEILING TILE TYPE:
+#ELECTRICAL TYPES:
+#ELECTRICAL LEVELS:
+#ELECTRICAL LEVEL - MODULAR:
+#ELECTRICAL LEVEL - CONVENTIONAL:
+#
+#
+#HIGHEST TAGS
+#F4
+#TFJ1
+#BD3
+#BDT3
+#MFT12
+#C1
+#HHS1
+#InstallDwg1
+#BDP1
+#HW2
+#Z2
+#END HIGHEST TAGS
+AlternateOptionID|ShipAssyQty|RawMatId|description|manufacturing_description|finish|DrawingNumber|MSGR_TAG|Tag_Name|Cut_Length|Cut_Width|Length|Width|Thickness|QtyPerShipAssy|Parent_Frame_Width|MA_ID_Tag|ExtendedQty|finish_family|startHonch|endHonch|glasswipe_size|midCondition|DWL_MadonnaExtrusion_A|DWL_MadonnaExtrusion_B|DWL_AntlerExtrusion_A|DWL_AntlerExtrusion_B|DWL_ThiefHangerExtrusion_A|DWL_ThiefHangerExtrusion_B|DWL_FatMadonnaExtrusion_A|DWL_FatMadonnaExtrusion_B|Clip_Line|VerticalClip_Line|DWL_UFOExtrusion_A|DWL_MiniMuntinExtrusion_A|DWL_MicroMuntinExtrusion_A|WT_Cut1_Type|WT_Cut1_Vert|WT_Cut1_Hor|WT_Cut2_Type|WT_Cut2_Vert|WT_Cut2_Hor|WT_Cut3_Type|WT_Cut3_Vert|WT_Cut3_Hor|WT_Cut4_Type|WT_Cut4_Vert|WT_Cut4_Hor|WT_Cut5_Type|WT_Cut5_Vert|WT_Cut5_Hor|WT_Cut6_Type|WT_Cut6_Vert|WT_Cut6_Hor|DWL_WillyExtrusion_A|DWL_BoxcarExtrusion_A|DWL_XWillyExtrusion_A|DWL_PartialAntlerExt_A|DWL_PartialAntlerExt_B|DWL_Part_UFO_A|DWL_PrtPiranha_A|DWL_BD_ClereStory_BladeUFO|DWL_BladeBoxcarExtrusion|DWL_BladePartialPiranhaExtrusion|DWL_BladePartialUFOExtrusion|DWL_BladeUFOExtrusion|DWL_BladeWillyExtrusion|DWL_ET_BoxcarExtrusion|DWL_ET_PartialPiranhaExtrusion|DWL_ET_PartialUFOExtrusion|DWL_ET_UFOExtrusion|DWL_ET_WillyExtrusion|DWL_Hydro_BladeWillyExtrusion|Stack_Drill|Stack_Slot|WT_Hanger|WT_Cut1_Height|WT_Cut1_Width|WT_Cut2_Height|WT_Cut2_Width|WT_Cut3_Height|WT_Cut3_Width|WT_Cut4_Height|WT_Cut4_Width|WT_Cut5_Height|WT_Cut5_Width|WT_Cut6_Height|WT_Cut6_Width|Elevation|Manufacture_Ready|is_report_only|is_angry|angry_reasons|miter_angle_start|miter_angle_end|Assembly_Name|LineNo|ParentLineNo|WT_Split_Dim|Option|Overage|ReportNodeType|Class|Hinge_Locations|Electrical_A|Electrical_B|SFN Per Item|SFN Total|Custom_Hole_A|Custom_Hole_B|Custom_Hole2_A|Custom_Hole2_B|DVN_Angle_Left|DVN_Angle_Right|DVN_Length2|Typical_UUID
+DWL_InstallTools|||Installation Tools||||TFJ1||||||||||1||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||TRUE||0||||DWL_InstallTools_ASSY|61|-1||DWL_InstallationTools|(1 + 0)|ShippableAssemblyNode|ToolCounter|||||||||||||
+DWL_ZipperTool|1|12830|Zipper Tool||||TFJ1|||||||1|||1||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||TRUE|FALSE|0|||||62|61||DWL_ZipperTool|(1 + 0)|ShippablePartNode|DirttItemCounter||||0|0||||||||
+DWL_InstallDwg|||Installation Drawing||||InstallDwg1||||||||||1||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||TRUE||0||||DWL_InstallDwg_ASSY|2|-1||DWL_InstallationDrawing|(1 + 0)|FakeShippableAssemblyNode|InstallationDrawing|||||||||||||
+DWL_InstallDwg|1||Installation Drawing||||InstallDwg1|||||||1|||1||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||TRUE|FALSE|0|||||94|2||DWL_InstallationDrawing|(1 + 0)|FakeShippableNode|InstallationDrawing||||0|0||||||||
+DWL_HardHatStickers|||DIRTT Hard Hat Stickers||||HHS1||||||||||1||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||TRUE||0||||DWL_HardHatStickers_ASSY|1|-1||DWL_HardHatStickers|(1 + 0)|FakeShippableAssemblyNode|TypeValidatorEntity|||||||||||||
+DWL_HardHatStickers|1||DIRTT Hard Hat Stickers||||HHS1|||||||1|||1||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||TRUE|FALSE|0|||||92|1||DWL_HardHatStickers|(1 + 0)|FakeShippableNode|TypeValidatorEntity||||0|0||||||||
+DWL_WallStartTrim|||Wall Trim - Silver (3048mm lengths)||||MFT4||||3048||||||1|PVC||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE||0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|||DWL_WallStartTrim_ASSY|99|-1||DWL_WallStartTrimStripCounter_Silver|(4 + 1)|FakeShippableAssemblyNode|WallStartLengthCounter|||||||||||||
+DWL_WallStartTrim|1|16773|Wall Trim - Silver (3048mm lengths)||||MFT4||3048||3048|||2|||2|PVC|Square|Square||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size||||100|99||DWL_WallStartTrimStripCounter_Silver|(4 + 1)|FakeShippableNode|WallStartLengthCounter||||23.04|115.200005||||||||
+DWL_Wallflower|||Wallflower Extrusion||||C1||||2074||||||1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE||0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|||DWL_Wallflower_ASSY|97|-1||DWL_WallflowerExtrusion|(2 + 0)|FakeShippableAssemblyNode|Connector|||||||||||||
+DWL_Wallflower|1|11118|Wallflower Extrusion||||C1||2074||2074|||2|||2||Square|Square||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|90|90||98|97||DWL_WallflowerExtrusion|(2 + 0)|FakeShippableNode|Connector||||11.14|22.28||||||||
+DWL_BD_Frame|||Barn Door Frame||||F4||||2134|1130|102||||1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE||0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|||DWL_BD_Frame_ASSY|63|-1||Arch_Doorway_Segment|(1 + 0)|ShippableAssemblyNode|ArchSegment|||||||||||||
+DWL_BD_XRexExtrusion|1|11054|Door Pass Through Vertical Square Frame (X-Rex)|Anodized|ANO||F4||2253.12||2253.12|||2|44.503937||2|ANO||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|90|90||64|63||DWL_BD_XRexExtrusion|(2 + 0)|ShippablePartNode|DoorEndExtrusion||||103.23|206.46||||||||
+Glass_Barn_GLD_LH|||Barivot Goldie Glass Barn Door - LH - Soft Close|"Not Locking; 30"" x 24"" C to C Bar Pull 630 Finish; Custom Height"|||BD3||||2134|1130|102||||1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE||0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|||Glass_Barn_GLD_LH_ASSY|74|-1||DWL_BD_GlassTile_BarivotGoldie_LH|(1 + 0)|ShippableAssemblyNode|DoorGlassTile|||||||||||||
+DCP_RollerBracket|1|16627|Aluminum Soft Close Roller Bracket, Custom|Aluminum Soft Close Roller Bracket, Custom; Powder Coated Black DP13|DP13||BD3||1108||1108|||1|||1|PWD||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size||||81|74||DWL_BD_RollerBracket_CustomAluminum_SoftClose|(1 + 0)|ShippablePartNode|BarnDoorRollerBracket||||0|0||||||||
+DWL_BD_Cassette_Stop|1|16629|Soft Close Cassette Stopper|Soft Close Cassette Stopper|||BD3|||||||4|||4|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size||||82|74||DWL_BD_SoftClose_Cassette_Stopper|(4 + 0)|ShippablePartNode|TypeableEntity||||0|0||||||||
+DWL_BD_GLD_Base|1|11209|Barn Door Barivot Goldie Base Extrusion|Anodized; 6mm Wipe for Ano Ext, Silver|ANO|92442|BD3||1123||1123|||1|||1|ANO|||6mm|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|90|90||76|74||DWL_BD_BarivotGoldie_Base|(1 + 0)|ShippablePartNode|BottomExtrusion||||46.22|46.22||||||||
+DWL_BD_GLD_EndVert|1|11264|Barn Door Barivot Goldie Vertical Extrusion|Anodized; 6mm Wipe for Ano Ext, Silver|ANO|92416|BD3||2094.84||2094.84|||1|44.753937||1|ANO|||6mm|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|90|90||77|74||DWL_BD_BarivotGoldie_InnerEndVerticalExtrusion|(1 + 0)|ShippablePartNode|EndClipboard||||64.26|64.26||||||||
+DWL_BD_GLD_Lower|1|11205|Barivot Goldie Barn Door Lower Extrusion|Anodized; 6mm Wipe for Ano Ext, Silver|ANO|92167|BD3||934||934|||1|||1|ANO|||6mm|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|90|90||75|74||DWL_BD_BarivotGoldie_LowerExtrusion|(1 + 0)|ShippablePartNode|StompinExtrusion||||71.299995|71.299995||||||||
+DWL_BD_GLD_StartVert|1|11264|Barn Door Barivot Goldie Vertical Extrusion|"Anodized; 6mm Wipe for Ano Ext, Silver; DIM_A=1329.64; DIM_B=609.6; Hardware[30"" x 24"" C to C Bar Pull 630 Finish; Custom Height]"|ANO|73248|BD3||2094.84||2094.84|||1|44.753937||1|ANO|||6mm|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|90|90||78|74||DWL_BD_BarivotGoldie_InnerStartVerticalExtrusion|(1 + 0)|ShippablePartNode|StartClipboard||||64.26|64.26||||||||
+DWL_BD_GLD_Upper|1|11208|Barn Door Barivot Goldie Upper Extrusion|Anodized; 6mm Wipe for Ano Ext, Silver|ANO|92405|BD3||934||934|||1|||1|ANO|||6mm|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|90|90||79|74||DWL_BD_BarivotGoldie_InnerUpperExtrusion|(1 + 0)|ShippablePartNode|TopExtrusion||||40.39|40.39||||||||
+DWL_BD_InnerTile_LH|1||Left Hand Barn Door Glass - BDTrackV4|Tempered Glass; Clear|6mm_TCG||G3||1860.16|953|1860.16|953|6|1|||1|GLS|||||||||||||-142.6mm:1|48.8mm:452.1mm:403.3mm:1||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size||||80|74||DWL_BD_InnerTile_LH|(1 + 0)|ShippablePartNode|InnerDoorGlassTile||||107.22|107.22||||||||
+DWL_RollerBrkt_Block|1|16631|Soft Close Roller Bracket Spacer Block|Soft Close Roller Bracket Block|||BD3|||||||2|||2|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size||||83|74||DWL_BD_SoftClose_RollerBracket_Block|(2 + 0)|ShippablePartNode|TypeableEntity||||0|0||||||||
+DWL_BD_TrackV4|||Barn Door Track V4|Left Hand/Right Hand|||BDT3||||2089||||||1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE||0||||DWL_BD_TrackV4_ASSY|50000|-1||||||||||||||||||
+DWL_BD_TrackV4|1|11300|Barn Door Track V4|Anodized; DIM_A=238.9|ANO|92730|BDT3||2089||2089|||1|||1|ANO||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0||90|90||50001|50000||||||||||||||||||
+DWL_BD_TrackCoverV4|1|11301|Barn Door Track Cover V4|Anodized|ANO||BDT3||2089||2089|||1|||1|ANO||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0||90|90||50002|50000||||||||||||||||||
+DWL_IPO|1||Slim Track Drywall Cleat Rear|DIM_A=238.9||92733;92734|BDT3||2049||2049|||1|||1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|||||50003|50000||||||||||||||||||
+DWL_IPO|1||Slim Track Drywall Cleat Tab|||92733;92735|BDT3|||||||9|||9|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|||||50004|50000||||||||||||||||||
+DWL_BD_SoftClose|1|93365|Soft Close Cassette|Soft Close Cassette|||BDT3|||||||2|||2|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|299-Soft_warn - Unmatched Powdercoat||||50005|50000||||||||||||||||||
+DWL_BD_Engage_Catch|1|16628|Soft Close Engagement Catch|Soft Close Engagement Catch|||BDT3|||||||2|||2|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|299-Soft_warn - Unmatched Powdercoat||||50006|50000||||||||||||||||||
+DWL_BD_TrackCapV4_LH|1|16671|Barn Door Track Cap V4 LH|Powder Coated; Grade 2; DIRTT Powder Coat Grade 2 - Shimmer DPM50|DP50||BDT3|||||||1|||1|PWD||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|||||50007|50000||||||||||||||||||
+DWL_BD_TrackCapV4_RH|1|16672|Barn Door Track Cap V4 RH|Powder Coated; Grade 2; DIRTT Powder Coat Grade 2 - Shimmer DPM50|DP50||BDT3|||||||1|||1|PWD||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|||||50008|50000||||||||||||||||||
+DWL_BD_RibGuideZipW|||Barn Door Guide Zipper Wall Trim - Silver (3048mm lengths)|Barn Door Guide Zipper Wall Trim - Silver|||Z2||||3048||||||1|PVC||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE||0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|||DWL_BD_RibGuideZipW_ASSY|101|-1||DWL_WT_RibZipper_Silver|(1 + 1)|FakeShippableAssemblyNode|BarnDoorZipper|||||||||||||
+DWL_BD_RibGuideZipW|1|16849|Barn Door Guide Zipper Wall Trim - Silver (3048mm lengths)|Barn Door Guide Zipper Wall Trim - Silver|||Z2||3048||3048|||2|||2|PVC||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size||||102|101||DWL_WT_RibZipper_Silver|(1 + 1)|FakeShippableNode|BarnDoorZipper||||16.94|33.88||||||||
+DWL_BD_StrikeZipperW|||Barn Door Strike Wall Trim - Silver (3048mm lengths)|Barn Door Strike Wall Trim - Silver|||Z1||||3048||||||1|PVC||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE||0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|||DWL_BD_StrikeZipperW_ASSY|95|-1||DWL_BD_StrikeWallTrim_Silver|(1 + 1)|FakeShippableAssemblyNode|BarnDoorZipper|||||||||||||
+DWL_BD_StrikeZipperW|1|16797|Barn Door Strike Wall Trim - Silver (3048mm lengths)|Barn Door Strike Wall Trim - Silver|||Z1||3048||3048|||2|||2|PVC||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size||||96|95||DWL_BD_StrikeWallTrim_Silver|(1 + 1)|FakeShippableNode|BarnDoorZipper||||19.31|38.62||||||||
+DWL_DoorPull_30CC|||"30"" x 24"" C to C Bar Pull 630 Finish"|"30"" x 24"" C to C Bar Pull 630 Finish; Custom Height"|||BDP1||||||||||1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE||0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|||DWL_DoorPull_30CC_ASSY|32|-1||DWL_BD_Barivot_DoorPull_30CC|(1 + 0)|FakeShippableAssemblyNode|DoorPull|||||||||||||
+DWL_DoorPull_30CC|1|13871|"30"" x 24"" C to C Bar Pull 630 Finish"|"30"" x 24"" C to C Bar Pull 630 Finish; Custom Height"|||BDP1|||||||1|||1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size||||104|32||DWL_BD_Barivot_DoorPull_30CC|(1 + 0)|FakeShippableNode|DoorPull||||123.53|123.53||||||||
+HW091|||HW091 - Barivot Barn Door Bottom Alignment Plate/Rollerguide Hardware LH|Barivot Barn Door Bottom Alignment Plate/Rollerguide Hardware LH; Powder Coated; Grade 2; DIRTT Powder Coat Grade 2 - Shimmer DPM50|DP50||HW2||||||||||1|PWD||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE||0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size|||HW091_ASSY|58|-1||DWL_HW092_BBD_AlignmentPlateLH|(1 + 0)|FakeShippableAssemblyNode|HardwarePack|||||||||||||
+HW091|1||HW091 - Barivot Barn Door Bottom Alignment Plate/Rollerguide Hardware LH|Barivot Barn Door Bottom Alignment Plate/Rollerguide Hardware LH; Powder Coated; Grade 2; DIRTT Powder Coat Grade 2 - Shimmer DPM50|DP50||HW2|||||||1|||1|PWD||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||A|TRUE|FALSE|0|44-STOP_WARN - Tile to small _,_ 90-Info_warn - Non-standard door size||||110|58||DWL_HW092_BBD_AlignmentPlateLH|(1 + 0)|FakeShippableNode|HardwarePack||||0|0||||||||

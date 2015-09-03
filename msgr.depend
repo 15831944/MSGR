@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1441205363 source:c:\users\jmcconkey\documents\msgr\msgr.c
+1441320908 source:c:\users\jmcconkey\documents\msgr\msgr.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -11,19 +11,20 @@
 	<stdio.h>
 	<stdlib.h>
 
-1441139378 c:\users\jmcconkey\documents\msgr\ops.h
+1441306006 c:\users\jmcconkey\documents\msgr\ops.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"msgr.h"
 
-1441138244 c:\users\jmcconkey\documents\msgr\pieces.h
+1441320494 c:\users\jmcconkey\documents\msgr\pieces.h
 	<stdio.h>
 	<stdlib.h>
 
-1441233828 source:c:\users\jmcconkey\documents\msgr\ops.c
+1441320586 source:c:\users\jmcconkey\documents\msgr\ops.c
 	"ops.h"
+	<math.h>
 
-1441233603 source:c:\users\jmcconkey\documents\msgr\pieces.c
+1441320656 source:c:\users\jmcconkey\documents\msgr\pieces.c
 	"ops.h"
 
