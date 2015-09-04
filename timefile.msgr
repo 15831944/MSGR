@@ -1,24 +1,24 @@
 #All times are entered in seconds.
 #34 Times total
-#DWL_ID|current use in Ice: 0 = yes 1 = no|Veneer Room (m\m^2)|Panel Saw (m\part)|Panel Saw Change Blade (m\operation)|Veneer Wrapper (m\m^2)| Mag Tile Line (m\sheet)|Veneer Press (m\sheet)|Perforator (m\lineal m)|Wood CNC (m\Part)|Stain Booth (m\part)|Fabric Glue Booth (m\Part)|Paint_Booth (m\part)|Finishing Line (m\part)|Finishing Line First Part (m\part)|Finishing Line Paint change (m\part)|Clipping (m\part)| Fabric Wrap (m\part)|Micro Film (m\part)|Door_Line(m\part)|Profile_Sander (m\part)|BPG Edge Prep (m\lineal ft)|BPG Masking(m\lineal ft)|Metal Double Saw (m\part)|Metal CNC (m\part)|Ceiling Track Punch (m\part)|Upper Punch (m\part)|Lower Punch (m\part)|Wing Punch (m\part)|Double Hauncher (m\part)|Single Hauncher(m\part)|Door Hauncher(m\part)|Kitting (m\part)|Assembly (m\part)|Powder Coat(m\part)|Tool Crib (m\part)
-DWL_FaceMountTile|0|0|45|0|0|0|0|240|0|0|0|24|900|1500|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FaceMountTileSet|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FM_HorizTile|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FM_MagTile|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FM_TackableTile|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_StickBuiltTile|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_CenterMountTile|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_Tackable09|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_SlatWall|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FM_FramelessTile|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FrmlessTile_Flr|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FGTackTile|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FGTackTile_Flr|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FGTackTile_GS|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FGTackTile_H|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FGTackTile_Flr_H|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FGTackTile_GS_H|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FM_GS_GlassTile|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_FM_Fab_MagTile|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
-DWL_ENZO_FM_Frmless|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+#DWL_ID|1current use in Ice: 0 = yes 1 = no|2Veneer Room (m\m^2)|3Panel Saw (m\part)|4Panel Saw Change Blade (m\operation)|5Veneer Wrapper (m\m^2)|6 Mag Tile Line (m\sheet)|7Veneer Press (m\sheet)|8Perforator (m\lineal m)|9 Wood CNC (m\Part)|10 Stain Booth (m\part)|11 Fabric Glue Booth (m\Part)| 12 Paint_Booth (m\part)|13 Finishing Line (m\part)|Finishing Line First Part (m\part)|Finishing Line Paint change (m\part)|Clipping (m\part)| Fabric Wrap (m\part)|Micro Film (m\part)|Door_Line(m\part)|Profile_Sander (m\part)|BPG Edge Prep (m\lineal ft)|BPG Masking(m\lineal ft)|Metal Double Saw (m\part)|Metal CNC (m\part)|Ceiling Track Punch (m\part)|Upper Punch (m\part)|Lower Punch (m\part)|Wing Punch (m\part)|Double Hauncher (m\part)|Single Hauncher(m\part)|Door Hauncher(m\part)|Kitting (m\part)|Assembly (m\part)|Powder Coat(m\part)|Tool Crib (m\part)
+DWL_FaceMountTile|1|0|45|0|0|0|0|0|240|0|0|0|24|900|1500|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FaceMountTileSet|1|0|20|0|0|0|0|0|240|0|0|0|30|0|1200|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FM_HorizTile|1|0|45|0|0|0|0|0|240|0|0|0|30|0|1200|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FM_MagTile|1|0|45|300|0|300|0|0|300||0|0|0|0|0|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FM_TackableTile|1|0|0|0|0|0|0|0|300|0|0|0|0|0|0|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_StickBuiltTile|1|0|20|0|0|0|0|0|180|0|0|0|30|0|1200|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_CenterMountTile|1|0|20|0|0|0|0|0|180|0|0|0|30|0|1200|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_Tackable09|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_SlatWall|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FM_FramelessTile|1|0|20|0|0|0|0|0|240|0|0|0|30|0|1200|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FrmlessTile_Flr|1|0|20|0|0|0|0|0|240|0|0|0|30|0|1200|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FGTackTile|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FGTackTile_Flr|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FGTackTile_GS|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FGTackTile_H|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FGTackTile_Flr_H|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FGTackTile_GS_H|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FM_GS_GlassTile|1|0|0|0|0|0|0|0|0|0|0|0|30|0|1200|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_FM_Fab_MagTile|1|0|20|0|0|300|0|0|300|0|60|0|0|0|0|24|240|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
+DWL_ENZO_FM_Frmless|1|0|20|0|0|0|0|0|240|0|0|0|30|0|1200|24|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0
 
