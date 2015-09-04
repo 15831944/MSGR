@@ -7,13 +7,15 @@
 #include "pieces.h"
 
 #define BOUNDS(a) ((sizeof (a))/(sizeof ((a)[0])))
+#define FILENAME_SIZE 64
 
 int main(int argc, char *argv[])
 {
 
-    char stringToFind[256] = {"DWL_FaceMountTile"};
-    char fileName[64];
-    char timeFile[64] = {"timefile.msgr"};
+
+    char fileName[FILENAME_SIZE];
+    char timeFile[FILENAME_SIZE] = {"timefile.msgr"};
+    char outputFile[FILENAME_SIZE];
 
     int numEntries = 0;
     double totalTime = 0;
@@ -22,14 +24,20 @@ int main(int argc, char *argv[])
     int tTableXdim;
     int tTableYdim;
 
-    double time;
-
     FILE *fileOut;
 
-    printf("%s\n","Input file to process: ");
-    scanf("%s",fileName);
-    printf("%s\n",fileName);
+    if ( argc != 3 )
+    {
 
+        printf( "usage: %s filename", argv[0] );
+        printf( "usage: %s input File", argv[1] );
+        printf( "usage: %s output File", argv[2] );
+    }
+    else
+    {
+        strcpy(fileName, argv[1]);
+        strcpy(outputFile, argv[2]);
+    }
 
     tTableXdim = NumColumns(timeFile);
     tTableYdim = NumRows(timeFile);
@@ -42,14 +50,14 @@ int main(int argc, char *argv[])
 
     int idInstances[y];
     int rowQuantity[y];
-    double clipLines[x][y];
+//    double clipLines[x][y];
 
-    populateTable(eTable,x,y,fileName, "eTable.txt");
-    populateTable(tTable,tTableXdim,tTableYdim,timeFile, "tTable.txt");
+    populateTable(eTable,x,y,fileName);
+    populateTable(tTable,tTableXdim,tTableYdim,timeFile);
 
-    calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries, &totalTime);
+    calculateTimes(eTable,x,y,tTable,tTableXdim,tTableYdim,idInstances,rowQuantity,&numEntries, &totalTime, outputFile);
 
-    fileOut = fopen("output.txt", "a");
+    fileOut = fopen(outputFile, "a");
     if(fileOut == 0)
     {
         perror("Could open output file\n");

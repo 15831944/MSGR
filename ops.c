@@ -1,5 +1,7 @@
 #include "ops.h"
 #include <math.h>
+
+//////////////////////////////////////////////////////////////////////
 void freePtrArray(char** array, int count)
 {
     int i;
@@ -8,14 +10,13 @@ void freePtrArray(char** array, int count)
         free(++array[i]);
 }
 
-void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[], char tableName[])
+//////////////////////////////////////////////////////////////////////
+void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[])
 {
-    char currentLineStr[8192];
+    char currentLineStr[LENGTH_OF_CURRENT_LINE];
     int yIndex = 0;
-    int xIndex = 0;
 
     FILE *fileIn;
-    FILE *fileOut;
 
     fileIn = fopen(fileName, "r");
 
@@ -27,16 +28,15 @@ void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[
     }
     else
     {
-        fgets(currentLineStr, 8192, fileIn);
+        fgets(currentLineStr, LENGTH_OF_CURRENT_LINE, fileIn);
 
         while (currentLineStr[0] == '#')
-            fgets(currentLineStr, 8192, fileIn);
+            fgets(currentLineStr, LENGTH_OF_CURRENT_LINE, fileIn);
 
         TokenizeLine(currentLineStr, table, yIndex, x, y);
-        //fgets(currentLineStr, 8192, fileIn);
 
         yIndex++;
-        while(fgets(currentLineStr, 8192, fileIn) != NULL)
+        while(fgets(currentLineStr, LENGTH_OF_CURRENT_LINE, fileIn) != NULL)
         {
             TokenizeLine(currentLineStr, table, yIndex, x, y);
 
@@ -45,36 +45,9 @@ void populateTable(int x; int y; Entry table[x][y], int x, int y, char fileName[
 
         fclose(fileIn);
     }
-
-    fileOut = fopen(tableName, "w");
-    if(fileOut == 0)
-    {
-        perror("Could open output file\n");
-        system("PAUSE");
-        exit(-1);
-    }
-    else
-    {
-        /*
-                for(yIndex = 0; yIndex < (y); yIndex++)
-                {
-                    for(xIndex = 0; xIndex < (x); xIndex++)
-                    {
-                        fprintf(fileOut,"%s", table[xIndex][yIndex].str);
-                        fprintf(fileOut,"%s"," ");
-                        fprintf(fileOut,"%.1f", table[xIndex][yIndex].dVal);
-                        fprintf(fileOut,"%s","|");
-                    }
-                    fprintf(fileOut,"\n");
-
-                }
-        */
-        fclose(fileOut);
-
-    }
 }
 
-
+//////////////////////////////////////////////////////////////////////
 int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
     int index;
@@ -91,7 +64,7 @@ int numUnits(int x; int y; int idInstances[y], int rowQuantity[y], Entry eTable[
     }
     return total;
 }
-
+/*
 int extractDoubles(int x; int y; int idInstances[y], double clipLines[x][y], Entry eTable[x][y], int x, int y, int *numEntries, int column)
 {
     char *tokPtr;
@@ -124,7 +97,7 @@ Tokenize:
             if(tokPtr != NULL)
             {
                 n++;
-                if( n > temp)
+                if (n > temp)
                     temp = n;
 
                 goto Tokenize;
@@ -133,14 +106,16 @@ Tokenize:
     }
     return temp;
 }
+*/
 
+//////////////////////////////////////////////////////////////////////
 double stdDev(int x; int y; int idInstances[y], int totalNumUnits, int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
     double total = 0;
     double tmp = 0;
     int index;
     double mean;
-    double standardDev;
+    double standardDev = 0;
 
     double xval;
     double yval;
@@ -160,7 +135,7 @@ double stdDev(int x; int y; int idInstances[y], int totalNumUnits, int rowQuanti
     for(index = 0; index < *numEntries; index++)
     {
         xval = ((eTable[11][(idInstances[index]-1)].dVal / 1000) *
-               (eTable[12][(idInstances[index]-1)].dVal / 1000));
+                (eTable[12][(idInstances[index]-1)].dVal / 1000));
 
         yval = xval * eTable[21][(idInstances[index] - 1)].dVal;
         zval = pow((yval - mean), 2);
@@ -170,6 +145,8 @@ double stdDev(int x; int y; int idInstances[y], int totalNumUnits, int rowQuanti
     standardDev = total/totalNumUnits;
     return standardDev;
 }
+
+//////////////////////////////////////////////////////////////////////
 double avgSize(int x; int y; int idInstances[y], int totalNumUnits, int rowQuantity[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
     double total = 0;
@@ -187,6 +164,7 @@ double avgSize(int x; int y; int idInstances[y], int totalNumUnits, int rowQuant
     total = total/totalNumUnits;
     return total;
 }
+
 int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
     int index;
@@ -201,7 +179,7 @@ int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, 
     }
     return numCuts;
 }
-
+//////////////////////////////////////////////////////////////////////
 int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
     int offSet = 1;
@@ -258,23 +236,24 @@ int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x,
 
     return diffCount;
 }
-
+//////////////////////////////////////////////////////////////////////
 int countColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTable[x][y], char *codes[numColours], int x, int y, int numColours, int index, int *numEntries)
 {
     int count = 0;
     int tmp = 0;
+    int counter = 0;
 
-    for(x = 0; x < *numEntries; x++)
+    for(counter = 0; counter < *numEntries; counter++)
     {
-        if(strcmp(eTable[5][(idInstances[x]-1)].str, codes[index]) == 0)
+        if(strcmp(eTable[5][(idInstances[counter]-1)].str, codes[index]) == 0)
         {
-            tmp = eTable[21][(idInstances[x]-1)].dVal;
+            tmp = eTable[21][(idInstances[counter]-1)].dVal;
             count = count + tmp;
         }
     }
     return count;
 }
-
+//////////////////////////////////////////////////////////////////////
 void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTable[x][y], char *codes[numColours], int x, int y, int numColours, int *numEntries)
 {
     int index = 0;
@@ -349,7 +328,7 @@ void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTab
     }
 
 }
-
+//////////////////////////////////////////////////////////////////////
 //search for the AlternateOptionID stored int the 1st column of the arrray
 int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idInstances[y], int x, int y, int *numEntries)
 {
@@ -373,11 +352,8 @@ int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIns
         strToCmpLen = strlen(strToCmp);
         strToFindLen = strlen(stringToFind);
 
-        if(strToCmpLen != strToFindLen)
-        {
-            continue;
-        }
-        else
+
+        if(strToCmpLen == strToFindLen)
         {
             cmpResult = strcmp(strToCmp, stringToFind);
 
@@ -389,12 +365,29 @@ int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIns
                 (*numEntries)++;
             }
         }
+
+        /*       if(strToCmpLen != strToFindLen)
+               {
+                   continue;
+               }
+               else
+               {
+                   cmpResult = strcmp(strToCmp, stringToFind);
+
+                   if(cmpResult == 0)
+                   {
+                       temp = index + 1;
+                       idInstances[idIndex] = temp;
+                       idIndex++;
+                       (*numEntries)++;
+                   }
+               }*/
         free(strToCmp);
     }
     if(*numEntries == 0)
         return 0;
 }
-
+//////////////////////////////////////////////////////////////////////
 int IsDouble(const char *str)
 {
     char *endPtr = 0;
@@ -405,7 +398,7 @@ int IsDouble(const char *str)
 
     return 1;
 }
-
+//////////////////////////////////////////////////////////////////////
 char* mystrsep(char** stringp, const char* delim)
 {
     char *start = *stringp;
@@ -425,7 +418,7 @@ char* mystrsep(char** stringp, const char* delim)
 
     return start;
 }
-
+//////////////////////////////////////////////////////////////////////
 void TokenizeLine(int x; int y; char currentLineStr[], Entry table[x][y], int yIndex, int x, int y)
 {
     char *tokPtr;
@@ -453,11 +446,11 @@ void TokenizeLine(int x; int y; char currentLineStr[], Entry table[x][y], int yI
         xIndex++;
     }
 }
-
+//////////////////////////////////////////////////////////////////////
 int NumRows(char fileName[])
 {
     int yIndex = 0;
-    char currentLineStr[8192];
+    char currentLineStr[LENGTH_OF_CURRENT_LINE];
 
     FILE *fileIn;
     fileIn = fopen(fileName, "r");
@@ -469,21 +462,21 @@ int NumRows(char fileName[])
     }
     else
     {
-        fgets(currentLineStr, 8192, fileIn);
+        fgets(currentLineStr, LENGTH_OF_CURRENT_LINE, fileIn);
         while (currentLineStr[0] == '#')
-            fgets(currentLineStr, 8192, fileIn);
+            fgets(currentLineStr, LENGTH_OF_CURRENT_LINE, fileIn);
 
         yIndex++;
-        while(fgets(currentLineStr, 8192, fileIn) != NULL)
+        while(fgets(currentLineStr, LENGTH_OF_CURRENT_LINE, fileIn) != NULL)
             yIndex++;
     }
     fclose(fileIn);
     return yIndex;
 }
-
+//////////////////////////////////////////////////////////////////////
 int NumColumns(char fileName[])
 {
-    char currentLineStr[8192];
+    char currentLineStr[LENGTH_OF_CURRENT_LINE];
     int xIndex = 0;
     char *tokPtr;
 
@@ -499,9 +492,9 @@ int NumColumns(char fileName[])
     {
         //Get first line of file then iterate through lines until
         //beginning comments are passed over
-        fgets(currentLineStr, 8192, fileIn);
+        fgets(currentLineStr, LENGTH_OF_CURRENT_LINE, fileIn);
         while (currentLineStr[0] == '#')
-            fgets(currentLineStr, 8192, fileIn);
+            fgets(currentLineStr, LENGTH_OF_CURRENT_LINE, fileIn);
 
         tokPtr = strtok(currentLineStr, "|");
         xIndex++;
