@@ -170,6 +170,9 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
 
 
 
+
+
+
                     if (averageTileSize != 0)
                     {
                         fprintf(fileOut,"%s", "Average tile size: ");
@@ -393,8 +396,10 @@ void calculateTimes(int eTablex; int eTabley; int tTablex; int tTabley;
                     }
 
                     fprintf (fileOut,"%s", "Total Predicted time for ");
+                    fprintf(fileOut,"%i", totalNumUnits);
+                    fprintf (fileOut,"%s", " Units of: ");
                     fprintf(fileOut,"%s", partName);
-                    fprintf(fileOut,"%s", ": ");
+                    fprintf(fileOut,"%s", "- ");
                     fprintf(fileOut,"%.1f", time);
                     fprintf(fileOut,"%s\n", " mins");
                     fprintf(fileOut,"%s\n", "----------------------------------------------------------------------------");

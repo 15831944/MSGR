@@ -182,58 +182,105 @@ int numCuts(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, 
 //////////////////////////////////////////////////////////////////////
 int checkColourDiff(int x; int y; int idInstances[y], Entry eTable[x][y], int x, int y, int *numEntries)
 {
-    int offSet = 1;
-    int diffCount = 0;
     int index = 0;
+    int cIndex = 0;
+    int offset = 1;
+    int tableLen;
+    int tableOffsetLen;
+    int cmpResult;
+    int tmp;
     int flag = 1;
-    int compareResult;
+    int diffCount = 0;
+    int count = 0;
+    int prevCmp;
+
+    char *table;
+    char *tableOffset;
+    char *previousCodes[*numEntries];
+
+    for (count = 0; count < *numEntries; count++)
+    {
+        previousCodes[count] = malloc(4);
+        strcpy(previousCodes[count], " ");
+    }
 
     while(flag)
     {
-        if(index == *numEntries ||
-                (strlen(eTable[5][(idInstances[index + offSet]-1)].str)) > strlen(eTable[5][(idInstances[index]-1)].str))
+        printf("%i\n", *numEntries);
+        if((index) > (*numEntries))
         {
-            if(*numEntries == 0)
-                diffCount = 0;
-
             flag = 0;
-            break;
+            continue;
         }
 
-        compareResult = strcmp(eTable[5][(idInstances[index]-1)].str, eTable[5][(idInstances[index + offSet]-1)].str);
+        table = malloc(strlen(eTable[5][idInstances[index]-1].str) + 1);
+        strcpy(table, eTable[5][idInstances[index]-1].str);
 
-        if(compareResult != 0)
+        tableOffset = malloc(strlen(eTable[5][idInstances[index + offset]-1].str) + 1);
+        strcpy(tableOffset, eTable[5][idInstances[index + offset]-1].str);
+
+
+        tableLen = strlen(table);
+        tableOffsetLen = strlen(tableOffset);
+
+        if(numEntries == 1)
         {
-            if(offSet > 1)
+            previousCodes[cIndex] = malloc(strlen(table) + 1);
+            strcpy(previousCodes[cIndex], table);
+            free(table);
+            free(tableOffset);
+            break;
+        }
+        if(tableLen != tableOffsetLen)
+        {
+            index++;
+            free(table);
+            free(tableOffset);
+            continue;
+        }
+
+        cmpResult = strcmp(table,tableOffset);
+
+        if(cmpResult == 0)
+        {
+            tmp = index + offset;
+            index = tmp;
+        }
+        else if(cmpResult != 0)
+        {
+            int mark = 0;
+
+                for(count = 0; count < cIndex; count++)
             {
-                index = (offSet + index);
-            }
-            else
-            {
-                index++;
+                prevCmp = strcmp(table,previousCodes[count]);
+
+                if (prevCmp == 0)
+                    mark = 1;
             }
 
-            offSet = 1;
+            if (mark != 1)
+            {
+            previousCodes[cIndex] = malloc(strlen(table) + 1);
+            strcpy(previousCodes[cIndex], table);
+            printf("%s\n", previousCodes[cIndex]);
+            }
+              cIndex++;
+              index++;
+
+            if (mark == 1)
+                continue;
+
             diffCount++;
         }
-        else if(compareResult == 0)
-        {
-            offSet++;
-        }
 
-        if(index == *numEntries)
-        {
-            flag = 0;
-            break;
-        }
+        free(table);
+        free(tableOffset);
     }
-
-    if((*numEntries != 0) && (index <= diffCount))
-        diffCount++;
-
     if (*numEntries == 1)
         diffCount = 1;
 
+    if (*numEntries == 0)
+        diffCount = 0;
     return diffCount;
 }
 //////////////////////////////////////////////////////////////////////
@@ -257,7 +304,7 @@ int countColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTa
 void getColourCodes(int x; int y; int numColours; int idInstances[y], Entry eTable[x][y], char *codes[numColours], int x, int y, int numColours, int *numEntries)
 {
     int index = 0;
-    int cIndex = 0;;
+    int cIndex = 0;
     int offset = 1;
     int tableLen;
     int tableOffsetLen;
@@ -365,23 +412,23 @@ int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIns
                 (*numEntries)++;
             }
         }
+        /*
+                    if(strToCmpLen != strToFindLen)
+                       {
+                           continue;
+                       }
+                       else
+                       {
+                           cmpResult = strcmp(strToCmp, stringToFind);
 
-        /*       if(strToCmpLen != strToFindLen)
-               {
-                   continue;
-               }
-               else
-               {
-                   cmpResult = strcmp(strToCmp, stringToFind);
-
-                   if(cmpResult == 0)
-                   {
-                       temp = index + 1;
-                       idInstances[idIndex] = temp;
-                       idIndex++;
-                       (*numEntries)++;
-                   }
-               }*/
+                           if(cmpResult == 0)
+                           {
+                               temp = index + 1;
+                               idInstances[idIndex] = temp;
+                               idIndex++;
+                               (*numEntries)++;
+                           }
+                       }*/
         free(strToCmp);
     }
     if(*numEntries == 0)

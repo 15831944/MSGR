@@ -1,32 +1,34 @@
 ----------------------------------------------------------------------------
 Part Name: DWL_FaceMountTile
-Average tile size: 1.7 m^2
-        Std Dev:5.1
-Panel Saw: 28.5 min
-CNC: 152.0 min
-Finishing Line: 2370.2 min
-    4 Colour(s)
+Average tile size: 0.9 m^2
+        Std Dev:2.7
+Panel Saw: 57.0 min
+CNC: 304.0 min
+Finishing Line: 6995.4 min
+    6 Colour(s)
     Colour Codes: 
-        DC11 - Number of Units: 28
-        DC15 - Number of Units: 2
-        DC13 - Number of Units: 8
-        DC11 - Number of Units: 28
-clipping: 15.2 min
-Total Predicted time for DWL_FaceMountTile: 2565.9 mins
+        DC11 - Number of Units: 4
+        DC12 - Number of Units: 24
+        DC13 - Number of Units: 24
+        DC14 - Number of Units: 12
+        DC15 - Number of Units: 4
+        DC16 - Number of Units: 8
+clipping: 30.4 min
+Total Predicted time for 76 Units of: DWL_FaceMountTile- 7386.8 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Part Name: DWL_FaceMountTileSet
-Average tile size: 2.4 m^2
-        Std Dev:5.2
-Panel Saw: 0.7 min
-CNC: 8.0 min
-Finishing Line: 1.0 min
+Average tile size: 0.9 m^2
+        Std Dev:2.7
+Panel Saw: 1.3 min
+CNC: 16.0 min
+Finishing Line: 2.0 min
     1 Colour(s)
     Colour Codes: 
-        DC13 - Number of Units: 2
-clipping: 0.8 min
-Total Predicted time for DWL_FaceMountTileSet: 10.5 mins
+        DC12 - Number of Units: 4
+clipping: 1.6 min
+Total Predicted time for 4 Units of: DWL_FaceMountTileSet- 20.9 mins
 ----------------------------------------------------------------------------
 
 DWL_FM_HorizTile was ommited not Found in file
@@ -39,7 +41,7 @@ Panel Saw: 6.5 min
 Veneer Room: 10.0 min
 CNC: 10.0 min
 clipping: 0.8 min
-Total Predicted time for DWL_FM_MagTile: 27.3 mins
+Total Predicted time for 2 Units of: DWL_FM_MagTile- 27.3 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
@@ -48,7 +50,7 @@ Average tile size: 2.4 m^2
         Std Dev:5.2
 CNC: 10.0 min
 clipping: 0.8 min
-Total Predicted time for DWL_FM_TackableTile: 10.8 mins
+Total Predicted time for 2 Units of: DWL_FM_TackableTile- 10.8 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
@@ -62,7 +64,7 @@ Finishing Line: 1.0 min
     Colour Codes: 
         DC13 - Number of Units: 2
 clipping: 0.8 min
-Total Predicted time for DWL_StickBuiltTile: 8.5 mins
+Total Predicted time for 2 Units of: DWL_StickBuiltTile- 8.5 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
@@ -76,21 +78,21 @@ Finishing Line: 1.0 min
     Colour Codes: 
         DC13 - Number of Units: 2
 clipping: 0.8 min
-Total Predicted time for DWL_CenterMountTile: 8.5 mins
+Total Predicted time for 2 Units of: DWL_CenterMountTile- 8.5 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Part Name: DWL_Tackable09
 Average tile size: 2.4 m^2
         Std Dev:5.2
-Total Predicted time for DWL_Tackable09: 0.0 mins
+Total Predicted time for 2 Units of: DWL_Tackable09- 0.0 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Part Name: DWL_SlatWall
 Average tile size: 2.4 m^2
         Std Dev:5.2
-Total Predicted time for DWL_SlatWall: 0.0 mins
+Total Predicted time for 2 Units of: DWL_SlatWall- 0.0 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
@@ -104,7 +106,7 @@ Finishing Line: 1.0 min
     Colour Codes: 
         DC13 - Number of Units: 2
 clipping: 0.8 min
-Total Predicted time for DWL_FM_FramelessTile: 10.5 mins
+Total Predicted time for 2 Units of: DWL_FM_FramelessTile- 10.5 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
@@ -118,49 +120,49 @@ Finishing Line: 1.0 min
     Colour Codes: 
         DC13 - Number of Units: 2
 clipping: 0.8 min
-Total Predicted time for DWL_FrmlessTile_Flr: 10.5 mins
+Total Predicted time for 2 Units of: DWL_FrmlessTile_Flr- 10.5 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Part Name: DWL_FGTackTile
 Average tile size: 2.4 m^2
         Std Dev:5.2
-Total Predicted time for DWL_FGTackTile: 0.0 mins
+Total Predicted time for 2 Units of: DWL_FGTackTile- 0.0 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Part Name: DWL_FGTackTile_Flr
 Average tile size: 2.4 m^2
         Std Dev:5.2
-Total Predicted time for DWL_FGTackTile_Flr: 0.0 mins
+Total Predicted time for 2 Units of: DWL_FGTackTile_Flr- 0.0 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Part Name: DWL_FGTackTile_GS
 Average tile size: 2.4 m^2
         Std Dev:5.2
-Total Predicted time for DWL_FGTackTile_GS: 0.0 mins
+Total Predicted time for 2 Units of: DWL_FGTackTile_GS- 0.0 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Part Name: DWL_FGTackTile_H
 Average tile size: 2.4 m^2
         Std Dev:5.2
-Total Predicted time for DWL_FGTackTile_H: 0.0 mins
+Total Predicted time for 2 Units of: DWL_FGTackTile_H- 0.0 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Part Name: DWL_FGTackTile_Flr_H
 Average tile size: 2.4 m^2
         Std Dev:5.2
-Total Predicted time for DWL_FGTackTile_Flr_H: 0.0 mins
+Total Predicted time for 2 Units of: DWL_FGTackTile_Flr_H- 0.0 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Part Name: DWL_FGTackTile_GS_H
 Average tile size: 2.4 m^2
         Std Dev:5.2
-Total Predicted time for DWL_FGTackTile_GS_H: 0.0 mins
+Total Predicted time for 2 Units of: DWL_FGTackTile_GS_H- 0.0 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
@@ -172,7 +174,7 @@ Finishing Line: 1.0 min
     Colour Codes: 
         DC13 - Number of Units: 2
 clipping: 0.8 min
-Total Predicted time for DWL_FM_GS_GlassTile: 1.8 mins
+Total Predicted time for 2 Units of: DWL_FM_GS_GlassTile- 1.8 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
@@ -185,7 +187,7 @@ CNC: 10.0 min
 Fabric Glue Booth: 2.0 min
 clipping: 0.8 min
 Fabric Wrap: 8.0 min
-Total Predicted time for DWL_FM_Fab_MagTile: 31.5 mins
+Total Predicted time for 2 Units of: DWL_FM_Fab_MagTile- 31.5 mins
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
@@ -199,7 +201,7 @@ Finishing Line: 1.0 min
     Colour Codes: 
         DC13 - Number of Units: 2
 clipping: 0.8 min
-Total Predicted time for DWL_ENZO_FM_Frmless: 10.5 mins
+Total Predicted time for 2 Units of: DWL_ENZO_FM_Frmless- 10.5 mins
 ----------------------------------------------------------------------------
 
-Predicted Time For All Tiles: 2696.07min
+Predicted Time For All Tiles: 7527.43min

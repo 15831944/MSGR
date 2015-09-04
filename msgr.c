@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
     char fileName[FILENAME_SIZE];
     char timeFile[FILENAME_SIZE] = {"timefile.msgr"};
     char outputFile[FILENAME_SIZE];
-
     int numEntries = 0;
     double totalTime = 0;
     int x;
@@ -25,19 +24,22 @@ int main(int argc, char *argv[])
     int tTableYdim;
 
     FILE *fileOut;
-
+/*
     if ( argc != 3 )
     {
-
-        printf( "usage: %s filename", argv[0] );
-        printf( "usage: %s input File", argv[1] );
-        printf( "usage: %s output File", argv[2] );
+        printf("usage: %s filename", argv[0] );
+        printf("usage: %s input File", argv[1] );
+        printf("usage: %s output File", argv[2] );
     }
     else
     {
         strcpy(fileName, argv[1]);
         strcpy(outputFile, argv[2]);
     }
+  */
+
+    strcpy(fileName, "dtest.txt");
+    strcpy(outputFile, "output.txt");
 
     tTableXdim = NumColumns(timeFile);
     tTableYdim = NumRows(timeFile);
