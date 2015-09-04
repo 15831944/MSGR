@@ -386,6 +386,8 @@ int SearchForId(int x; int y; char stringToFind[], Entry eTable[x][y], int idIns
     }
     if(*numEntries == 0)
         return 0;
+    else
+        return 1;
 }
 //////////////////////////////////////////////////////////////////////
 int IsDouble(const char *str)
